@@ -1,3 +1,7 @@
+<!--
+NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
+ --> 
+
 #Class Design Guidelines
 
 ###A class or interface should have a single purpose (AV1000) ![](images/1.png)
