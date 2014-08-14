@@ -46,33 +46,29 @@ With the exception of extension method containers static classes very often lead
 
 Not only does the new keyword break [Polymorphism](http://en.wikipedia.org/wiki/Polymorphism_in_object-oriented_programming), one of the most essential object-orientation principles, it also makes subclasses more difficult to understand. Consider the following two classes:
 
-```csharp
-public class Book  
-{
-	public virtual void Print()  
+	public class Book  
 	{
-		Console.WriteLine("Printing Book");
-	}  
-}
-
-public class PocketBook : Book  
-{
-	public new void Print()
+		public virtual void Print()  
+		{
+			Console.WriteLine("Printing Book");
+		}  
+	}
+	
+	public class PocketBook : Book  
 	{
-		Console.WriteLine("Printing PocketBook");
-	}  
-}
-```
+		public new void Print()
+		{
+			Console.WriteLine("Printing PocketBook");
+		}  
+	}
 
 This will cause behavior that you would not normally expect from class hierarchies:
 
-```csharp
-PocketBook pocketBook = new PocketBook();
-
-pocketBook.Print(); // Will output "Printing PocketBook "
-
-((Book)pocketBook).Print(); // Will output "Printing Book"
-```
+	PocketBook pocketBook = new PocketBook();
+	
+	pocketBook.Print(); // Will output "Printing PocketBook "
+	
+	((Book)pocketBook).Print(); // Will output "Printing Book"
 
 It should not make a difference whether you call Print through a reference to the base class or through the derived class.
 
@@ -90,9 +86,7 @@ Having dependencies from a base class to its sub-classes goes against proper obj
 
 If you find yourself writing code like this then you might be violating the [Law of Demeter](http://en.wikipedia.org/wiki/Law_of_Demeter).
 
-```csharp
-someObject.SomeProperty.GetChild().Foo()
-```
+	someObject.SomeProperty.GetChild().Foo()
 
 An object should not expose any other classes it depends on because callers may misuse that exposed property or method to access the object behind it. By doing so, you allow calling code to become coupled to the class you are using, and thereby limiting the chance you can easily replace it in a future stage.
 
