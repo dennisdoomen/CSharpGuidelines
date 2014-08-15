@@ -8,10 +8,14 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 ![](images/logo.png)
 </div>
 <br/>
-<div class="title">Coding Guidelines</div>
-<div class="subTitle">for C# 3.0, 4.0 and 5.0</div>
-
+<div class="title">
+Coding Guidelines
+</div><br/>
+<div class="subTitle">
+for C# 3.0, 4.0 and 5.0
+</div>
+<br/>
 <div class="author">
-Dennis Doomen
+Dennis Doomen<br/>
 August 2014
 </div>
