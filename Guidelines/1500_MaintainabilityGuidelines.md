@@ -326,14 +326,10 @@ If the optional parameter is a reference type then it can only have a default va
 ### Avoid using named arguments (AV1555) ![](images/1.png)
 C# 4.0's named arguments have been introduced to make it easier to call COM components that are known for offering tons of optional parameters. If you need named arguments to improve the readability of the call to a method, that method is probably doing too much and should be refactored.
 
-The only exception where named arguments improve readability is when a constructor that yields a valid object is called like this:
+**Exception**  
+The only exception where named arguments improve readability is when calling a method of some code base you don't control that has a `bool` parameter like this:  
 
-	Person person = new Person
-	(
-		firstName: "John",
-		lastName: "Smith",
-		dateOfBirth: new DateTime(1970, 1, 1)
-	);
+	object[] myAttributes = type.GetCustomAttributes(typeof(MyAttribute), inherit: false);
 
 ### Don't allow methods and constructors with more than three parameters (AV1561) ![](images/1.png)
 If you end up with a method with more than three parameters, use a structure or class for passing multiple arguments such as explained in the [Specification](http://en.wikipedia.org/wiki/Specification_pattern)design pattern. In general, the fewer the number of parameters, the easier it is to understand the method. Additionally, unit testing a method with many parameters requires many scenarios to test.
