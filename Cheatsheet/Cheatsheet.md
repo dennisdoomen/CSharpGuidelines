@@ -170,9 +170,13 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 |•	Avoid short names or names that can be mistaken with other names (AV1712)
 |•	Name methods using verb-object pair (AV1720)
 |•	Name namespaces using names, layers, verbs and features (AV1725)
-|•	Use an underscore for irrelevant lambda parameters (AV1739)
 </td>
 <td class="column">
+
+|-|
+|•	Use an underscore for irrelevant lambda parameters (AV1739)
+
+
 **Documentation**  
 
 |-|
