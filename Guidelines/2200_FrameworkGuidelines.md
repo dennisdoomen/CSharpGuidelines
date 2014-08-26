@@ -61,7 +61,7 @@ The `dynamic` keyword has been introduced for working with dynamic languages. Us
 
 Use it only for calling methods or members of a dynamically created instance (using the `Activator`) class as an alternative to `Type.GetProperty()` and `Type.GetMethod()`, or for working with COM Interop types.
 
-### Favor `async`/`await` over the Task (AV2235)
+### Favor `async`/`await` over the Task (AV2235) ![](images/1.png)
 Using the new C# 5.0 keywords results in code that can still be read sequentially and also improves maintainability a lot, even if you need to chain multiple asynchronous operations. For example, rather than defining your method like this:
 
 	public Task GetDataAsync()
@@ -77,3 +77,5 @@ define it like this:
 	  var result = await MyWebService.FetchDataAsync();
 	  return new Data (result);
 	}
+
+**Tip** Even if you need to target .NET Framework 4.0 you can use the `async` and `await` keywords. Simply install the [Async Targeting Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29576) and of you go.

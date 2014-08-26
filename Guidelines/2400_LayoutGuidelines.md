@@ -7,10 +7,15 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 ### Use a common layout  (AV2400) ![](images/1.png)
 
 - Keep the length of each line under 130 characters.
+
 - Use an indentation of 4 whitespaces, and don't use tabs
+
 - Keep one whitespace between keywords like `if` and the expression, but don't add whitespaces after ( and before ) such as: `if (condition == null)`.
+
 - Add a whitespace around operators, like `+`, `-`, `==`, etc.
+
 - Always succeed the keywords `if`, `else`, `do`, `while`, `for` and `foreach`, with opening and closing parentheses, even though the language does not require it. 
+
 - Always put opening and closing parentheses on a new line.
 - Don't indent object Initializers and initialize each property on a new line, so use a format like this: 
 	
@@ -38,7 +43,9 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 - Start the LINQ statement with all the `from` expressions and don't interweave them with where restrictions.
 - Add braces around every comparison condition, but don't add braces around a singular condition. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
-- Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different companies.
+
+- Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
+
 
 ### Order and group namespaces according the company  (AV2402) ![](images/3.png)
 

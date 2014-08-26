@@ -9,16 +9,16 @@ When a method or other member returns an `IEnumerable<T>` or other collection cl
 
 **Note** If you return an `IEnumerable<T>` to prevent editing from outside the owner as explained in AV1130 and you're developing in .NET 4.5 or higher, consider the new read-only classes.
 
-### Only use `async` for low-intensive long-running activities (AV1820)
+### Only use `async` for low-intensive long-running activities (AV1820) ![](images/1.png)
 The usage of `async` won't automagically run something on a worker thread like `Task.Run` does. It just adds the necessary logic to allow releasing the current thread and marshal the result back on that same thread if a long-running asynchronous operation has completed. In other words, use `async` only for I/O bound operations.
 
-### Prefer `Task.Run` for CPU-intensive activities (AV1825)
+### Prefer `Task.Run` for CPU-intensive activities (AV1825) ![](images/1.png)
 If you do need to execute a CPU bound operation, use `Task.Run` to offload the work to a thread from the Thread Pool. Just don't forget that you have to marshal the result back to your main thread manually.
 
-### Beware of mixing up `await`/`async` with `Task.Wait` (AV1830)
+### Beware of mixing up `await`/`async` with `Task.Wait` (AV1830) ![](images/1.png)
 `await` will not block the current thread but simply instruct to compiler to generate a state-machine. However, `Task.Wait` will block the thread and may even cause dead-locks (see AV1835).
 
-### Beware of `async`/`await` deadlocks in single-threaded environments (AV1835)
+### Beware of `async`/`await` deadlocks in single-threaded environments (AV1835) ![](images/1.png)
 Consider the following asynchronous method:
 
 	private async Task GetDataAsync()

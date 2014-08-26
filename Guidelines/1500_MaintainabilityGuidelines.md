@@ -100,7 +100,7 @@ In all of three above examples it is clear what type to expect. For a more detai
 ### Declare and initialize variables as late as possible (AV1521) ![](images/2.png)
 Avoid the C and Visual Basic styles where all variables have to be defined at the beginning of a block, but rather define and initialize each variable at the point where it is needed.
 
-### AV1522    Assign each variable in a separate statement
+### Assign each variable in a separate statement (AV1522) ![](images/1.png)
 Don't use confusing constructs like the one below.
 
 	var result = someField = GetSomeMethod();
