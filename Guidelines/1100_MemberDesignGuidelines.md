@@ -6,7 +6,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 ### Allow properties to be set in any order (AV1100) ![](images/1.png)
 
-Properties should be stateless with respect to other properties, i.e. there should not be a difference between first setting property DataSource and then DataMember or vice versa.
+Properties should be stateless with respect to other properties, i.e. there should not be a difference between first setting property `DataSource` and then `DataMember` or vice versa.
 
 ### Use a method instead of a property (AV1105) ![](images/3.png)
 
@@ -21,7 +21,7 @@ Properties should be stateless with respect to other properties, i.e. there shou
 
 Having properties that cannot be used at the same time typically signals a type that is representing two conflicting concepts. Even though those concepts may share some of the behavior and state, they obviously have different rules that do not cooperate.
 
-This violation is often seen in domain models and introduces all kinds of conditional logic related to those conflicting rules, causing a ripple effect that significantly worsens the maintenance burden.
+This violation is often seen in domain models and introduces all kinds of conditional logic related to those conflicting rules, causing a ripple effect that significantly increases the maintenance burden.
 
 ### A method or property should do only one thing (AV1115) ![](images/1.png)
 
@@ -46,6 +46,8 @@ Returning `null` can be unexpected by the caller. Always return an empty collect
 ### Define parameters as specific as possible (AV1137) ![](images/2.png)
 
 If your member needs a specific piece of data, define parameters as specific as that and don't take a container object instead. For instance, consider a method that needs a connection string that is exposed through some central `IConfiguration` interface. Rather than taking a dependency on the entire configuration, just define a parameter for the connection string. This not only prevents unnecessary coupling, it also improved maintainability in the long run.
+
+**Note** An easy trick to remember this guideline is the *Don't ship the truck if you only need a package*.
 
 ### Consider using domain-specific value types rather than primitives (AV1140) ![](images/3.png)
 
