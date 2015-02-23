@@ -5,15 +5,15 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 #Framework Guidelines
 
 ### Use C# type aliases instead of the types from the `System` namespace  (AV2201) ![](images/1.png)
-For instance, use `object` instead of `Object`, `string` instead of `String`, and `int` instead of `Int32`. These aliases have been introduced to make the primitive types a first class citizen of the C# language so use them accordingly,
+For instance, use `object` instead of `Object`, `string` instead of `String`, and `int` instead of `Int32`. These aliases have been introduced to make the primitive types first class citizens of the C# language, so use them accordingly.
 
-**Exception** When referring to static members of those types, it is custom to use the full CLS name, e.g. `Int32.Parse()` instead of `int.Parse()`.
+**Exception:** When referring to static members of those types, it is custom to use the full CLS name, e.g. `Int32.Parse()` instead of `int.Parse()`.
 
 ### Properly name properties, variables or fields referring to localized resources  (AV2205) ![](images/3.png)
 The guidelines in this topic apply to localizable resources such as error messages and menu text.
 
 - Use Pascal casing in resource keys.
-- Provide descriptive rather than short identifiers. Keep them concise where possible, but don't sacrifice readability.
+- Provide descriptive identifiers rather than short ones. Keep them concise where possible, but don't sacrifice readability.
 - Use only alphanumeric characters in naming resources.
 
 ### Don't hard-code strings that change based on the deployment  (AV2207) ![](images/3.png)
@@ -23,14 +23,14 @@ Examples include connection strings, server addresses, etc. Use `Resources`, the
 Configure the development environment to use **Warning Level 4** for the C# compiler, and enable the option **Treat warnings as errors** . This allows the compiler to enforce the highest possible code quality.
 
 ### Properly fill the attributes of the `AssemblyInfo.cs` file  (AV2215) ![](images/3.png)
-Ensure that the attributes for the company name, description, copyright statement, version, etc. are filled. One way to ensure that version and other fields that are common to all assemblies have the same values, is to move the corresponding attributes out of the `AssemblyInfo.cs` into a `SolutionInfo.cs` file that is shared by all projects within the solution. 
+Ensure that the attributes for the company name, description, copyright statement, version, etc. are filled. One way to ensure that version and other fields that are common to all assemblies have the same values, is to move the corresponding attributes out of the `AssemblyInfo.cs` into a `SolutionInfo.cs` file that is shared by all projects within a solution. 
 
 ### Avoid LINQ for simple expressions  (AV2220) ![](images/3.png)
-Rather than
+Rather than:
 
 	var query = from item in items where item.Length > 0;
 
-prefer using the extension methods from the `System.Linq` namespace.
+prefer the use of extension methods from the `System.Linq` namespace:
 
 	var query = items.Where(i => i.Length > 0);
 
@@ -38,28 +38,25 @@ Since LINQ queries should be written out over multiple lines for readability, th
 
 ### Use Lambda expressions instead of delegates  (AV2221) ![](images/?.png)
 
-Lambda expressions provide a much more elegant alternative for anonymous delegates. So instead of
+Lambda expressions provide a much more elegant alternative for anonymous delegates. So instead of:
 
-Customer c = Array.Find(customers, delegate(Customer c)
-
-{
-
-return c.Name == "Tom";
-
-});
+	Customer c = Array.Find(customers, delegate(Customer c)
+	{
+		return c.Name == "Tom";
+	});
 
 use a Lambda expression:
 
 	Customer c = Array.Find(customers, c => c.Name == "Tom");
 
-Or even better
+Or even better:
 
 	var customer = customers.Where(c => c.Name == "Tom");
 
 ### Only use the `dynamic` keyword when talking to a dynamic object  (AV2230) ![](images/1.png)
 The `dynamic` keyword has been introduced for working with dynamic languages. Using it introduces a serious performance bottleneck because the compiler has to generate some complex Reflection code.
 
-Use it only for calling methods or members of a dynamically created instance (using the `Activator`) class as an alternative to `Type.GetProperty()` and `Type.GetMethod()`, or for working with COM Interop types.
+Use it only for calling methods or members of a dynamically created instance calss (using the `Activator`) as an alternative to `Type.GetProperty()` and `Type.GetMethod()`, or for working with COM Interop types.
 
 ### Favor `async`/`await` over the Task (AV2235) ![](images/1.png)
 Using the new C# 5.0 keywords results in code that can still be read sequentially and also improves maintainability a lot, even if you need to chain multiple asynchronous operations. For example, rather than defining your method like this:
@@ -78,4 +75,4 @@ define it like this:
 	  return new Data (result);
 	}
 
-**Tip** Even if you need to target .NET Framework 4.0 you can use the `async` and `await` keywords. Simply install the [Async Targeting Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29576) and of you go.
+**Tip:** Even if you need to target .NET Framework 4.0 you can use the `async` and `await` keywords. Simply install the [Async Targeting Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29576).
