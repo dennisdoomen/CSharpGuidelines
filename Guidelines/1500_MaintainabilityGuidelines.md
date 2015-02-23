@@ -5,13 +5,13 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 #Maintainability Guidelines
 
 ### Methods should not exceed 7 statements (AV1500) ![](images/1.png)
-A method that requires more than 7 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. Break it down in multiple small and focused methods with self-explaining names, but make sure the high-level algorithm is still clear.
+A method that requires more than 7 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. Break it down into multiple small and focused methods with self-explaining names, but make sure the high-level algorithm is still clear.
 
 ### Make all members private and types internal by default (AV1501) ![](images/1.png)
-To make a more conscious decision on which members to make available to other classes first restrict the scope as much as possible. Then carefully decide what to expose as a public member or type.
+To make a more conscious decision on which members to make available to other classes, first restrict the scope as much as possible. Then carefully decide what to expose as a public member or type.
 
 ### Avoid conditions with double negatives (AV1502) ![](images/2.png)
-Although a property like `customer.HasNoOrders` make sense, avoid using it in a negative condition like this:
+Although a property like `customer.HasNoOrders` makes sense, avoid using it in a negative condition like this:
 
 	bool hasOrders = !customer.HasNoOrders;
 
@@ -20,15 +20,15 @@ Double negatives are more difficult to grasp than simple expressions, and people
 ### Name assemblies after their contained namespace (AV1505) ![](images/3.png)
 All DLLs should be named according to the pattern *Company*.*Component*.dll where *Company* refers to your company's name and *Component* contains one or more dot-separated clauses. For example `AvivaSolutions.Web.Controls.dll`.
 
-As an example, consider a group of classes organized under the namespace AvivaSolutions.Web.Binding exposed by a certain assembly. According to this guideline, that assembly should be called AvivaSolutions.Web.Binding.dll. 
+As an example, consider a group of classes organized under the namespace `AvivaSolutions.Web.Binding` exposed by a certain assembly. According to this guideline, that assembly should be called `AvivaSolutions.Web.Binding.dll`. 
 
-**Exception** If you decide to combine classes from multiple unrelated namespaces into one assembly, consider post fixing the assembly with Core, but do not use that suffix in the namespaces. For instance, AvivaSolutions.Consulting.Core.dll.
+**Exception:** If you decide to combine classes from multiple unrelated namespaces into one assembly, consider suffixing the assembly name with `Core`, but do not use that suffix in the namespaces. For instance, `AvivaSolutions.Consulting.Core.dll`.
 
 ### Name a source file to the type it contains (AV1506) ![](images/3.png)
-Use Pascal casing for naming the file and don't use underscores.
+Use Pascal casing to name the file and don't use underscores.
 
 ### Limit the contents of a source code file to one type (AV1507) ![](images/3.png)
-**Exception** Nested types should, for obvious reasons, be part of the same file.
+**Exception:** Nested types should, for obvious reasons, be part of the same file.
 
 ### Name a source file to the logical function of the partial type (AV1508) ![](images/3.png)
 When using partial types and allocating a part per file, name each file after the logical part that part plays. For example:
@@ -42,11 +42,11 @@ When using partial types and allocating a part per file, name each file after th
 	{...}
 
 ### Use using statements instead of fully qualified type names (AV1510) ![](images/3.png)
-Limit usage of fully qualified type names to prevent name clashing. For example, don't do this
+Limit usage of fully qualified type names to prevent name clashing. For example, don't do this:
 
 	var list = new System.Collections.Generic.List();
 
-Instead, do this
+Instead, do this:
 
 	using System.Collections.Generic;
 	
@@ -57,7 +57,7 @@ If you do need to prevent name clashing, use a `using` directive to assign an al
 	using Label = System.Web.UI.WebControls.Label;
 
 ### Don't use "magic" numbers (AV1515) ![](images/1.png)
-Don't use literal values, either numeric or strings, in your code other than to define symbolic constants. For example:
+Don't use literal values, either numeric or strings, in your code, other than to define symbolic constants. For example:
 
 	public class Whatever  
 	{
@@ -70,7 +70,7 @@ Strings intended for logging or tracing are exempt from this rule. Literals are 
 	mean = (a + b) / 2;// okay  
 	WaitMilliseconds(waitTimeInSeconds \* 1000);// clear enough
 
-If the value of one constant depends on the value of another, do attempt to make this explicit in the code.
+If the value of one constant depends on the value of another, attempt to make this explicit in the code.
 
 	public class SomeSpecialContainer  
 	{  
@@ -78,10 +78,10 @@ If the value of one constant depends on the value of another, do attempt to make
 		public const int HighWaterMark = 3 \* MaxItems / 4;// at 75%  
 	}
 
-**Note** An enumeration can often be used for certain types of symbolic constants.
+**Note:** An enumeration can often be used for certain types of symbolic constants.
 
 ### Only use var when the type is very obvious (AV1520) ![](images/1.png)
-Only use var as the result of a LINQ query, or if the type is very obvious from the same statement and using it would improve readability. So don't
+Only use `var` as the result of a LINQ query, or if the type is very obvious from the same statement and using it would improve readability. So don't
 
 	var i = 3;									// what type? int? uint? float?
 	var myfoo = MyFactoryMethod.Create("arg");	// Not obvious what base-class or			
@@ -89,30 +89,30 @@ Only use var as the result of a LINQ query, or if the type is very obvious from 
 												// to refactor if you can't search for
 												// the class
 
-Instead, use `var` like this.
+Instead, use `var` like this:
 
 	var q = from order in orders where order.Items > 10 and order.TotalValue > 1000;
 	var repository = new RepositoryFactory.Get();	
 	var list = new ReadOnlyCollection();
 
-In all of three above examples it is clear what type to expect. For a more detailed rationale about the advantages and disadvantages of using var, read Eric Lippert's [Uses and misuses of implicit typing](http://blogs.msdn.com/b/ericlippert/archive/2011/04/20/uses-and-misuses-of-implicit-typing.aspx).
+In all of three above examples it is clear what type to expect. For a more detailed rationale about the advantages and disadvantages of using `var`, read Eric Lippert's [Uses and misuses of implicit typing](http://blogs.msdn.com/b/ericlippert/archive/2011/04/20/uses-and-misuses-of-implicit-typing.aspx).
 
 ### Declare and initialize variables as late as possible (AV1521) ![](images/2.png)
 Avoid the C and Visual Basic styles where all variables have to be defined at the beginning of a block, but rather define and initialize each variable at the point where it is needed.
 
 ### Assign each variable in a separate statement (AV1522) ![](images/1.png)
-Don't use confusing constructs like the one below.
+Don't use confusing constructs like the one below:
 
 	var result = someField = GetSomeMethod();
 
 ### Favor Object and Collection Initializers over separate statements (AV1523) ![](images/?.png)
-Instead of
+Instead of:
 
 	var startInfo = new ProcessStartInfo("myapp.exe");	
 	startInfo.StandardOutput = Console.Output;
 	startInfo.UseShellExecute = true;
 
-Use [Object Initializers](http://msdn.microsoft.com/en-us/library/bb384062.aspx)
+Use [Object Initializers](http://msdn.microsoft.com/en-us/library/bb384062.aspx):
 
 	var startInfo = new ProcessStartInfo("myapp.exe")  
 	{
@@ -120,13 +120,13 @@ Use [Object Initializers](http://msdn.microsoft.com/en-us/library/bb384062.aspx)
 		UseShellExecute = true  
 	};
 
-Similarly, instead of
+Similarly, instead of:
 
 	var countries = new List();
 	countries.Add("Netherlands");
 	countries.Add("United States");
 
-Use collection or [dictionary initializers](http://msdn.microsoft.com/en-us/library/bb531208.aspx)
+Use collection or [dictionary initializers](http://msdn.microsoft.com/en-us/library/bb531208.aspx):
 
 	var countries = new List { "Netherlands", "United States" };
 
@@ -151,9 +151,9 @@ Updating the loop variable within the loop body is generally considered confusin
 	}
 
 ### Avoid nested loops (AV1532) ![](images/2.png)
-A method that nests loops is more difficult to understand than one with only a single loop. In fact, in most cases having nested loops can be replaced with a much simpler LINQ query that uses the `from` keyword twice or more to _join_ the data.
+A method that nests loops is more difficult to understand than one with only a single loop. In fact, in most cases nested loops can be replaced with a much simpler LINQ query that uses the `from` keyword twice or more to *join* the data.
 
-### Always add a block after keywords such if, else, while, for, foreach and case (AV1535) ![](images/2.png)
+### Always add a block after keywords such as `if`, `else`, `while`, `for`, `foreach` and `case` (AV1535) ![](images/2.png)
 Please note that this also avoids possible confusion in statements of the form:
 
 	if (b1) if (b2) Foo(); else Bar(); // which 'if' goes with the 'else'?
@@ -172,7 +172,7 @@ Please note that this also avoids possible confusion in statements of the form:
 	}
 
 ### Always add a `default` block after the last `case` in a `switch` statement (AV1536) ![](images/1.png)
-Add a descriptive comment if the `default` block is supposed to be empty. Moreover, if that block is not supposed to be reached throw an `InvalidOperationException` to detect future changes that may fall through the existing cases. This ensures better code, because all paths the code can travel has been thought about.
+Add a descriptive comment if the `default` block is supposed to be empty. Moreover, if that block is not supposed to be reached throw an `InvalidOperationException` to detect future changes that may fall through the existing cases. This ensures better code, because all paths the code can travel have been thought about.
 
 	void Foo(string answer)  
 	{  
@@ -193,7 +193,7 @@ Add a descriptive comment if the `default` block is supposed to be empty. Moreov
 	}
 
 ### Finish every if-else-if statement with an else-part (AV1537) ![](images/2.png)
-For example.
+For example:
 
 	void Foo(string answer)  
 	{  
@@ -216,7 +216,7 @@ For example.
 One entry, one exit is a sound principle and keeps control flow readable. However, if the method is very small and complies with guideline AV1500 then multiple return statements may actually improve readability over some central boolean flag that is updated at various points.
 
 ### Don't use if-else statements instead of a simple (conditional) assignment (AV1545) ![](images/2.png)
-Express your intentions directly. For example, rather than
+Express your intentions directly. For example, rather than:
 
 	bool pos;
 	
@@ -229,11 +229,11 @@ Express your intentions directly. For example, rather than
 		pos = false;  
 	}
 
-write
+write:
 
 	bool pos = (val > 0);// initialization
 
-Or instead of
+Or instead of:
 
 	string result;
 	
@@ -248,7 +248,7 @@ Or instead of
 
 	return result;
 
-write
+write:
 
 	return someString ?? "Unavailable";
 
@@ -260,7 +260,7 @@ Consider the following example:
 		// do something
 	}
 
-In order to understand what this expression is about, you need to analyze its exact details and all the possible outcomes. Obviously, you could add an explanatory comment on top of it, but it is much better to replace this complex expression with a clearly named method:
+In order to understand what this expression is about, you need to analyze its exact details and all of its possible outcomes. Obviously, you can add an explanatory comment on top of it, but it is much better to replace this complex expression with a clearly named method:
 
 	if (NonConstructorMemberUsesNewKeyword(member))  
 	{  
@@ -278,7 +278,7 @@ In order to understand what this expression is about, you need to analyze its ex
 You still need to understand the expression if you are modifying it, but the calling code is now much easier to grasp.
 
 ### Call the most overloaded method from other overloads (AV1551) ![](images/2.png)
-This guideline only applies to overloads that are intended for providing optional arguments. Consider for example the following code snippet:
+This guideline only applies to overloads that are intended to provide optional arguments. Consider, for example, the following code snippet:
 
 	public class MyString  
 	{
@@ -307,7 +307,7 @@ This guideline only applies to overloads that are intended for providing optiona
 
 The class `MyString` provides three overloads for the `IndexOf` method, but two of them simply call the one with the most parameters. Notice that the same rule applies to class constructors; implement the most complete overload and call that one from the other overloads using the `this()` operator. Also notice that the parameters with the same name should appear in the same position in all overloads.
 
-**Important** If you also want to allow derived classes to override these methods, define the most complete overload as a `protected virtual` method that is called by all overloads.
+**Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a `protected virtual` method that is called by all overloads.
 
 ### Only use optional arguments to replace overloads (AV1553) ![](images/1.png)
 The only valid reason for using C# 4.0's optional arguments is to replace the example from rule AV1551 with a single method like:
@@ -319,23 +319,22 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
 
 If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1235, you must use overloaded methods instead.
 
-**Note** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value properly.
+**Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value properly.
 
-**Note** When an interface method defines an optional parameter, its default value is not considered during overload resolution unless you call the concrete class through the interface reference. See [this](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) post by Eric Lippert for more details.
+**Note:** When an interface method defines an optional parameter, its default value is not considered during overload resolution unless you call the concrete class through the interface reference. See [this post by Eric Lippert](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) for more details.
 
 ### Avoid using named arguments (AV1555) ![](images/1.png)
-C# 4.0's named arguments have been introduced to make it easier to call COM components that are known for offering tons of optional parameters. If you need named arguments to improve the readability of the call to a method, that method is probably doing too much and should be refactored.
+C# 4.0's named arguments have been introduced to make it easier to call COM components that are known for offering many optional parameters. If you need named arguments to improve the readability of the call to a method, that method is probably doing too much and should be refactored.
 
-**Exception**  
-The only exception where named arguments improve readability is when calling a method of some code base you don't control that has a `bool` parameter like this:  
+**Exception:** The only exception where named arguments improve readability is when calling a method of some code base you don't control that has a `bool` parameter, like this:  
 
 	object[] myAttributes = type.GetCustomAttributes(typeof(MyAttribute), inherit: false);
 
 ### Don't allow methods and constructors with more than three parameters (AV1561) ![](images/1.png)
-If you end up with a method with more than three parameters, use a structure or class for passing multiple arguments such as explained in the [Specification](http://en.wikipedia.org/wiki/Specification_pattern)design pattern. In general, the fewer the number of parameters, the easier it is to understand the method. Additionally, unit testing a method with many parameters requires many scenarios to test.
+If you create a method with more than three parameters, use a structure or class to pass multiple arguments, as explained in the [Specification design pattern](http://en.wikipedia.org/wiki/Specification_pattern). In general, the fewer the parameters, the easier it is to understand the method. Additionally, unit testing a method with many parameters requires many scenarios to test.
 
 ### Don't use `ref` or `out` parameters (AV1562) ![](images/1.png)
-They make code less understandable and might cause people to introduce bugs. Prefer returning compound objects instead.
+They make code less understandable and might cause people to introduce bugs. Instead, return compound objects.
 
 ### Avoid methods that take a bool flag (AV1564) ![](images/2.png)
 Consider the following method signature:
@@ -355,4 +354,4 @@ Never use a parameter as a convenient variable for storing temporary state. Even
 If you use `as` to obtain a certain interface reference from an object, always ensure that this operation does not return `null`. Failure to do so may cause a `NullReferenceException` at a much later stage if the object did not implement that interface.
 
 ### Don't comment out code (AV1575) ![](images/1.png)
-Never check-in code that is commented-out, but instead use a work item tracking system to keep track of some work to be done. Nobody knows what to do when they encounter a block of commented-out code. Was it temporarily disabled for testing purposes? Was it copied as an example? Should I delete it?
+Never check in code that is commented out. Instead, use a work item tracking system to keep track of some work to be done. Nobody knows what to do when they encounter a block of commented-out code. Was it temporarily disabled for testing purposes? Was it copied as an example? Should I delete it?
