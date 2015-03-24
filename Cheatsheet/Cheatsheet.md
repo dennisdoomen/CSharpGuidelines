@@ -164,7 +164,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 |•	Don’t include numbers in variables, parameters and type members  (AV1704)
 |•	Don’t prefix fields (AV1705)
 |•	Don’t use abbreviations (AV1706)
-|•	Name an member, parameter or variable according its meaning and not its type (AV1707)
+|•	Name members, parameters or variables according its meaning and not its type (AV1707)
 |•	Name types using nouns, noun phrases or adjective phrases (AV1708)
 |•	Don’t repeat the name of a class or enumeration in its members (AV1710)
 |•	Avoid short names or names that can be mistaken with other names (AV1712)
