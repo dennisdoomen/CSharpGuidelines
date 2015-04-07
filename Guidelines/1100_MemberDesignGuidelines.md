@@ -41,7 +41,7 @@ You generally don't want callers to be able to change an internal collection, so
 
 ### Properties, methods and arguments representing strings or collections should never be `null` (AV1135) ![](images/1.png)
 
-Returning `null` can be unexpected by the caller. Always return an empty collection or an empty string instead of a `null` reference. This also prevents cluttering your code base with additional checks for `null`, or even worse, `string.IsNotNullOrEmpty()`.
+Returning `null` can be unexpected by the caller. Always return an empty collection or an empty string instead of a `null` reference. This also prevents cluttering your code base with additional checks for `null`, or even worse, `string.IsNullOrEmpty()`.
 
 ### Define parameters as specific as possible (AV1137) ![](images/2.png)
 
