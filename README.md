@@ -1,6 +1,8 @@
 Coding Guidelines for C# 3.0, 4.0 and 5.0
 ================
 
+[![Join the chat at https://gitter.im/dennisdoomen/csharpguidelines](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dennisdoomen/csharpguidelines?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ##Description##
 A set of coding guidelines for C# 3.0, C# 4.0 and C# 5.0, design principles and layout rules for improving the overall quality of your code development. 
 
