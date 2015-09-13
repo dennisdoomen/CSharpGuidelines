@@ -277,35 +277,30 @@ In order to understand what this expression is about, you need to analyze its ex
 
 You still need to understand the expression if you are modifying it, but the calling code is now much easier to grasp.
 
-### Call the most overloaded method from other overloads (AV1551) ![](images/2.png)
+### Call the more overloaded method from other overloads (AV1551) ![](images/2.png)
 This guideline only applies to overloads that are intended to provide optional arguments. Consider, for example, the following code snippet:
 
 	public class MyString  
 	{
 		private string someText;
 		
-		public MyString(string text)  
+	    	public int IndexOf(string phrase)  
 		{  
-			this.someText = text;  
-		}  
-		  
-		public int IndexOf(string phrase)  
-		{  
-			return IndexOf(phrase, 0, someText.Length);  
+			return IndexOf(phrase, 0); 
 		}
 		
 		public int IndexOf(string phrase, int startIndex)  
 		{  
-			return IndexOf(phrase, startIndex, someText.Length - startIndex );  
+			return IndexOf(phrase, startIndex, someText.Length - startIndex);
 		}
 		
 		public virtual int IndexOf(string phrase, int startIndex, int count)  
 		{  
-			return someText.IndexOf(phrase, startIndex, count);  
+			return someText.IndexOf(phrase, startIndex, count);
 		}  
 	}
 
-The class `MyString` provides three overloads for the `IndexOf` method, but two of them simply call the one with the most parameters. Notice that the same rule applies to class constructors; implement the most complete overload and call that one from the other overloads using the `this()` operator. Also notice that the parameters with the same name should appear in the same position in all overloads.
+The class `MyString` provides three overloads for the `IndexOf` method, but two of them simply call the one with one more parameter. Notice that the same rule applies to class constructors; implement the most complete overload and call that one from the other overloads using the `this()` operator. Also notice that the parameters with the same name should appear in the same position in all overloads.
 
 **Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a `protected virtual` method that is called by all overloads.
 
