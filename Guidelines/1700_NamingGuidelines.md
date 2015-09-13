@@ -93,8 +93,8 @@ Although technically correct, statements like the following can be confusing:
 - Consider prefixing boolean properties with `Is`, `Has`, `Can`, `Allows`, or `Supports`.
 - Consider giving a property the same name as its type. When you have a property that is strongly typed to an enumeration, the name of the property can be the same as the name of the enumeration. For example, if you have an enumeration named `CacheLevel`, a property that returns one of its values can also be named `CacheLevel`.
 
-### Name methods using verb-object pair  (AV1720) ![](images/2.png)
-Name methods using a verb-object pair such as `ShowDialog`. A good name should give a hint on the *what* of a member, and if possible, the *why*.
+### Name methods using a verb or a verb-object pair  (AV1720) ![](images/2.png)
+Name methods using a verb like `Show` or a verb-object pair such as `ShowDialog`. A good name should give a hint on the *what* of a member, and if possible, the *why*.
 
 Also, don't include `And` in the name of a method. It implies that the method is doing more than one thing, which violates the single responsibility principle explained in AV1115.
 
