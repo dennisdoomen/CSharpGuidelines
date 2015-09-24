@@ -24,10 +24,10 @@ Enumeration values | Pascal | `FatalError` |
 Event | Pascal | `Click` |
 Private field | Camel | `listItem` |
 Protected field | Pascal | `MainPanel` |
-Const field | Pascal | `MaximumItems` |
-Const variable | Camel | `maximumItems` |
+Constant field | Pascal | `MaximumItems` |
+Constant Local variable | Camel | `maximumItems` |
 Read-only static field | Pascal | `RedValue` |
-Variable | Camel | `listOfValues` |
+Local Variable | Camel | `listOfValues` |
 Method | Pascal | `ToString` |
 Namespace | Pascal | `System.Drawing` |
 Parameter | Camel | `typeName` |
