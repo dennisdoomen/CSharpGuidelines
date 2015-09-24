@@ -346,7 +346,7 @@ Often, a method taking such a flag is doing more than one thing and needs to be 
 Never use a parameter as a convenient variable for storing temporary state. Even though the type of your temporary variable may be the same, the name usually does not reflect the purpose of the temporary variable.
 
 ### Always check the result of an `as` operation (AV1570) ![](images/1.png)
-If you use `as` to obtain a certain interface reference from an object, always ensure that this operation does not return `null`. Failure to do so may cause a `NullReferenceException` at a much later stage if the object did not implement that interface.
+If you use `as` to obtain a certain interface reference from an object, always ensure that this operation does not return `null`. Failure to do so may cause a `NullReferenceException` at a much later stage if the object did not implement that interface. If you are sure the object is of a certain type, use the `is` operator instead.
 
 ### Don't comment out code (AV1575) ![](images/1.png)
 Never check in code that is commented out. Instead, use a work item tracking system to keep track of some work to be done. Nobody knows what to do when they encounter a block of commented-out code. Was it temporarily disabled for testing purposes? Was it copied as an example? Should I delete it?
