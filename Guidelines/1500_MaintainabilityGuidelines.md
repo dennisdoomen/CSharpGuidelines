@@ -179,16 +179,22 @@ Add a descriptive comment if the `default` block is supposed to be empty. Moreov
 		switch (answer)  
 		{  
 			case "no":  
+			{
 			  Console.WriteLine("You answered with No");  
-			  break;  
+			  break;
+			}  
 			  
-			case "yes":  
+			case "yes":
+			{  
 			  Console.WriteLine("You answered with Yes");  
 			  break;
+			}
 			
 			default:  
+			{
 			  // Not supposed to end up here.  
-			  throw new InvalidOperationException("Unexpected answer " + answer);  
+			  throw new InvalidOperationException("Unexpected answer " + answer);
+			}  
 		}  
 	}
 
