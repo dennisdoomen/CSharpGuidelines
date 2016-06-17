@@ -17,7 +17,7 @@ In addition to the most up to date version of this document, you'll find:
 In addition to the many links provided throughout this document, I'd like to recommend the following books, articles and sites for everyone interested in software quality:
 
 * [Code Complete: A Practical Handbook of Software Construction](http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670) (Steve McConnel)  
-One of the best books I've ever read. It deals with all aspects of software development, and even though the book was originally written in 2004 you'll be surprised when you see how accurate it still is. I wrote a [review](http:/www.dennisdoomen.net/2009/07/book-review-code-complete-2nd-edition.html) in 2009 if you want to get a sense of its contents.
+One of the best books I've ever read. It deals with all aspects of software development, and even though the book was originally written in 2004 you'll be surprised when you see how accurate it still is. I wrote a [review](http://www.continuousimprover.com/2009/07/book-review-code-complete-2nd-edition.html) in 2009 if you want to get a sense of its contents.
 
 * [The Art of Agile Development](http://www.amazon.com/Art-Agile-Development-James-Shore/dp/0596527675) (James Shore)  
 Another great all-encompassing trip through the many practices preached by processes like Scrum and Extreme Programming. If you're looking for a quick introduction with a pragmatic touch, make sure you read James's book.
