@@ -113,7 +113,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 	<td style="text-align:right">
 		[www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)  
 		[www.dennisdoomen.net](http://www.dennisdoomen.net)  
-		[www.avivasolutions.nl](http://www.avivasolutions)  
+		[www.avivasolutions.nl](http://www.avivasolutions.nl)  
 	</td>
 </tr>
 </table>
@@ -243,7 +243,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 	<td style="text-align:right">
 		[www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)  
 		[www.dennisdoomen.net](http://www.dennisdoomen.net)  
-		[www.avivasolutions.nl](http://www.avivasolutions)  
+		[www.avivasolutions.nl](http://www.avivasolutions.nl)  
 	</td>
 </tr>
 </table>
