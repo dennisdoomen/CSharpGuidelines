@@ -36,7 +36,7 @@ prefer the use of extension methods from the `System.Linq` namespace:
 
 Since LINQ queries should be written out over multiple lines for readability, the second example is a bit more readable.
 
-### Use Lambda expressions instead of delegates  (AV2221) ![](images/?.png)
+### Use Lambda expressions instead of delegates  (AV2221) ![](images/2.png)
 
 Lambda expressions provide a much more elegant alternative for anonymous delegates. So instead of:
 
