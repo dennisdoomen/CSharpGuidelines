@@ -50,7 +50,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 - Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
 
-### Order and group namespaces according the company  (AV2402) ![](images/3.png)
+### Order and group namespaces according to the company  (AV2402) ![](images/3.png)
 
 	// Microsoft namespaces are first
 	using System;
