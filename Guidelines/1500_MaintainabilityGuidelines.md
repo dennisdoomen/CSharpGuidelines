@@ -139,8 +139,8 @@ It is usually bad style to compare a `bool`-type expression to `true` or `false`
 	while (((condition == true) == true) == true)// where do you stop?  
 	while (condition)// OK
 
-### Don't change a loop variable inside a for or foreach loop (AV1530) ![](images/2.png)
-Updating the loop variable within the loop body is generally considered confusing, even more so if the loop variable is modified in more than one place. Although this rule also applies to `foreach` loops, an enumerator will typically detect changes to the collection the `foreach` loop is iteration over.
+### Don't change a loop variable inside a for loop (AV1530) ![](images/2.png)
+Updating the loop variable within the loop body is generally considered confusing, even more so if the loop variable is modified in more than one place.
 
 	for (int index = 0; index < 10; ++index)  
 	{  
