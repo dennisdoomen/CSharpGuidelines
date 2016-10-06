@@ -51,4 +51,4 @@ If your member needs a specific piece of data, define parameters as specific as 
 
 ### Consider using domain-specific value types rather than primitives (AV1140) ![](images/3.png)
 
-Instead of using strings, integers and decimals for representing domain-specific types such as an ISBN number, an email address or amount of money, consider created dedicated value objects that wrap both the data and the validation rules that apply to it. By doing this, you prevent ending up having multiple implementations of the same business rules, which both improves maintainability and prevents bugs.
+Instead of using strings, integers and decimals for representing domain-specific types such as an ISBN number, an email address or amount of money, consider creating dedicated value objects that wrap both the data and the validation rules that apply to it. By doing this, you prevent ending up having multiple implementations of the same business rules, which both improves maintainability and prevents bugs.
