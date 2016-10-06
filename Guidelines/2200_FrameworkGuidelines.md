@@ -40,14 +40,14 @@ Since LINQ queries should be written out over multiple lines for readability, th
 
 Lambda expressions provide a much more elegant alternative for anonymous delegates. So instead of:
 
-	Customer c = Array.Find(customers, delegate(Customer c)
+	Customer customer = Array.Find(customers, delegate(Customer c)
 	{
 		return c.Name == "Tom";
 	});
 
 use a Lambda expression:
 
-	Customer c = Array.Find(customers, c => c.Name == "Tom");
+	Customer customer = Array.Find(customers, c => c.Name == "Tom");
 
 Or even better:
 
