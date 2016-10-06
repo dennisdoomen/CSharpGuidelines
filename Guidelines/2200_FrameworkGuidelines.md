@@ -28,7 +28,7 @@ Ensure that the attributes for the company name, description, copyright statemen
 ### Avoid LINQ for simple expressions  (AV2220) ![](images/3.png)
 Rather than:
 
-	var query = from item in items where item.Length > 0;
+	var query = from item in items where item.Length > 0 select item;
 
 prefer the use of extension methods from the `System.Linq` namespace:
 
