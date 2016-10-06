@@ -68,14 +68,14 @@ Don't use literal values, either numeric or strings, in your code, other than to
 Strings intended for logging or tracing are exempt from this rule. Literals are allowed when their meaning is clear from the context, and not subject to future changes, For example:
 
 	mean = (a + b) / 2;// okay  
-	WaitMilliseconds(waitTimeInSeconds \* 1000);// clear enough
+	WaitMilliseconds(waitTimeInSeconds * 1000); // clear enough
 
 If the value of one constant depends on the value of another, attempt to make this explicit in the code.
 
 	public class SomeSpecialContainer  
 	{  
 		public const int MaxItems = 32;  
-		public const int HighWaterMark = 3 \* MaxItems / 4;// at 75%  
+		public const int HighWaterMark = 3 * MaxItems / 4; // at 75%  
 	}
 
 **Note:** An enumeration can often be used for certain types of symbolic constants.
