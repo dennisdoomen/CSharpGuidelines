@@ -39,7 +39,10 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
   	or
 	
-		var query =  from product in products  where product.Price > 10  select product;
+		var query =  
+		    from product in products  
+		    where product.Price > 10  
+		    select product;
 
 - Start the LINQ statement with all the `from` expressions and don't interweave them with restrictions.
 - Add braces around every comparison condition, but don't add braces around a singular condition. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
