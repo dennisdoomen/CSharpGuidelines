@@ -105,7 +105,7 @@ Don't use confusing constructs like the one below:
 
 	var result = someField = GetSomeMethod();
 
-### Favor Object and Collection Initializers over separate statements (AV1523) ![](images/?.png)
+### Favor Object and Collection Initializers over separate statements (AV1523) ![](images/2.png)
 Instead of:
 
 	var startInfo = new ProcessStartInfo("myapp.exe");	
