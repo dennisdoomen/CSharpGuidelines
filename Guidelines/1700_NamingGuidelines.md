@@ -135,5 +135,5 @@ If you use a lambda statement, for instance, to subscribe to an event, and the a
 ### Group extension methods in a class suffixed with Extensions (AV1745) ![](images/3.png)
 If the name of an extension method conflicts with another member or extension method, you must prefix the call with the class name. Having them in a dedicated class with the `Extensions` suffix improves readability.
 
-### Post-fix asynchronous methods with `Async` of `TaskAsync` (AV1755) ![](images/2.png)
+### Post-fix asynchronous methods with `Async` or `TaskAsync` (AV1755) ![](images/2.png)
 The general convention for methods that return `Task` or `Task<TResult>` is to post-fix them with `Async`, but if such a method already exists, use `TaskAsync` instead.
