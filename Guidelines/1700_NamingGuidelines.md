@@ -57,9 +57,9 @@ Bad examples include `SearchExamination` (a page to search for examinations), `C
 Don't include terms like `Utility` or `Helper` in classes. Classes with names like that are usually static classes and are introduced without considering object-oriented principles (see also AV1008).
 
 ### Name generic type parameters with descriptive names  (AV1709) ![](images/2.png)
-- Always prefix descriptive type parameter names with the letter `T`.
-- Always use a descriptive names unless a single-letter name is completely self-explanatory and a longer name would not add value. Use the single letter `T` as the type parameter in that case.
-- Consider indicating constraints placed on a type parameter in the name of parameter. For example, a parameter constrained to `ISession` may be called `TSession`.
+- Always prefix type parameter names with the letter `T`.
+- Always use a descriptive name unless a single-letter name is completely self-explanatory and a longer name would not add value. Use the single letter `T` as the type parameter in that case.
+- Consider indicating constraints placed on a type parameter in the name of the parameter. For example, a parameter constrained to `ISession` may be called `TSession`.
 
 ### Don't repeat the name of a class or enumeration in its members  (AV1710) ![](images/1.png)
 
