@@ -1,26 +1,90 @@
 ﻿properties {
     $BaseDirectory = Resolve-Path ..     
+    $ArtifactsDirectory = "$BaseDirectory\Artifacts\"     
+	$LibDir = "$BaseDirectory\Lib"
+	$SrcDir = "$BaseDirectory\Src\"
 }
 
-task default -depends Clean, Compile
+task default -depends Clean, ExtractVersionsFromGit, Compile, CompileCheatsheet, BuildHtml
 
 task Clean {	
-    TeamCity-Block "Removing build output from previous runs" {
-		Get-ChildItem $BaseDirectory\Guidelines CSharp*.md | ForEach { Remove-Item $_.FullName }
-    }
+	if (Test-Path $ArtifactsDirectory) {
+		Get-ChildItem $ArtifactsDirectory | ForEach { Remove-Item $_.FullName -Recurse -Force }
+	}
+}
+
+task ExtractVersionsFromGit {
+    
+        $json = . "$LibDir\GitVersion.exe" 
+        
+        if ($LASTEXITCODE -eq 0) {
+            $version = (ConvertFrom-Json ($json -join "`n"));
+          
+            $script:SemVer = $version.SemVer;
+            $script:CommitDate = ([datetime]$version.CommitDate).ToString("D");
+        }
+        else {
+            Write-Output $json -join "`n";
+        }
 }
 
 task Compile {
-    TeamCity-Block "Compiling Markdown file from individual section" {
-		$files = (dir $BaseDirectory\Guidelines\*.md)
-		$outfile = "$BaseDirectory\Guidelines\CSharpCodingGuidelines.md"
+	$files = (dir $SrcDir\Guidelines\*.md)
 
-		$files | %{
-			Write-Host "Including " + $_.FullName
-		    Get-Content $_.FullName | Add-Content $outfile
-		}
+	if (!(Test-Path -Path "$ArtifactsDirectory\Guidelines")) {
+		New-Item -ItemType Directory -Force -Path "$ArtifactsDirectory\Guidelines"
+	}
+
+	$outfile = "$ArtifactsDirectory\Guidelines\CSharpCodingGuidelines.md"
 		
-		Write-Host "Opening the output file using its default program"
-		& $outfile
-    }
+	$files | %{
+		Write-Host "Including " $_.FullName
+		(Get-Content $_.FullName).replace('%semver%', $script:Semver).replace('%commitdate%', $script:CommitDate) |  Add-Content $outfile
+	}
+	
+	Copy-Item -Path "$SrcDir\Guidelines\style.css" -Destination "$ArtifactsDirectory\Guidelines" -recurse -Force
+	Copy-Item -Path "$SrcDir\Guidelines\Images" -Destination "$ArtifactsDirectory\Guidelines" -recurse -Force
+}
+
+task CompileCheatsheet {
+	$files = (dir $SrcDir\Guidelines\*.md)
+
+	if (!(Test-Path -Path "$ArtifactsDirectory\Cheatsheet\")) {
+		New-Item -ItemType Directory -Force -Path "$ArtifactsDirectory\Cheatsheet\"
+	}
+	
+	Copy-Item -Path "$SrcDir\Cheatsheet\" -Destination "$ArtifactsDirectory\" -recurse -Force
+}
+
+task BuildHtml {
+
+	$PreviousPwd = $PWD;
+
+	try
+	{
+		Set-Location "$ArtifactsDirectory\Guidelines"
+
+		$outfile = "$ArtifactsDirectory\CSharpCodingGuidelines.htm"
+		
+		if (Test-Path $outfile) {
+			Remove-Item $outfile
+		}
+	
+		& "$LibDir\Pandoc\pandoc.exe" CSharpCodingGuidelines.md -f markdown_phpextra -s -o $outfile --self-contained 
+
+		Set-Location "$ArtifactsDirectory\Cheatsheet\"
+
+		$outfile = "$ArtifactsDirectory\CSharpCodingGuidelinesCheatsheet.htm"
+		
+		if (Test-Path $outfile) {
+			Remove-Item $outfile
+		}
+	
+		& "$LibDir\Pandoc\pandoc.exe" Cheatsheet.md -f markdown_phpextra -s -o $outfile --self-contained 
+	}
+	finally
+	{
+		Set-Location $PreviousPwd
+	}
+	
 }
