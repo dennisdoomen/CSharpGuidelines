@@ -12,11 +12,11 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 - Keep one whitespace between keywords like `if` and the expression, but don't add whitespaces after `(` and before `)` such as: `if (condition == null)`.
 
-- Add a whitespace around operators, like `+`, `-`, `==`, etc.
+- Add a whitespace around operators like `+`, `-`, `==`, etc.
 
-- Always follow the keywords `if`, `else`, `do`, `while`, `for` and `foreach` with opening and closing parentheses, even though the language does not require it. 
+- Always follow the keywords `if`, `else`, `do`, `while`, `for` and `foreach` with opening and closing braces, even though the language does not require it. 
 
-- Always put opening and closing parentheses on a new line.
+- Always put opening and closing braces on a new line.
 - Don't indent object Initializers and initialize each property on a new line, so use a format like this: 
 	
 		var dto = new ConsumerDto()
@@ -45,7 +45,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 		    select product;
 
 - Start the LINQ statement with all the `from` expressions and don't interweave them with restrictions.
-- Add braces around every comparison condition, but don't add braces around a singular condition. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
+- Add parentheses around every comparison condition, but don't add parentheses around a singular condition. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
 
 - Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
