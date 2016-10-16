@@ -21,7 +21,7 @@ task ExtractVersionsFromGit {
             $version = (ConvertFrom-Json ($json -join "`n"));
           
             $script:SemVer = $version.SemVer;
-            $script:CommitDate = ([datetime]$version.CommitDate).ToString("D");
+            $script:CommitDate = ([datetime]$version.CommitDate).ToString("MMMM d, yyyy");
         }
         else {
             Write-Output $json -join "`n";
@@ -52,8 +52,13 @@ task CompileCheatsheet {
 	if (!(Test-Path -Path "$ArtifactsDirectory\Cheatsheet\")) {
 		New-Item -ItemType Directory -Force -Path "$ArtifactsDirectory\Cheatsheet\"
 	}
+
+	$outfile = "$ArtifactsDirectory\Cheatsheet\Cheatsheet.md"
 	
-	Copy-Item -Path "$SrcDir\Cheatsheet\" -Destination "$ArtifactsDirectory\" -recurse -Force
+	(Get-Content "$SrcDir\Cheatsheet\Cheatsheet.md").replace('%semver%', $script:Semver).replace('%commitdate%', $script:CommitDate) |  Add-Content $outfile
+		
+	Copy-Item -Path "$SrcDir\Cheatsheet\style.css" -Destination "$ArtifactsDirectory\Cheatsheet" -recurse -Force
+	Copy-Item -Path "$SrcDir\Cheatsheet\Images" -Destination "$ArtifactsDirectory\Cheatsheet" -recurse -Force
 }
 
 task BuildHtml {
@@ -80,7 +85,7 @@ task BuildHtml {
 			Remove-Item $outfile
 		}
 	
-		& "$LibDir\Pandoc\pandoc.exe" Cheatsheet.md -f markdown_phpextra -s -o $outfile --self-contained 
+		& "$LibDir\Pandoc\pandoc.exe" Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o $outfile --self-contained 
 	}
 	finally
 	{

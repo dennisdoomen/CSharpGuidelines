@@ -112,9 +112,14 @@ a:hover {
 /* LISTS
 =============================================================================*/
 
-ul, ol {
-  padding-left: 30px;
+ul {
+  padding-left: 14px;
 }
+
+ol {
+  padding-left: 22px;
+}
+
 
 ul li > :first-child, 
 ol li > :first-child, 
