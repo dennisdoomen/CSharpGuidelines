@@ -4,12 +4,21 @@ Coding Guidelines for C# 3.0, 4.0 and 5.0
 [![Join the chat at https://gitter.im/dennisdoomen/csharpguidelines](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dennisdoomen/csharpguidelines?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build status](https://ci.appveyor.com/api/projects/status/abdiejvl9jp9h60l?svg=true)](https://ci.appveyor.com/project/dennisdoomen/csharpguidelines)
 
-##Description##
-A set of coding guidelines for C# 3.0, C# 4.0 and C# 5.0, design principles and layout rules for improving the overall quality of your code development. 
+##What is this##
+This document attempts to provide guidelines (or coding standards if you like) for coding in C# 3.0, 4.0 or 5.0 that are both useful and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](http://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
 
-##Important##
-This repository is only used to maintain the coding guidelines as well as receive pull requests. The official versions of the guidelines are published on the [official site](http://www.csharpcodingguidelines.com).
+##Why would you use this document?##
+Although some might see coding guidelines as undesired overhead or something that limits creativity, this approach has already proven its value for many years. This is because not every developer:
 
-##Special Thanks##
-The conversion to Markdown would not have been possible without the support of [MarkdownPad 2](http://markdownpad.com/), a first class Windows application that understands all important variants of Markdown.   
-![MarkdownPad](./Resources/markdownpad2-weblogo.png)  
+- is aware that code is generally read 10 times more than it is changed;
+- is aware of the potential pitfalls of certain constructions in C#;
+- is up to speed on certain conventions when using the .NET Framework such as `IDisposable` or the deferred execution nature of LINQ;
+- is aware of the impact of using (or neglecting to use) particular solutions on aspects like security, performance, multi-language support, etc;
+- realizes that not every developer is as capable, skilled or experienced to understand elegant, but potentially very abstract solutions;
+
+##Where do I get them?##
+Go to the [Releases] page to find the latest HTML, PDF and other related files.
+
+##How do I build my own version?##
+The corresponding [license](https://github.com/dennisdoomen/CSharpGuidelines/blob/master/LICENSE.md), based on one of the template licenses provided by Creative Commons, allows you to fork, adapt and distribute that modified version within your organization as long as you refer back to the original version on GitHub. It's not required, but you would make me a very happy man if you credit me as the original author. And if you have any great ideas, recommendations or corrections, either submit an issue, or even better, fork the repository and provide me with a pull request. 
+
