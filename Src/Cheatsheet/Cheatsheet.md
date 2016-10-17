@@ -6,7 +6,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <table width="100%">
 <tr>
 <td class="title">Coding Guidelines for C# 3.0, 4.0 and 5.0 Cheat Sheet</td>
-<td rowspan="2" style="text-align:right">![a](images/logo.png)</td>
+<td rowspan="2" style="text-align:right">![logo](images/logo.png)</td>
 </tr>
 <tr>
 <td><div class="subTitle">Design & Maintainability</div> (level 1 and 2 only)</td>
@@ -110,7 +110,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 </td>
 <td style="text-align:right">
   [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)  
-  [www.dennisdoomen.net](http://www.dennisdoomen.net)  
+  [www.continuousimprover.com](www.continuousimprover.com)  
   [www.avivasolutions.nl](http://www.avivasolutions.nl)  
 </td>
 </tr>
@@ -119,7 +119,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <table width="100%" style="page-break-before: always;">
  <tr>
   <td class="title">Coding Guidelines for C# 3.0, 4.0 and 5.0 Cheat Sheet</td>
-  <td markdown="1" rowspan="2" style="text-align:right">![](images/logo.png)</td>
+  <td markdown="1" rowspan="2" style="text-align:right">![logo](images/logo.png)</td>
  </tr>
  <tr>
  <td><div class="subTitle">Naming & Layout</div> (level 1 and 2 only)</td>
@@ -238,7 +238,7 @@ These coding guidelines are an extension to Visual Studio's Code Analysis functi
  </td>
  <td style="text-align:right">
   [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)  
-  [www.dennisdoomen.net](http://www.dennisdoomen.net)  
+  [www.continuousimprover.com](www.continuousimprover.com)  
   [www.avivasolutions.nl](http://www.avivasolutions.nl)  
   </td>
 </tr>
