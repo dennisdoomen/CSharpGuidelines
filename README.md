@@ -17,8 +17,10 @@ Although some might see coding guidelines as undesired overhead or something tha
 - realizes that not every developer is as capable, skilled or experienced to understand elegant, but potentially very abstract solutions;
 
 ##Where do I get them?##
-Go to the [Releases] page to find the latest HTML, PDF and other related files.
+Go to the [Releases](https://github.com/dennisdoomen/CSharpGuidelines/releases) page to find the latest HTML, PDF and other related files.
 
-##How do I build my own version?##
-The corresponding [license](https://github.com/dennisdoomen/CSharpGuidelines/blob/master/LICENSE.md), based on one of the template licenses provided by Creative Commons, allows you to fork, adapt and distribute that modified version within your organization as long as you refer back to the original version on GitHub. It's not required, but you would make me a very happy man if you credit me as the original author. And if you have any great ideas, recommendations or corrections, either submit an issue, or even better, fork the repository and provide me with a pull request. 
+##Can I create my own version?##
+Absolutely. The corresponding [license](https://github.com/dennisdoomen/CSharpGuidelines/blob/master/LICENSE.md) allows you to fork, adapt and distribute that modified version within your organization as long as you refer back to the original version here. It's not required, but you would make me a very happy man if you credit me as the original author. And if you have any great ideas, recommendations or corrections, either submit an issue, or even better, fork the repository and provide me with a pull request. Just run the following command-line to compile the Markdown versions of the guidelines and cheatsheet to Markdown.
 
+  `build.bat`
+  
