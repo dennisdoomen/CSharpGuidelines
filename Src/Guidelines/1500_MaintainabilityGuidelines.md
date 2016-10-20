@@ -67,7 +67,7 @@ Don't use literal values, either numeric or strings, in your code, other than to
 
 Strings intended for logging or tracing are exempt from this rule. Literals are allowed when their meaning is clear from the context, and not subject to future changes, For example:
 
-	mean = (a + b) / 2;// okay  
+	mean = (a + b) / 2; // okay  
 	WaitMilliseconds(waitTimeInSeconds * 1000); // clear enough
 
 If the value of one constant depends on the value of another, attempt to make this explicit in the code.
@@ -237,7 +237,7 @@ Express your intentions directly. For example, rather than:
 
 write:
 
-	bool pos = (val > 0);// initialization
+	bool pos = (val > 0); // initialization
 
 Or instead of:
 
