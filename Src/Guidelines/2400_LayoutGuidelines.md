@@ -4,7 +4,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 #10. Layout Guidelines
 
-### Use a common layout  (AV2400) ![](images/1.png)
+### <a name="av2400"></a> Use a common layout  (AV2400) ![](images/1.png)
 
 - Keep the length of each line under 130 characters.
 
@@ -50,7 +50,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 - Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
 
-### Order and group namespaces according to the company  (AV2402) ![](images/3.png)
+### <a name="av2402"></a> Order and group namespaces according to the company  (AV2402) ![](images/3.png)
 
 	// Microsoft namespaces are first
 	using System;
@@ -63,7 +63,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 	using Telerik.WebControls;
 	using Telerik.Ajax;
 
-### Place members in a well-defined order  (AV2406) ![](images/1.png)
+### <a name="av2406"></a> Place members in a well-defined order  (AV2406) ![](images/1.png)
 Maintaining a common order allows other team members to find their way in your code more easily. In general, a source file should be readable from top to bottom, as if reading a book, to prevent readers from having to browse up and down through the code file.
 
 1. Private fields and constants (in a region)
@@ -75,7 +75,7 @@ Maintaining a common order allows other team members to find their way in your c
 7. Public Properties
 8. Other methods and private properties in calling order
 
-### Be reluctant with `#regions` (AV2407) ![](images/1.png)
+### <a name="av2407"></a> Be reluctant with `#regions` (AV2407) ![](images/1.png)
 Regions can be helpful, but can also hide the main purpose of a class. Therefore, use `#regions` only for:
 
 - Private fields and constants (preferably in a `Private Definitions` region).
