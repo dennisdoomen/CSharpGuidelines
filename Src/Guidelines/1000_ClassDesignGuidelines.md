@@ -4,7 +4,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 #2. Class Design Guidelines
 
-### <a name="av1000"></a> A class or interface should have a single purpose (AV1000) ![](images/1.png)	{.unnumbered}
+### <a name="av1000"></a> A class or interface should have a single purpose (AV1000) ![](images/1.png)
 
 A class or interface should have a single purpose within the system it functions in. In general, a class either represents a primitive type like an email or ISBN number, an abstraction of some business concept, a plain data structure, or is responsible for orchestrating the interaction between other classes. It is never a combination of those. This rule is widely known as the [Single Responsibility Principle](http://www.objectmentor.com/resources/articles/srp.pdf), one of the S.O.L.I.D. principles.
 
