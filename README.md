@@ -25,3 +25,6 @@ Absolutely. The corresponding [license](https://github.com/dennisdoomen/CSharpGu
   `build.bat`
 ##Are there any other languages available?##
 Yes, [Sergey Russkikh](https://twitter.com/Russkikh_Sergey) maintains a [Russian translation](https://github.com/SergeyRusskih/CSharpGuidelines.Russian) through his fork.
+
+##Is there tooling support?
+A code analyzer that verifies over 40 of these guidelines is available at https://github.com/bkoelman/CSharpGuidelinesAnalyzer. This open source tool can be run during CI builds or while typing code in Visual Studio 2015/2017. An updated Resharper settings file is included.
