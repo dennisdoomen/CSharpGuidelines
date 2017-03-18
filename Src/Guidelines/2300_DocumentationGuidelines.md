@@ -2,7 +2,7 @@
 NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
  --> 
 
-#9. Documentation Guidelines
+# 9. Documentation Guidelines
 
 ### <a name="av2301"></a> Write comments and documentation in US English  (AV2301) ![](images/1.png)
 

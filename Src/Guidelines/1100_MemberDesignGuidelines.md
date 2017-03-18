@@ -2,7 +2,7 @@
 NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
  --> 
 
-#3. Member Design Guidelines
+# 3. Member Design Guidelines
 
 ### <a name="av1100"></a> Allow properties to be set in any order (AV1100) ![](images/1.png)
 
