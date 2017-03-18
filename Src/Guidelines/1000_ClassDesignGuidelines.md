@@ -2,7 +2,7 @@
 NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
  --> 
 
-#2. Class Design Guidelines
+# 2. Class Design Guidelines
 
 ### <a name="av1000"></a> A class or interface should have a single purpose (AV1000) ![](images/1.png)
 

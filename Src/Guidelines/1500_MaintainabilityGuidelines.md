@@ -2,7 +2,7 @@
 NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
  --> 
 
-#5. Maintainability Guidelines
+# 5. Maintainability Guidelines
 
 ### <a name="av1500"></a> Methods should not exceed 7 statements (AV1500) ![](images/1.png)
 A method that requires more than 7 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. Break it down into multiple small and focused methods with self-explaining names, but make sure the high-level algorithm is still clear.

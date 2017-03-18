@@ -2,7 +2,7 @@
 NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
  --> 
 
-#6. Naming Guidelines
+# 6. Naming Guidelines
 
 ### <a name="av1701"></a> Use US-English (AV1701) ![](images/1.png)
 

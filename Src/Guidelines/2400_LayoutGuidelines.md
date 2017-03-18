@@ -2,7 +2,7 @@
 NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra/
  --> 
 
-#10. Layout Guidelines
+# 10. Layout Guidelines
 
 ### <a name="av2400"></a> Use a common layout  (AV2400) ![](images/1.png)
 
