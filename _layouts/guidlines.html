@@ -1,0 +1,28 @@
+<link href="Src/Guidelines/style.css" type="text/css" rel="stylesheet"></link>
+
+<div style="text-align:right">
+    <p><img src="Src/Guidelines/images/logo.png" alt="logo"></p>
+</div>
+<br/>
+<div class="title">
+    {{ page.title }}
+</div>
+<br/>
+<div class="subTitle">
+    {{ page.subtitle }}
+</div>
+<br/>
+<div class="author">
+    {{ page.author }}<br/>
+    {% for release in site.github.releases limit: 1 %}
+    Version {{ release.name }}<br/>
+    {{ release.published_at | date_to_long_string }}<br/>
+    {% endfor %}
+</div>
+
+{{ content }}
+
+<hr>
+<p>
+Hosted on <a href="https://pages.github.com/">GitHub Pages</a>. Built from <a href="{{ site.github.repository_url }}">{{ site.github.build_revision }}</a>
+</p>

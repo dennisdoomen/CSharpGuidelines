@@ -1,0 +1,38 @@
+---
+title: Coding Guidelines
+subtitle: for C# 3.0, 4.0 and 5.0
+author: Dennis Doomen
+layout: guidlines
+---
+
+<!-- I tried looping over a list of the file names, but for reasons I don't understand that caused it to render differently -->
+
+{% capture my_include %}{% include Src/Guidelines/0001_Introduction.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/1000_ClassDesignGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/1100_MemberDesignGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/1200_MiscellaneousDesignGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/1500_MaintainabilityGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/1700_NamingGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/1800_PerformanceGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/2200_FrameworkGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/2400_LayoutGuidelines.md %}{% endcapture %}
+{{ my_include | markdownify }}
+
+{% capture my_include %}{% include Src/Guidelines/9999_ResourcesAndLinks.md %}{% endcapture %}
+{{ my_include | markdownify }}

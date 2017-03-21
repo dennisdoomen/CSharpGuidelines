@@ -1,0 +1,11 @@
+repository: dennisdoomen/CSharpGuidelines
+includes_dir: "."
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Build
+  - Lib
+  - Resources
