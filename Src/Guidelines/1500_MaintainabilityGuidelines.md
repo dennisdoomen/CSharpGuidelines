@@ -315,7 +315,7 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
 
     public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
     {
-        int length = count == -1 ? someText.Length - startIndex : count;
+        int length = (count == -1) ? (someText.Length - startIndex) : count;
         return someText.IndexOf(phrase, startIndex, length);
     }
 
