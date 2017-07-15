@@ -7,7 +7,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 ### <a name="av1500"></a> Methods should not exceed 7 statements (AV1500) ![](images/1.png)
 A method that requires more than 7 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. Break it down into multiple small and focused methods with self-explaining names, but make sure the high-level algorithm is still clear.
 
-### <a name="av1501"></a> Make all members private and types internal by default (AV1501) ![](images/1.png)
+### <a name="av1501"></a> Make all members private and types internal sealed by default (AV1501) ![](images/1.png)
 To make a more conscious decision on which members to make available to other classes, first restrict the scope as much as possible. Then carefully decide what to expose as a public member or type.
 
 ### <a name="av1502"></a> Avoid conditions with double negatives (AV1502) ![](images/2.png)
