@@ -65,7 +65,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 **Maintainability**  
 
 * Methods should not exceed 7 statements (AV1500)  
-* Make all members `private` and types `internal` by default (AV1501)  
+* Make all members `private` and types `internal sealed` by default (AV1501)  
 * Avoid conditions with double negatives (AV1502)  
 * Don’t use "magic numbers" (AV1515)  
 * Only use `var` when the type is very obvious (AV1520)  
