@@ -32,15 +32,14 @@ An event that has no subscribers is `null`, so before invoking, always make sure
 
 	event EventHandler Notify;
 	
-	void RaiseNotifyEvent(NotifyEventArgs args)  
-	{
-		EventHandler handlers = Notify;  
-		if (handlers != null)  
-		{  
-		    handlers(this, args); 
-		
-		}
-	}
+    protected virtual void OnNotify(NotifyEventArgs args)  
+    {
+        EventHandler handlers = Notify;  
+        if (handlers != null)  
+        {  
+            handlers(this, args); 
+        }
+    }
 
 **Tip:** You can prevent the delegate list from being empty altogether. Simply assign an empty delegate like this:
 
