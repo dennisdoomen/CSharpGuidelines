@@ -313,10 +313,11 @@ The class `MyString` provides three overloads for the `IndexOf` method, but two 
 ### <a name="av1553"></a> Only use optional arguments to replace overloads (AV1553) ![](images/1.png)
 The only valid reason for using C# 4.0's optional arguments is to replace the example from rule AV1551 with a single method like:
 
-	public virtual int IndexOf(string phrase, int startIndex = 0, int count = 0)
-	{
-		return someText.IndexOf(phrase, startIndex, count);
-	}
+    public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
+    {
+        int length = (count == -1) ? (someText.Length - startIndex) : count;
+        return someText.IndexOf(phrase, startIndex, length);
+    }
 
 If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1235, you must use overloaded methods instead.
 
