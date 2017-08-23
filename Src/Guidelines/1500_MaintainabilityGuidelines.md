@@ -319,7 +319,7 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
         return someText.IndexOf(phrase, startIndex, length);
     }
 
-If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1235, you must use overloaded methods instead.
+If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1135, you must use overloaded methods instead.
 
 **Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value properly.
 
