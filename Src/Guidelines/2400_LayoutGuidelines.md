@@ -47,7 +47,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 - Start the LINQ statement with all the `from` expressions and don't interweave them with restrictions.
 - Add parentheses around every comparison condition, but don't add parentheses around a singular condition. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
 
-- Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
+- Add an empty line between multi-line statements, between multi-line members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
 
 ### <a name="av2402"></a> Order and group namespaces according to the company  (AV2402) ![](images/3.png)
