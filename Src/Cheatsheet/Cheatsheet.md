@@ -36,6 +36,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 *  Avoid exposing the objects an object depends on (AV1014)  
 *  Avoid bidirectional dependencies (AV1020)  
 *  Classes should have state and behavior (AV1025)  
+*  Classes should protect the consistency of their internal state (AV1026)  
 
 <br/>
 **Member Design**  
