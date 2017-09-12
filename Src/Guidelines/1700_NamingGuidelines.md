@@ -44,7 +44,7 @@ For example, don't use `g_` or `s_` to distinguish static from non-static fields
 ### <a name="av1706"></a> Don't use abbreviations  (AV1706) ![](images/2.png)
 For example, use `OnButtonClick` rather than `OnBtnClick`. Avoid single character variable names, such as `i` or `q`. Use `index` or `query` instead.
 
-**Exceptions:** Use well-known abbreviations that are widely accepted or well-known in your work domain. For instance, use `UI` instead of `UserInterface`.
+**Exceptions:** Use well-known acronyms and abbreviations that are widely accepted or well-known in your work domain. For instance, use acronym `UI` instead of `UserInterface` and abbreviation `Id` instead of `Identity`.
 
 ### <a name="av1707"></a> Name a member, parameter or variable according to its meaning and not its type  (AV1707) ![](images/2.png)
 - Use functional names. For example, `GetLength` is a better name than `GetInt`.
