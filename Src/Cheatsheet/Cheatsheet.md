@@ -60,6 +60,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don’t pass `null` as the sender parameter when raising an event (AV1235)  
 * Use generic constraints if applicable (AV1240)  
 * Evaluate the result of a LINQ expression before returning it (AV1250)  
+* Prefer using a foreach loop over the ForEach method (AV1251)  
 
 <br/>
 **Maintainability**  

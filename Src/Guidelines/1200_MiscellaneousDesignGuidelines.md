@@ -103,3 +103,18 @@ Consider the following code snippet
 	}
 
 Since LINQ queries use deferred execution, returning `query` will actually return the expression tree representing the above query. Each time the caller evaluates this result using a `foreach` cycle or similar, the entire query is re-executed resulting in new instances of `GoldMember` every time. Consequently, you cannot use the `==` operator to compare multiple `GoldMember` instances. Instead, always explicitly evaluate the result of a LINQ query using `ToList()`, `ToArray()` or similar methods.
+
+### <a name="av1251"></a> Prefer using a foreach loop over the ForEach method (AV1251) ![](images/1.png)
+
+The sole purpose of the `ForEach` method is to cause side effects, which violates the functional programming principles that all the other LINQ sequence operators are based upon.
+
+	// Don't
+	customers.ForEach(customer => customer.DisplayName = customer.FirstName + " " + customer.LastName);
+	
+	// Do
+	foreach (var customer in customers)
+	{
+		customer.DisplayName = customer.FirstName + " " + customer.LastName;
+	}
+
+**Exception:** Parellel.ForEach can be used to execute iterations in parallel.
