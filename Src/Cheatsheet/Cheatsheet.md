@@ -30,7 +30,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 *  A class or interface should have a single purpose (AV1000)
 *  An interface should be small and focused (AV1003)  
 *  Use an interface to decouple classes from each other (AV1005)  
-*  Don’t hide inherited members with the `new` keyword (AV1010)  
+*  Don't suppress compiler warnings using the new keyword (AV1010)  
 *  It should be possible to treat a derived object as if it were a base class object (AV1011)  
 *  Don’t refer to derived classes from the base class (AV1013)  
 *  Avoid exposing the objects an object depends on (AV1014)  
