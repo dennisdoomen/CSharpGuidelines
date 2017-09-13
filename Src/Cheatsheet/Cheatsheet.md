@@ -23,6 +23,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Keep It Simple Stupid   
 * You Ain’t Gonne Need It  
 * Don’t Repeat Yourself
+* OOP: Encapsulation, abstraction, inheritance, polymorphism
 </div>
 
 **Class Design**
