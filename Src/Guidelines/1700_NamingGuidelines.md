@@ -52,7 +52,8 @@ For example, use `OnButtonClick` rather than `OnBtnClick`. Avoid single characte
 - Identifiers that refer to a collection type should have plural names.
 
 ### <a name="av1708"></a> Name types using nouns, noun phrases or adjective phrases  (AV1708) ![](images/2.png)
-Bad examples include `SearchExamination` (a page to search for examinations), `Common` (does not end with a noun, and does not explain its purpose) and `SiteSecurity` (although the name is technically okay, it does not say anything about its purpose). Good examples include `BusinessBinder`, `SmartTextBox`, or `EditableSingleCustomer`.
+For example, the name IComponent uses a descriptive noun, ICustomAttributeProvider uses a noun phrase and IPersistable uses an adjective.
+Bad examples include `SearchExamination` (a page to search for examinations), `Common` (does not end with a noun, and does not explain its purpose) and `SiteSecurity` (although the name is technically okay, it does not say anything about its purpose).
 
 Don't include terms like `Utility` or `Helper` in classes. Classes with names like that are usually static classes and are introduced without considering object-oriented principles (see also AV1008).
 
