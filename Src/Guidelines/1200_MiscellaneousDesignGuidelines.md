@@ -28,22 +28,15 @@ When throwing or handling exceptions in code that uses `async`/`await` or a `Tas
 
 ### <a name="av1220"></a> Always check an event handler delegate for `null` (AV1220) ![](images/1.png)
 
-An event that has no subscribers is `null`, so before invoking, always make sure that the delegate list represented by the event variable is not `null`. Furthermore, to prevent conflicting changes from concurrent threads, use a temporary variable to prevent concurrent changes to the delegate.
+An event that has no subscribers is `null`. So before invoking, always make sure that the delegate list represented by the event variable is not `null`.
+Invoke using the null conditional operator, because it additionally prevents conflicting changes to the delegate list from concurrent threads.
 
 	event EventHandler Notify;
 	
-    protected virtual void OnNotify(NotifyEventArgs args)  
-    {
-        EventHandler handlers = Notify;  
-        if (handlers != null)  
-        {  
-            handlers(this, args); 
-        }
-    }
-
-**Tip:** You can prevent the delegate list from being empty altogether. Simply assign an empty delegate like this:
-
-	event EventHandler Notify = delegate {};
+	protected virtual void OnNotify(NotifyEventArgs args)  
+	{
+		Notify?.Invoke(this, args);
+	}
 
 ### <a name="av1225"></a> Use a protected virtual method to raise each event (AV1225) ![](images/2.png)
 Complying with this guideline allows derived classes to handle a base class event by overriding the protected method. The name of the protected virtual method should be the same as the event name prefixed with `On`. For example, the protected virtual method for an event named `TimeChanged` is named `OnTimeChanged`.
