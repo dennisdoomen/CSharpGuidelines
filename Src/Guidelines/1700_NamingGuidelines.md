@@ -128,9 +128,9 @@ Suppose you want to define events related to the deletion of an object. Avoid de
 It is good practice to prefix the method that handles an event with `On`. For example, a method that handles the `Closing` event can be named `OnClosing`.
 
 ### <a name="av1739"></a> Use an underscore for irrelevant lambda parameters (AV1739) ![](images/3.png)
-If you use a lambda statement, for instance, to subscribe to an event, and the actual parameters of the event are irrelevant, use the following convention to make that more explicit:
+If you use a lambda expression (for instance, to subscribe to an event) and the actual arguments of the event are irrelevant, use discards to make that explicit:
 
-	button.Click += (_, __) => HandleClick();
+	button.Click += (_, _) => HandleClick();
 
 ### <a name="av1745"></a> Group extension methods in a class suffixed with Extensions (AV1745) ![](images/3.png)
 If the name of an extension method conflicts with another member or extension method, you must prefix the call with the class name. Having them in a dedicated class with the `Extensions` suffix improves readability.
