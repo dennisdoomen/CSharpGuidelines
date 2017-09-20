@@ -25,10 +25,12 @@ As an example, consider a group of classes organized under the namespace `AvivaS
 **Exception:** If you decide to combine classes from multiple unrelated namespaces into one assembly, consider suffixing the assembly name with `Core`, but do not use that suffix in the namespaces. For instance, `AvivaSolutions.Consulting.Core.dll`.
 
 ### <a name="av1506"></a> Name a source file to the type it contains (AV1506) ![](images/3.png)
-Use Pascal casing to name the file and don't use underscores.
+Use Pascal casing to name the file and don't use underscores. Don't include (the number of) generic type parameters in the file name.
 
 ### <a name="av1507"></a> Limit the contents of a source code file to one type (AV1507) ![](images/3.png)
-**Exception:** Nested types should, for obvious reasons, be part of the same file.
+**Exception:** Nested types should be part of the same file.
+
+**Exception:** Types that only differ by their number of generic type parameters should be part of the same file.
 
 ### <a name="av1508"></a> Name a source file to the logical function of the partial type (AV1508) ![](images/3.png)
 When using partial types and allocating a part per file, name each file after the logical part that part plays. For example:
