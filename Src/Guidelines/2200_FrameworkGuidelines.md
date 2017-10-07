@@ -32,26 +32,26 @@ Rather than:
 
 prefer the use of extension methods from the `System.Linq` namespace:
 
-	var query = items.Where(i => i.Length > 0);
+	var query = items.Where(item => item.Length > 0);
 
-Since LINQ queries should be written out over multiple lines for readability, the second example is a bit more readable.
+Since LINQ queries should be written out over multiple lines for readability, the second example is a bit more compact.
 
-### <a name="av2221"></a> Use Lambda expressions instead of delegates  (AV2221) ![](images/2.png)
+### <a name="av2221"></a> Use Lambda expressions instead of anonymous functions  (AV2221) ![](images/2.png)
 
-Lambda expressions provide a much more elegant alternative for anonymous delegates. So instead of:
+Lambda expressions provide a much more elegant alternative for anonymous functions. So instead of:
 
-	Customer customer = Array.Find(customers, delegate(Customer c)
+	Customer customer = Array.Find(customers, delegate(Customer customer)
 	{
-		return c.Name == "Tom";
+		return customer.Name == "Tom";
 	});
 
 use a Lambda expression:
 
-	Customer customer = Array.Find(customers, c => c.Name == "Tom");
+	Customer customer = Array.Find(customers, customer => customer.Name == "Tom");
 
 Or even better:
 
-	var customer = customers.Where(c => c.Name == "Tom");
+	var customer = customers.Where(customer => customer.Name == "Tom").FirstOrDefault();
 
 ### <a name="av2230"></a> Only use the `dynamic` keyword when talking to a dynamic object  (AV2230) ![](images/1.png)
 The `dynamic` keyword has been introduced for working with dynamic languages. Using it introduces a serious performance bottleneck because the compiler has to generate some complex Reflection code.
@@ -69,10 +69,10 @@ Using the new C# 5.0 keywords results in code that can still be read sequentiall
 
 define it like this:
 
-	public async Task GetDataAsync()
+	public async Task<Data> GetDataAsync()
 	{
-	  var result = await MyWebService.FetchDataAsync();
-	  return new Data (result);
+	  string result = await MyWebService.FetchDataAsync();
+	  return new Data(result);
 	}
 
 **Tip:** Even if you need to target .NET Framework 4.0 you can use the `async` and `await` keywords. Simply install the [Async Targeting Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29576).

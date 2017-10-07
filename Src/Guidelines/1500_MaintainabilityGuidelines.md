@@ -46,13 +46,13 @@ When using partial types and allocating a part per file, name each file after th
 ### <a name="av1510"></a> Use using statements instead of fully qualified type names (AV1510) ![](images/3.png)
 Limit usage of fully qualified type names to prevent name clashing. For example, don't do this:
 
-	var list = new System.Collections.Generic.List();
+	var list = new System.Collections.Generic.List<string>();
 
 Instead, do this:
 
 	using System.Collections.Generic;
 	
-	var list = new List();
+	var list = new List<string>();
 
 If you do need to prevent name clashing, use a `using` directive to assign an alias:
 
@@ -85,15 +85,15 @@ If the value of one constant depends on the value of another, attempt to make th
 ### <a name="av1520"></a> Only use var when the type is very obvious (AV1520) ![](images/1.png)
 Only use `var` as the result of a LINQ query, or if the type is very obvious from the same statement and using it would improve readability. So don't
 
-	var i = 3;									// what type? int? uint? float?
-	var myfoo = MyFactoryMethod.Create("arg");	// Not obvious what base-class or			
-												// interface to expect. Also difficult
-												// to refactor if you can't search for
-												// the class
+	var item = 3;                              // what type? int? uint? float?
+	var myfoo = MyFactoryMethod.Create("arg"); // Not obvious what base-class or			
+	                                           // interface to expect. Also
+	                                           // difficult to refactor if you can't
+	                                           // search for the class
 
 Instead, use `var` like this:
 
-	var q = from order in orders where order.Items > 10 and order.TotalValue > 1000;
+	var query = from order in orders where order.Items > 10 and order.TotalValue > 1000;
 	var repository = new RepositoryFactory.Get();	
 	var list = new ReadOnlyCollection();
 
@@ -136,17 +136,17 @@ Use collection or [dictionary initializers](http://msdn.microsoft.com/en-us/libr
 
 It is usually bad style to compare a `bool`-type expression to `true` or `false`. For example:
 
-	while (condition == false)// wrong; bad style  
-	while (condition != true)// also wrong  
-	while (((condition == true) == true) == true)// where do you stop?  
-	while (condition)// OK
+	while (condition == false) // wrong; bad style  
+	while (condition != true) // also wrong  
+	while (((condition == true) == true) == true) // where do you stop?  
+	while (condition) // OK
 
 ### <a name="av1530"></a> Don't change a loop variable inside a for loop (AV1530) ![](images/2.png)
 Updating the loop variable within the loop body is generally considered confusing, even more so if the loop variable is modified in more than one place.
 
 	for (int index = 0; index < 10; ++index)  
 	{  
-		if (_some condition_)
+		if (someCondition)
 		{
 			index = 11; // Wrong! Use 'break' or 'continue' instead.  
 		}
@@ -155,15 +155,15 @@ Updating the loop variable within the loop body is generally considered confusin
 ### <a name="av1532"></a> Avoid nested loops (AV1532) ![](images/2.png)
 A method that nests loops is more difficult to understand than one with only a single loop. In fact, in most cases nested loops can be replaced with a much simpler LINQ query that uses the `from` keyword twice or more to *join* the data.
 
-### <a name="av1535"></a> Always add a block after keywords such as `if`, `else`, `while`, `for`, `foreach` and `case` (AV1535) ![](images/2.png)
+### <a name="av1535"></a> Always add a block after the keywords `if`, `else`, `do`, `while`, `for`, `foreach` and `case` (AV1535) ![](images/2.png)
 Please note that this also avoids possible confusion in statements of the form:
 
-	if (b1) if (b2) Foo(); else Bar(); // which 'if' goes with the 'else'?
+	if (isActive) if (isVisible) Foo(); else Bar(); // which 'if' goes with the 'else'?
 	
 	// The right way:  
-	if (b1)  
+	if (isActive)  
 	{  
-		if (b2)  
+		if (isVisible)  
 		{  
 			Foo();  
 		}  
@@ -215,7 +215,7 @@ For example:
 		}  
 		else  
 		{  
-			// What should happen when this point is reached? Ignored? If not,   
+			// What should happen when this point is reached? Ignored? If not,
 			// throw an InvalidOperationException.  
 		}  
 	}
@@ -311,7 +311,7 @@ This guideline only applies to overloads that are intended to provide optional a
 	{
 		private string someText;
 		
-	    	public int IndexOf(string phrase)  
+		public int IndexOf(string phrase)  
 		{  
 			return IndexOf(phrase, 0); 
 		}
@@ -329,7 +329,7 @@ This guideline only applies to overloads that are intended to provide optional a
 
 The class `MyString` provides three overloads for the `IndexOf` method, but two of them simply call the one with one more parameter. Notice that the same rule applies to class constructors; implement the most complete overload and call that one from the other overloads using the `this()` operator. Also notice that the parameters with the same name should appear in the same position in all overloads.
 
-**Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a `protected virtual` method that is called by all overloads.
+**Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a non-private `virtual` method that is called by all overloads.
 
 ### <a name="av1553"></a> Only use optional arguments to replace overloads (AV1553) ![](images/1.png)
 The only valid reason for using C# 4.0's optional arguments is to replace the example from rule AV1551 with a single method like:

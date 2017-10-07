@@ -90,7 +90,7 @@ Although technically correct, statements like the following can be confusing:
 
 ### <a name="av1715"></a> Properly name properties  (AV1715) ![](images/2.png)
 - Name properties with nouns, noun phrases, or occasionally adjective phrases. 
-- Name boolean properties with an affirmative phrase. E.g. `CanSeek` instead of `CantSeek`.
+- Name boolean properties with an affirmative phrase. E.g. `CanSeek` instead of `CannotSeek`.
 - Consider prefixing boolean properties with `Is`, `Has`, `Can`, `Allows`, or `Supports`.
 - Consider giving a property the same name as its type. When you have a property that is strongly typed to an enumeration, the name of the property can be the same as the name of the enumeration. For example, if you have an enumeration named `CacheLevel`, a property that returns one of its values can also be named `CacheLevel`.
 

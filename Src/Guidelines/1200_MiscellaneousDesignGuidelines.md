@@ -85,7 +85,7 @@ Consider the following code snippet
 	
 	public IEnumerable GetGoldMemberCustomers()
 	{
-		const decimal GoldMemberThresholdInEuro = 1000000;
+		const decimal GoldMemberThresholdInEuro = 1_000_000;
 		
 		var query = 
 			from customer in db.Customers
