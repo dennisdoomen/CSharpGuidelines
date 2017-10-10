@@ -114,23 +114,29 @@ Instead of:
 	startInfo.StandardOutput = Console.Output;
 	startInfo.UseShellExecute = true;
 
-Use [Object Initializers](http://msdn.microsoft.com/en-us/library/bb384062.aspx):
+	var countries = new List();
+	countries.Add("Netherlands");
+	countries.Add("United States");
+
+	var countryLookupTable = new Dictionary<string, string>();
+	countryLookupTable.Add("NL", "Netherlands");
+	countryLookupTable.Add("US", "United States");
+
+Use [Object and Collection Initializers](http://msdn.microsoft.com/en-us/library/bb384062.aspx):
 
 	var startInfo = new ProcessStartInfo("myapp.exe")  
 	{
 		StandardOutput = Console.Output,
 		UseShellExecute = true  
 	};
-
-Similarly, instead of:
-
-	var countries = new List();
-	countries.Add("Netherlands");
-	countries.Add("United States");
-
-Use collection or [dictionary initializers](http://msdn.microsoft.com/en-us/library/bb531208.aspx):
-
+	
 	var countries = new List { "Netherlands", "United States" };
+	
+	var countryLookupTable = new Dictionary<string, string>
+	{
+		["NL"] = "Netherlands",
+		["US"] = "United States"
+	};
 
 ### <a name="av1525"></a> Don't make explicit comparisons to `true` or `false` (AV1525) ![](images/1.png)
 
