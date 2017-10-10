@@ -78,7 +78,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Avoid nested loops (AV1532)  
 </td>
 <td class="column">
-* Always add a block after keywords such `if`, `else`, `while`, `for`, `foreach` and `case` (AV1535)  
+* Always add a block after the keywords `if`, `else`, `do`, `while`, `for`, `foreach` and `case` (AV1535)  
 * Always add a `default` block after the last `case` in a `switch` statement (AV1536)  
 * Finish every `if`-`else`-`if `statement with an `else`-part (AV1537)  
 * Be reluctant with multiple `return` statements (AV1540)  
@@ -98,7 +98,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 * Use C# type aliases instead of the types from the `System` namespace (AV2201)  
 * Build with the highest warning level (AV2210)  
-* Use Lambda expressions instead of delegates (AV2221)  
+* Use Lambda expressions instead of anonymous functions (AV2221)  
 * Only use the `dynamic` keyword when talking to a dynamic object (AV2230)  
 * Favor `async`/`await` over the `Task` (AV2235)  
 </td>
