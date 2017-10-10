@@ -279,6 +279,21 @@ write:
 
 	return offset ?? -1;
 
+Or instead of:
+
+	if (employee.Manager != null)
+	{
+		return employee.Manager.Name;
+	}
+	else
+	{
+		return null;
+	}
+
+write:
+
+	return employee.Manager?.Name;
+
 ### <a name="av1547"></a> Encapsulate complex expressions in a method or property (AV1547) ![](images/1.png)
 Consider the following example:
 
