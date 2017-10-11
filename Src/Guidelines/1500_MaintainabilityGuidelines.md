@@ -107,6 +107,16 @@ Don't use confusing constructs like the one below:
 
 	var result = someField = GetSomeMethod();
 
+**Exception:** Multiple assignments per statement are allowed by using out variables, is-patterns or deconstruction into tuples. Examples:
+
+	bool success = int.TryParse(text, out int result);
+	
+	if ((items[0] is string text) || (items[1] is Action action))
+	{
+	}
+	
+	(int a, int b) = M();
+
 ### <a name="av1523"></a> Favor Object and Collection Initializers over separate statements (AV1523) ![](images/2.png)
 Instead of:
 
