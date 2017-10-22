@@ -29,10 +29,12 @@ Constant Local variable | Camel | `maximumItems` |
 Read-only static field | Pascal | `RedValue` |
 Local Variable | Camel | `listOfValues` |
 Method | Pascal | `ToString` |
+Local function | Pascal | `FormatText` |
 Namespace | Pascal | `System.Drawing` |
 Parameter | Camel | `typeName` |
 Type Parameter | Pascal | `TView` |
 Property | Pascal | `BackColor` |
+Tuple element | Camel | `firstName` |
 
 ### <a name="av1704"></a> Don't include numbers in variables, parameters and type members  (AV1704) ![](images/3.png)
 In most cases they are a lazy excuse for not defining a clear and intention-revealing name.
