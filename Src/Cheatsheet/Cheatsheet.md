@@ -90,7 +90,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don’t allow methods and constructors with more than three parameters (AV1561)  
 * Don’t use `ref` or `out` parameters (AV1562)  
 * Avoid methods that take a `bool` flag (AV1564)  
-* Always check the result of an `as` operation (AV1570)  
 * Don’t comment-out code (AV1575)  
 
 <br/>
