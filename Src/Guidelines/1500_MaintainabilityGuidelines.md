@@ -388,7 +388,11 @@ C# 4.0's named arguments have been introduced to make it easier to call COM comp
 If you create a method with more than three parameters, use a structure or class to pass multiple arguments, as explained in the [Specification design pattern](http://en.wikipedia.org/wiki/Specification_pattern). In general, the fewer the parameters, the easier it is to understand the method. Additionally, unit testing a method with many parameters requires many scenarios to test.
 
 ### <a name="av1562"></a> Don't use `ref` or `out` parameters (AV1562) ![](images/1.png)
-They make code less understandable and might cause people to introduce bugs. Instead, return compound objects.
+They make code less understandable and might cause people to introduce bugs. Instead, return compound objects or tuples.
+
+**Exception:** Calling and declaring members that implement the [TryParse](https://docs.microsoft.com/en-us/dotnet/api/system.int32.tryparse) pattern is allowed. For example:
+
+	bool success = int.TryParse(text, out int number);
 
 ### <a name="av1564"></a> Avoid methods that take a bool flag (AV1564) ![](images/2.png)
 Consider the following method signature:
