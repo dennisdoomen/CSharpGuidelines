@@ -73,6 +73,8 @@ Maintaining a common order allows other team members to find their way in your c
 7. Public Properties
 8. Other methods and private properties in calling order
 
+Declare local functions at the bottom of their containing method bodies (after all executable code).
+
 ### <a name="av2407"></a> Be reluctant with `#regions` (AV2407) ![](images/1.png)
 Regions can be helpful, but can also hide the main purpose of a class. Therefore, use `#regions` only for:
 
