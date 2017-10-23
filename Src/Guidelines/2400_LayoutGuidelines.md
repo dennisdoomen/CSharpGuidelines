@@ -61,6 +61,8 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 	using Telerik.WebControls;
 	using Telerik.Ajax;
 
+Always place using directives at the top of the file, before any namespace declarations (not inside them).
+
 ### <a name="av2406"></a> Place members in a well-defined order  (AV2406) ![](images/1.png)
 Maintaining a common order allows other team members to find their way in your code more easily. In general, a source file should be readable from top to bottom, as if reading a book, to prevent readers from having to browse up and down through the code file.
 

@@ -21,7 +21,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 * The Principle of Least Surprise   
 * Keep It Simple Stupid   
-* You Ain’t Gonne Need It  
+* You Ain’t Gonna Need It  
 * Don’t Repeat Yourself
 * OOP: Encapsulation, abstraction, inheritance, polymorphism
 </div>
