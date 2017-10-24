@@ -62,6 +62,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don’t pass `null` as the sender parameter when raising an event (AV1235)  
 * Use generic constraints if applicable (AV1240)  
 * Evaluate the result of a LINQ expression before returning it (AV1250)  
+* Do not use `this` and `base` prefixes unless it is required (AV1251)  
 
 <br/>
 **Maintainability**  
