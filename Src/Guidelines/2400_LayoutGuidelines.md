@@ -15,28 +15,38 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 - Add a space around operators like `+`, `-`, `==`, etc.
 
 - Always put opening and closing braces on a new line.
-- Don't indent object Initializers and initialize each property on a new line, so use a format like this: 
-	
-		var dto = new ConsumerDto()
-		{  
-			Id = 123,  
-			Name = "Microsoft",  
-			PartnerShip = PartnerShip.Gold
-		}
 
-- Don't indent lambda statements and use a format like this:
+- Don't indent object/collection initializers and initialize each property on a new line, so use a format like this: 
+
+		var dto = new ConsumerDto
+		{
+			Id = 123,
+			Name = "Microsoft",
+			PartnerShip = PartnerShip.Gold,
+			ShoppingCart =
+			{
+				["VisualStudio"] = 1
+			}
+		};
+
+- Don't indent lambda statement blocks and use a format like this:
 
 		methodThatTakesAnAction.Do(x =>
 		{ 
 			// do something like this 
 		}
 
+- Keep expression-bodied-members on one line. Break long lines after the arrow sign, like this:
+
+		private string GetLongText =>
+			"ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC";
+
 - Put the entire LINQ statement on one line, or start each keyword at the same indentation, like this:
-		
+
 		var query = from product in products where product.Price > 10 select product;
 
   	or
-	
+
 		var query =  
 		    from product in products  
 		    where product.Price > 10  
