@@ -16,7 +16,7 @@ A class or interface should have a single purpose within the system it functions
 
 ### <a name="av1001"></a> Only create a constructor that returns a useful object (AV1001) ![](images/3.png)
 
-There should be no need to set additional properties before the object can be used for whatever purpose it was designed. However, if your constructor needs more than three parameters (which violates AV1561), your class might have too much responsibility (and violates AV1000).
+There should be no need to set additional properties before the object can be used for whatever purpose it was designed. However, if your constructor needs many parameters (which violates AV1561), your class might have too much responsibility (and violates AV1000).
 
 ### <a name="av1003"></a> An interface should be small and focused (AV1003) ![](images/2.png)
 

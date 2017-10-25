@@ -88,7 +88,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Call the most overloaded method from other overloads (AV1551)  
 * Only use optional arguments to replace overloads (AV1553)  
 * Avoid using named arguments (AV1555)  
-* Don’t allow methods and constructors with more than three parameters (AV1561)  
+* Don't allow members with too many values in their signature (AV1561)  
 * Don’t use `ref` or `out` parameters (AV1562)  
 * Avoid methods that take a `bool` flag (AV1564)  
 * Prefer `is` patterns over `as` operations (AV1570)  
