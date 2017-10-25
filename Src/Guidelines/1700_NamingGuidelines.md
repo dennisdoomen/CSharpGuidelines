@@ -97,7 +97,7 @@ Although technically correct, statements like the following can be confusing:
 ### <a name="av1720"></a> Name methods and local functions using verbs or verb-object pairs  (AV1720) ![](images/2.png)
 Name a method or local function using a verb like `Show` or a verb-object pair such as `ShowDialog`. A good name should give a hint on the *what* of a member, and if possible, the *why*.
 
-Also, don't include `And` in the name of a method or local function. That implies that it is doing more than one thing, which violates the single responsibility principle explained in AV1115.
+Also, don't include `And` in the name of a method or local function. That implies that it is doing more than one thing, which violates the Single Responsibility Principle explained in AV1115.
 
 ### <a name="av1725"></a> Name namespaces using names, layers, verbs and features  (AV1725) ![](images/3.png)
 For instance, the following namespaces are good examples of that guideline.
