@@ -168,7 +168,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Name types using nouns, noun phrases or adjective phrases (AV1708)
 * Don’t repeat the name of a class or enumeration in its members (AV1710)
 * Avoid short names or names that can be mistaken with other names (AV1712)
-* Name methods using verb-object pair (AV1720)
+* Name methods and local functions using verbs or verb-object pairs (AV1720)
 * Name namespaces using names, layers, verbs and features (AV1725)
 </td>
 <td class="column">
