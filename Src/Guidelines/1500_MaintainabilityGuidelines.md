@@ -64,7 +64,8 @@ Don't use literal values, either numeric or strings, in your code, other than to
 	public class Whatever  
 	{
 		public static readonly Color PapayaWhip = new Color(0xFFEFD5);
-		public const int MaxNumberOfWheels = 18;  
+		public const int MaxNumberOfWheels = 18;
+		public const byte ReadCreateOverwriteMask = 0b0010_1100;
 	}
 
 Strings intended for logging or tracing are exempt from this rule. Literals are allowed when their meaning is clear from the context, and not subject to future changes, For example:
