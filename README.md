@@ -1,11 +1,11 @@
-Coding Guidelines for C# 3.0, 4.0 and 5.0
+Coding Guidelines for C# 5.0, 6.0 and 7.0
 ================
 
 [![Join the chat at https://gitter.im/dennisdoomen/csharpguidelines](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dennisdoomen/csharpguidelines?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build status](https://ci.appveyor.com/api/projects/status/abdiejvl9jp9h60l?svg=true)](https://ci.appveyor.com/project/dennisdoomen/csharpguidelines)
 
 ## What is this
-This document attempts to provide guidelines (or coding standards if you like) for coding in C# 3.0, 4.0 or 5.0 that are both useful and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](http://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
+This document attempts to provide guidelines (or coding standards if you like) for coding in C# 5.0, 6.0 or 7.0 that are both useful and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](http://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
 
 ## Why would you use this document?
 Although some might see coding guidelines as undesired overhead or something that limits creativity, this approach has already proven its value for many years. This is because not every developer:
