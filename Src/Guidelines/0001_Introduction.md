@@ -26,9 +26,9 @@ There are many unexpected things I run into during my work as a consultant, each
 In general, if I have a discussion with a colleague about a smell that this document does not cover, I'll refer back to a set of basic principles that apply to all situations, regardless of context. These include:
 
 - The Principle of Least Surprise (or Astonishment): you should choose a solution that everyone can understand, and that keeps them on the right track.
-- Keep It Simple Stupid (a.k.a. KISS): the simplest solution is more than sufficient.
-- You Ain't Gonna Need It (a.k.a. YAGNI): create a solution for the problem at hand, not for the ones you think may happen later on. Can you predict the future?
-- Don't Repeat Yourself (a.k.a. DRY): avoid duplication within a component, a source control repository or  a [bounded context](http://martinfowler.com/bliki/BoundedContext.html), without forgetting the [Rule of Three](http://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/) heuristic.
+- Keep It Simple Stupid (KISS): the simplest solution is more than sufficient.
+- You Ain't Gonna Need It (YAGNI): create a solution for the problem at hand, not for the ones you think may happen later on. Can you predict the future?
+- Don't Repeat Yourself (DRY): avoid duplication within a component, a source control repository or  a [bounded context](http://martinfowler.com/bliki/BoundedContext.html), without forgetting the [Rule of Three](http://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/) heuristic.
 - The [four principles of object-oriented programming](https://anampiu.github.io/blog/OOP-principles/): encapsulation, abstraction, inheritance and polymorphism.
 - In general, generated code should not need to comply with coding guidelines. However, if it is possible to modify the templates used for generation, try to make them generate code that complies as much as possible.
 
