@@ -23,7 +23,7 @@ One of the best books I've ever read. It deals with all aspects of software deve
 Another great all-encompassing trip through the many practices preached by processes like Scrum and Extreme Programming. If you're looking for a quick introduction with a pragmatic touch, make sure you read James's book.
 
 * [Applying Domain-Driven Design and Patterns: With Examples in C# and .NET](http://www.amazon.com/Applying-Domain-Driven-Design-Patterns-Examples/dp/0321268202) (Jimmy Nilsson)  
-The book that started my interest for both Domain-Driven Design and Test-Driven Development. It's one of those books that I wished I had read a few years earlier. It would have spared me from many mistakes.
+The book that started my interest for both Domain-Driven Design and Test-Driven Development. It is one of those books that I wished I had read a few years earlier. It would have spared me from many mistakes.
 
 * [Jeremy D. Miller's Blog](http://codebetter.com/blogs/jeremy.miller/)  
 Although he is not that active anymore, in the last couple of years he has written some excellent blog posts on Test-Driven Development, Design Patterns and design principles. I've learned a lot from his real-life and practical insights.
