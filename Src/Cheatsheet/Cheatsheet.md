@@ -5,7 +5,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%">
 <tr>
-<td class="title">Coding Guidelines for C# 3.0, 4.0 and 5.0 Cheat Sheet</td>
+<td class="title">Coding Guidelines for C# 5.0, 6.0 and 7.0 Cheat Sheet</td>
 <td rowspan="2" style="text-align:right">![logo](images/logo.png)</td>
 </tr>
 <tr>
@@ -121,7 +121,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" style="page-break-before: always;">
  <tr>
-  <td class="title">Coding Guidelines for C# 3.0, 4.0 and 5.0 Cheat Sheet</td>
+  <td class="title">Coding Guidelines for C# 5.0, 6.0 and 7.0 Cheat Sheet</td>
   <td markdown="1" rowspan="2" style="text-align:right">![logo](images/logo.png)</td>
  </tr>
  <tr>
