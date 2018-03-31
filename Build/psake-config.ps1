@@ -1,7 +1,7 @@
 ﻿$config.buildFileName="default.ps1"
 $config.framework = "4.5.1x86"
 $config.taskNameFormat="Executing {0}"
-$config.verboseError= $false
+$config.verboseError= $true
 $config.coloredOutput = $true
 $config.modules=(".\modules\*.psm1")
 $config.moduleScope="global"

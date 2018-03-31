@@ -1,0 +1,48 @@
+# main links
+main:
+  - title: "The Continuous Improver"
+    url: https://www.continuousimprover.com
+  - title: "Aviva Solutions"
+    url: https://www.avivasolutions.nl
+
+sidebar:
+  - title: Introduction
+    url: /
+    children:
+      - title: What is this?
+        url: /index/#11-what-is-this
+      - title: Why would you use this document?
+        url: /index/#12-why-would-you-use-this-document
+      - title: Basic Principles
+        url: /index/#13-basic-principles
+      - title: How do you get started?
+        url: /index/#14-how-do-you-get-started
+      - title: Why did we create it?
+        url: /index/#15-why-did-we-create-it
+      - title: Can I create my own version?
+        url: /index/#18-can-i-create-my-own-version
+
+  - title: Guidelines
+    children:
+      - title: Class Design
+        url: /class-design-guidelines/
+      - title: Member Design
+        url: /member-design-guidelines/
+      - title: Miscellaneous
+        url: /misc-design-guidelines/
+      - title: Maintainability Guidelines
+        url: /maintainability-guidelines/
+      - title: Naming Conventions
+        url: /naming-guidelines/
+      - title: Performance Guidelines
+        url: /performance-guidelines/
+      - title: .NET Framework Usage
+        url: /framework-guidelines/
+      - title: Comments and XML Documentation
+        url: /documentation-guidelines/
+      - title: Layout Guidelines
+        url: /layout-guidelines/
+      - title: Resources & Articles
+        url: /resources/
+
+  - title: Related
