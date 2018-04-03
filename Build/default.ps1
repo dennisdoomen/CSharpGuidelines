@@ -30,7 +30,7 @@ task ExtractVersionsFromGit {
 task Compile {
 	$files = @(
 		"$BaseDirectory\_pages\0000_CoverAndStyles.md",
-		"$BaseDirectory\_pages\0001_Introduction.md",
+		"$BaseDirectory\_includes\0001_Introduction.md",
 		"$BaseDirectory\_pages\1000_ClassDesignGuidelines.md",
 		"$BaseDirectory\_pages\1100_MemberDesignGuidelines.md",
 		"$BaseDirectory\_pages\1200_MiscellaneousDesignGuidelines.md",
