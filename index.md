@@ -24,17 +24,3 @@ excerpt: 'for versions 5.0, 6.0 and 7.0
 
 {% capture my_include %}{% include 0001_Introduction.md %}{% endcapture %}
 {{ my_include | markdownify }}
-
-## 1.8 Can I create my own version?
-Absolutely. The corresponding [license](https://github.com/dennisdoomen/CSharpGuidelines/blob/master/LICENSE.md) allows you to fork, adapt and distribute that modified version within your organization as long as you refer back to the original version here. It's not required, but you would make me a very happy man if you credit me as the original author. And if you have any great ideas, recommendations or corrections, either submit an issue, or even better, fork the repository and provide me with a pull request.
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-2541295231849242"
-     data-ad-slot="9721381230"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>  

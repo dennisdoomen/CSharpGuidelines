@@ -45,4 +45,9 @@ sidebar:
       - title: Resources & Articles
         url: /resources/
 
-  - title: Related
+  - title: Community Support
+    children:
+      - title: C# Guidelines Analyzer
+        url: https://github.com/bkoelman/CSharpGuidelinesAnalyzer
+      - title: Russian Translation (by Sergey Russkikh)
+        url: https://github.com/SergeyRusskih/CSharpGuidelines.Russian
