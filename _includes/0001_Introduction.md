@@ -2,8 +2,6 @@
 
 This document attempts to provide guidelines (or coding standards if you like) for coding in C# 5.0, 6.0 or 7.0 that are both useful and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](http://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
 
-Visual Studio's [Static Code Analysis](http://msdn.microsoft.com/en-us/library/dd264939.aspx) (which is also known as FxCop) and [StyleCop](http://stylecop.codeplex.com/) can already automatically enforce a lot of coding and design rules by analyzing the compiled assemblies. You can configure it to do that at compile time or as part of a continuous or daily build. The companion site [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com) provides a list of code analysis rules depending on the type of code base you're dealing with. This document just provides an additional set of rules and recommendations that should help you achieve a more maintainable code base.
-
 ## 1.2. Why would you use this document?
 
 Although some might see coding guidelines as undesired overhead or something that limits creativity, this approach has already proven its value for many years. This is because not every developer:
@@ -32,10 +30,10 @@ Regardless of the elegance of someone's solution, if it's too complex for the or
 ## 1.4. How do you get started?
 
 - Ask all developers to carefully read this document at least once. This will give them a sense of the kind of guidelines the document contains. 
-- Make sure there are always a few hard copies of the [Quick Reference](http://www.csharpcodingguidelines.com/) close at hand. 
-- Include the most critical coding guidelines on your [Project Checklist](http://www.continuousimprover.com/2010/03/alm-practices-5-checklists.html) and verify the remainder as part of your [Peer Review](http://www.dennisdoomen.net/2010/02/tfs-development-practices-part-2-peer.html). 
+- Make sure there are always a few hard copies of the [Cheat Sheet](https://github.com/dennisdoomen/CSharpGuidelines/releases/latest) close at hand. 
+- Include the most critical coding guidelines on your [Project Checklist](https://www.continuousimprover.com/2010/03/alm-practices-5-checklists.html) and verify the remainder as part of your [Peer Review](https://www.continuousimprover.com/2010/02/tfs-development-practices-part-2-peer.html). 
 - Consider forking the [original sources](https://github.com/dennisdoomen/csharpguidelines) on [GitHub](https://github.com/) and create your own [internal](https://github.com/dennisdoomen/csharpguidelines/blob/master/LICENSE.md) version of the document.
-- Decide which CA rules are applicable for your project and store these somewhere, such as your source control system, or create a custom Visual Studio Rule Set. The [companion site](http://www.csharpcodingguidelines.com/) offers rule sets for both line-of-business applications and more generic code bases, like frameworks and class libraries.
+- Decide which CA rules are applicable for your project and store these somewhere, such as your source control system, or create a custom Visual Studio Rule Set. 
 - Add a custom [Code Analysis Dictionary](http://msdn.microsoft.com/en-us/library/bb514188.aspx) containing your domain or company-specific terms, names and concepts. If you don't, Static Analysis will report warnings for (parts of) phrases that are not in its internal dictionary. 
 - Configure Visual Studio to verify the selected CA rules as part of the Release build. Then they won't interfere with normal developing and debugging activities, but still can be run by switching to the Release configuration. 
 - Add an item to your project checklist to make sure all new code is verified against CA violations, or use something like [Check-in Policy](http://msdn.microsoft.com/en-us/library/ms182075(v=vs.110).aspx) or a [Git commit hook](http://git-scm.com/book/en/Customizing-Git-Git-Hooks) to prevent any code from violating CA rules at all. 
