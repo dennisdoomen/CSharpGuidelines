@@ -60,7 +60,7 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true # true, false (default)
 search_full_content      : true
-search_provider          : "lunr"
+
 algolia:
   application_id         : # YOUR_APPLICATION_ID
   index_name             : # YOUR_INDEX_NAME
@@ -75,7 +75,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : ddoomen
 facebook:
   username               :
   app_id                 :
@@ -130,9 +130,10 @@ author:
 
 
 # Reading Files
-includes:
+include:
   - .htaccess
   - _pages
+  - _posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -259,11 +260,13 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: false
       comments: false
       share: true
       related: false
+      sidebar:
+        nav: "sidebar"
   # _pages
   - scope:
       path: ""
