@@ -4,6 +4,7 @@ title: Introduction
 layout: single
 classes: wide
 read_time: false
+path: "_includes/0001_Introduction.md"
 sidebar:
   nav: "sidebar"
 header:
