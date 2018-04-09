@@ -64,7 +64,7 @@ task Compile {
 		$content = ($content -replace "---(.|\n)+---\n*", "")
 
 		if ($title) {
-			$content = "<h1>$title</h1>\r\n" + $content;
+			$content = "<h1>$title</h1>" + $content;
 		}
 
 		Add-Content -Path $outfile $content
