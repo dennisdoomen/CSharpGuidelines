@@ -10,17 +10,17 @@ sidebar:
     url: /
     children:
       - title: What is this?
-        url: /index/#11-what-is-this
+        url: /#11-what-is-this
       - title: Why would you use this document?
-        url: /index/#12-why-would-you-use-this-document
+        url: /#12-why-would-you-use-this-document
       - title: Basic Principles
-        url: /index/#13-basic-principles
+        url: /#13-basic-principles
       - title: How do you get started?
-        url: /index/#14-how-do-you-get-started
+        url: /#14-how-do-you-get-started
       - title: Why did we create it?
-        url: /index/#15-why-did-we-create-it
+        url: /#15-why-did-we-create-it
       - title: Can I create my own version?
-        url: /index/#18-can-i-create-my-own-version
+        url: /#18-can-i-create-my-own-version
 
   - title: Guidelines
     children:
