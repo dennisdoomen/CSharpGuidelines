@@ -24,23 +24,23 @@ sidebar:
 
   - title: Guidelines
     children:
-      - title: Class Design
+      - title: Class Design (AV1000)
         url: /class-design-guidelines/
-      - title: Member Design
+      - title: Member Design (AV1100)
         url: /member-design-guidelines/
-      - title: Miscellaneous
+      - title: Miscellaneous (AV1200)
         url: /misc-design-guidelines/
-      - title: Maintainability Guidelines
+      - title: Maintainability Guidelines (AV1500)
         url: /maintainability-guidelines/
-      - title: Naming Conventions
+      - title: Naming Conventions (AV1700)
         url: /naming-guidelines/
-      - title: Performance Guidelines
+      - title: Performance Guidelines (AV1800)
         url: /performance-guidelines/
-      - title: .NET Framework Usage
+      - title: .NET Framework Usage (AV2200)
         url: /framework-guidelines/
-      - title: Comments and XML Documentation
+      - title: Comments and XML Documentation (AV2300)
         url: /documentation-guidelines/
-      - title: Layout Guidelines
+      - title: Layout Guidelines (AV2400)
         url: /layout-guidelines/
       - title: Resources & Articles
         url: /resources/
