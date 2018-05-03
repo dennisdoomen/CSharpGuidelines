@@ -1,4 +1,4 @@
-Coding Guidelines for C# 5.0, 6.0 and 7.0
+Coding Guidelines for C# 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1 and 7.2
 ================
 
 See the landing page at http://www.csharpcodingguidelines.com
