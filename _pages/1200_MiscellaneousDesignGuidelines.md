@@ -33,9 +33,9 @@ When throwing or handling exceptions in code that uses `async`/`await` or a `Tas
 An event that has no subscribers is `null`. So before invoking, always make sure that the delegate list represented by the event variable is not `null`.
 Invoke using the null conditional operator, because it additionally prevents conflicting changes to the delegate list from concurrent threads.
 
-	event EventHandler Notify;
-	
-	protected virtual void OnNotify(NotifyEventArgs args)  
+	event EventHandler<NotifyEventArgs> Notify;
+
+	protected virtual void OnNotify(NotifyEventArgs args)
 	{
 		Notify?.Invoke(this, args);
 	}
@@ -84,7 +84,7 @@ Instead of casting to and from the object type in generic types or methods, use 
 ### <a name="av1250"></a> Evaluate the result of a LINQ expression before returning it  (AV1250) ![](/assets/images/1.png)
 
 Consider the following code snippet
-	
+
 	public IEnumerable GetGoldMemberCustomers()
 	{
 		const decimal GoldMemberThresholdInEuro = 1_000_000;
