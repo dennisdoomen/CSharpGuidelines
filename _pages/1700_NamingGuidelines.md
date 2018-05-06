@@ -19,25 +19,26 @@ All type members, parameters and variables should be named using words from the 
 ### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) 
 Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example
 --------------------|----------|:-----------
-Class, Struct|Pascal|`AppDomain`
+Namespace | Pascal | `System.Drawing` |
+Type parameter | Pascal | `TView` |
 Interface | Pascal | `IBusinessService`
-Enumeration type | Pascal | `ErrorLevel` |
-Enumeration values | Pascal | `FatalError` |
-Event | Pascal | `Click` |
-Private field | Camel | `listItem` |
-Protected field | Pascal | `MainPanel` |
+Class, struct | Pascal | `AppDomain`
+Enum | Pascal | `ErrorLevel` |
+Enum member | Pascal | `FatalError` |
+Resource key | Pascal | `SaveButtonTooltipText` |
 Constant field | Pascal | `MaximumItems` |
-Constant Local variable | Camel | `maximumItems` |
-Read-only static field | Pascal | `RedValue` |
-Local Variable | Camel | `listOfValues` |
+Private static readonly field | Pascal | `RedValue` |
+Private field | Camel | `listItem` |
+Non-private field | Pascal | `MainPanel` |
+Property | Pascal | `BackColor` |
+Event | Pascal | `Click` |
 Method | Pascal | `ToString` |
 Local function | Pascal | `FormatText` |
-Namespace | Pascal | `System.Drawing` |
 Parameter | Camel | `typeName` |
-Type Parameter | Pascal | `TView` |
-Property | Pascal | `BackColor` |
 Tuple element | Camel | `firstName` |
-Resource key | Pascal | `SaveButtonTooltipText` |
+Local variable | Camel | `listOfValues` |
+
+**Note:** in case of ambiguity, the rule higher in the table wins.
 
 ### <a name="av1704"></a> Don't include numbers in variables, parameters and type members  (AV1704) ![](/assets/images/3.png)
 In most cases they are a lazy excuse for not defining a clear and intention-revealing name.
