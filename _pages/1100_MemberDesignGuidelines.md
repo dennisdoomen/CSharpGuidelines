@@ -41,7 +41,7 @@ You generally don't want callers to be able to change an internal collection, so
 
 **Note:** If you're using .NET 4.5, you can also use `IReadOnlyCollection<T>`, `IReadOnlyList<T>` or `IReadOnlyDictionary<TKey, TValue>`.
 
-### <a name="av1135"></a> Properties, methods and arguments representing strings or collections should never be `null` (AV1135) ![](/assets/images/1.png)
+### <a name="av1135"></a> Properties, arguments and return values representing strings or collections should never be `null` (AV1135) ![](/assets/images/1.png)
 
 Returning `null` can be unexpected by the caller. Always return an empty collection or an empty string instead of a `null` reference. This also prevents cluttering your code base with additional checks for `null`, or even worse, `string.IsNullOrEmpty()`.
 
