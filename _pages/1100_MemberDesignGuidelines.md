@@ -25,9 +25,9 @@ Having properties that cannot be used at the same time typically signals a type 
 
 This violation is often seen in domain models and introduces all kinds of conditional logic related to those conflicting rules, causing a ripple effect that significantly increases the maintenance burden.
 
-### <a name="av1115"></a> A method or property should do only one thing (AV1115) ![](/assets/images/1.png)
+### <a name="av1115"></a> A property, method or local function should do only one thing (AV1115) ![](/assets/images/1.png)
 
-Similarly to rule AV1000, a method should have a single responsibility.
+Similarly to rule AV1000, a method body should have a single responsibility.
 
 ### <a name="av1125"></a> Don't expose stateful objects through static members (AV1125) ![](/assets/images/2.png)
 
