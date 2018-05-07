@@ -98,6 +98,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 **Framework Guidelines**  
 
 * Use C# type aliases instead of the types from the `System` namespace (AV2201)  
+* Prefer language syntax over explicit calls to underlying implementations (AV2202)
 * Build with the highest warning level (AV2210)  
 * Use Lambda expressions instead of anonymous functions (AV2221)  
 * Only use the `dynamic` keyword when talking to a dynamic object (AV2230)  
