@@ -44,7 +44,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 * Allow properties to be set in any order (AV1100)  
 * Don’t use mutual exclusive properties (AV1110)  
-* A method or property should do only one thing (AV1115)  
+* A property, method or local function should do only one thing (AV1115)  
 * Don’t expose stateful objects through static members (AV1125)   
 * Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class (AV1130)   
 * Properties, methods and arguments representing strings or collections should never be `null` (AV1135)  
