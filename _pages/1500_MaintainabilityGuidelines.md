@@ -313,7 +313,7 @@ write:
 
 	return employee.Manager?.Name;
 
-### <a name="av1547"></a> Encapsulate complex expressions in a method or property (AV1547) ![](/assets/images/1.png)
+### <a name="av1547"></a> Encapsulate complex expressions in a property, method or local function (AV1547) ![](/assets/images/1.png)
 Consider the following example:
 
 	if (member.HidesBaseClassMember && (member.NodeType != NodeType.InstanceInitializer))
