@@ -96,3 +96,9 @@ Regions can be helpful, but can also hide the main purpose of a class. Therefore
 - Private fields and constants (preferably in a `Private Definitions` region).
 - Nested classes
 - Interface implementations (only if the interface is not the main purpose of that class)
+
+### <a name="av2410"></a> Use expression-bodied members appropriately (AV2410) ![](/assets/images/1.png)
+Favor expression-bodied member syntax over regular member syntax only when:
+
+- the body consists of a single statement and
+- the body fits on a single line.
