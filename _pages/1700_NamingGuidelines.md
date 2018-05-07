@@ -17,26 +17,30 @@ All type members, parameters and variables should be named using words from the 
 **Exception:** In most projects, you will use words and phrases from your domain and names specific to your company. Visual Studio's Static Code Analysis performs a spelling check on all code, so you may need to add those terms to a [Custom Code Analysis Dictionary](http://blogs.msdn.com/fxcop/archive/2007/08/20/new-for-visual-studio-2008-custom-dictionaries.aspx).
 
 ### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) 
-Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example
---------------------|----------|:-----------
-Namespace | Pascal | `System.Drawing` |
-Type parameter | Pascal | `TView` |
-Interface | Pascal | `IBusinessService`
-Class, struct | Pascal | `AppDomain`
-Enum | Pascal | `ErrorLevel` |
-Enum member | Pascal | `FatalError` |
-Resource key | Pascal | `SaveButtonTooltipText` |
-Constant field | Pascal | `MaximumItems` |
-Private static readonly field | Pascal | `RedValue` |
-Private field | Camel | `listItem` |
-Non-private field | Pascal | `MainPanel` |
-Property | Pascal | `BackColor` |
-Event | Pascal | `Click` |
-Method | Pascal | `ToString` |
-Local function | Pascal | `FormatText` |
-Parameter | Camel | `typeName` |
-Tuple element | Camel | `firstName` |
-Local variable | Camel | `listOfValues` |
+| Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example
+|--------------------|----------|:-----------
+| Namespace | Pascal | `System.Drawing` |
+| Type parameter | Pascal | `TView` |
+| Interface | Pascal | `IBusinessService`
+| Class, struct | Pascal | `AppDomain`
+| Enum | Pascal | `ErrorLevel` |
+| Enum member | Pascal | `FatalError` |
+| Resource key | Pascal | `SaveButtonTooltipText` |
+| Constant field | Pascal | `MaximumItems` |
+| Private static readonly field | Pascal | `RedValue` |
+| Private field | Camel | `listItem` |
+| Non-private field | Pascal | `MainPanel` |
+| Property | Pascal | `BackColor` |
+| Event | Pascal | `Click` |
+| Method | Pascal | `ToString` |
+| Local function | Pascal | `FormatText` |
+| Parameter | Camel | `typeName` |
+| Tuple element names | Pascal | `(string First, string Last) name = ("John", "Doe");` |
+| | | `var name = (First: "John", Last: "Doe");` |
+| | | `(string First, string Last) GetName() => ("John", "Doe");` |
+| Variables declared using tuple syntax | Camel | `(string first, string last) = ("John", "Doe");` |
+| | | `var (first, last) = ("John", "Doe");` |
+| Local variable | Camel | `listOfValues` |
 
 **Note:** in case of ambiguity, the rule higher in the table wins.
 
