@@ -8,7 +8,7 @@ sidebar:
 
 ### <a name="av1701"></a> Use US-English (AV1701) ![](/assets/images/1.png)
 
-All type members, parameters and variables should be named using words from the American English language.
+All identifiers (such as types, type members, parameters and variables) should be named using words from the American English language.
 
 - Choose easily readable, preferably grammatically correct names. For example, `HorizontalAlignment` is more readable than `AlignmentHorizontal`.
 - Favor readability over brevity. The property name `CanScrollHorizontally` is better than `ScrollableX` (an obscure reference to the X-axis).
