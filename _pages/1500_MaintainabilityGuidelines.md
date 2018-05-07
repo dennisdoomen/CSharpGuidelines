@@ -397,7 +397,7 @@ They make code less understandable and might cause people to introduce bugs. Ins
 
 	bool success = int.TryParse(text, out int number);
 
-### <a name="av1564"></a> Avoid methods that take a bool flag (AV1564) ![](/assets/images/2.png)
+### <a name="av1564"></a> Avoid signatures that take a `bool` flag (AV1564) ![](/assets/images/2.png)
 Consider the following method signature:
 
 	public Customer CreateCustomer(bool platinumLevel) {}
