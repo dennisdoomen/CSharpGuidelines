@@ -6,7 +6,7 @@ sidebar:
   nav: "sidebar"
 ---
 
-### <a name="av1701"></a> Use US-English (AV1701) ![](/assets/images/1.png)
+### <a name="av1701"></a> Use US English (AV1701) ![](/assets/images/1.png)
 
 All identifiers (such as types, type members, parameters and variables) should be named using words from the American English language.
 
@@ -77,8 +77,8 @@ Don't include terms like `Utility` or `Helper` in classes. Classes with names li
 	class Employee
 	{
 		// Wrong!
-		static GetEmployee() {}
-		DeleteEmployee() {}
+		static GetEmployee() {...}
+		DeleteEmployee() {...}
 		
 		// Right
 		static Get() {...}
@@ -135,10 +135,10 @@ Suppose you want to define events related to the deletion of an object. Avoid de
 - `Delete`: Occurs when the object needs to be deleted by the event handler.
 - `Deleted`: Occurs when the object is already deleted.
 
-### <a name="av1738"></a> Prefix an event handler with `On` (AV1738) ![](/assets/images/3.png)
-It is good practice to prefix the method that handles an event with `On`. For example, a method that handles the `Closing` event can be named `OnClosing`.
+### <a name="av1738"></a> Prefix an event handler with "On" (AV1738) ![](/assets/images/3.png)
+It is good practice to prefix the method that handles an event with "On". For example, a method that handles the `Closing` event can be named `OnClosing`.
 
-### <a name="av1739"></a> Use an underscore for irrelevant lambda parameters (AV1739) ![](/assets/images/3.png)
+### <a name="av1739"></a> Use an underscore for irrelevant parameters (AV1739) ![](/assets/images/3.png)
 If you use a lambda expression (for instance, to subscribe to an event) and the actual arguments of the event are irrelevant, use discards to make that explicit:
 
 	button.Click += (_, _) => HandleClick();

@@ -90,8 +90,8 @@ Maintaining a common order allows other team members to find their way in your c
 
 Declare local functions at the bottom of their containing method bodies (after all executable code).
 
-### <a name="av2407"></a> Be reluctant with `#regions` (AV2407) ![](/assets/images/1.png)
-Regions can be helpful, but can also hide the main purpose of a class. Therefore, use `#regions` only for:
+### <a name="av2407"></a> Be reluctant with `#region` (AV2407) ![](/assets/images/1.png)
+Regions can be helpful, but can also hide the main purpose of a class. Therefore, use `#region` only for:
 
 - Private fields and constants (preferably in a `Private Definitions` region).
 - Nested classes

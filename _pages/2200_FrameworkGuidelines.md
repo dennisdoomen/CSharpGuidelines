@@ -74,7 +74,7 @@ prefer the use of extension methods from the `System.Linq` namespace:
 
 Since LINQ queries should be written out over multiple lines for readability, the second example is a bit more compact.
 
-### <a name="av2221"></a> Use Lambda expressions instead of anonymous functions  (AV2221) ![](/assets/images/2.png)
+### <a name="av2221"></a> Use lambda expressions instead of anonymous functions  (AV2221) ![](/assets/images/2.png)
 
 Lambda expressions provide a much more elegant alternative for anonymous functions. So instead of:
 
@@ -83,7 +83,7 @@ Lambda expressions provide a much more elegant alternative for anonymous functio
 		return customer.Name == "Tom";
 	});
 
-use a Lambda expression:
+use a lambda expression:
 
 	Customer customer = Array.Find(customers, customer => customer.Name == "Tom");
 
@@ -96,7 +96,7 @@ The `dynamic` keyword has been introduced for working with dynamic languages. Us
 
 Use it only for calling methods or members of a dynamically created instance class (using the `Activator`) as an alternative to `Type.GetProperty()` and `Type.GetMethod()`, or for working with COM Interop types.
 
-### <a name="av2235"></a> Favor `async`/`await` over the Task (AV2235) ![](/assets/images/1.png)
+### <a name="av2235"></a> Favor `async`/`await` over `Task` continuations (AV2235) ![](/assets/images/1.png)
 Using the new C# 5.0 keywords results in code that can still be read sequentially and also improves maintainability a lot, even if you need to chain multiple asynchronous operations. For example, rather than defining your method like this:
 
 	public Task GetDataAsync()

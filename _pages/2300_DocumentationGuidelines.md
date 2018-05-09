@@ -8,7 +8,7 @@ sidebar:
 
 ### <a name="av2301"></a> Write comments and documentation in US English  (AV2301) ![](/assets/images/1.png)
 
-### <a name="av2305"></a> Document all public, protected and internal types and members  (AV2305) ![](/assets/images/2.png)
+### <a name="av2305"></a> Document all `public`, `protected` and `internal` types and members  (AV2305) ![](/assets/images/2.png)
 Documenting your code allows Visual Studio to pop-up the documentation when your class is used somewhere else. Furthermore, by properly documenting your classes, tools can generate professionally looking class documentation.
 
 ### <a name="av2306"></a> Write XML documentation with other developers in mind  (AV2306) ![](/assets/images/2.png)

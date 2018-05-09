@@ -44,7 +44,7 @@ With the exception of extension method containers, static classes very often lea
 
 **Note:** If you really need that static class, mark it as static so that the compiler can prevent instance members and instantiating your class. This relieves you of creating an explicit private constructor.
 
-### <a name="av1010"></a> Don't suppress compiler warnings using the new keyword (AV1010) ![](/assets/images/1.png)
+### <a name="av1010"></a> Don't suppress compiler warnings using the `new` keyword (AV1010) ![](/assets/images/1.png)
 
 Compiler warning [CS0114](https://docs.microsoft.com/en-us/dotnet/csharp/misc/cs0114) is issued when breaking [Polymorphism](http://en.wikipedia.org/wiki/Polymorphism_in_object-oriented_programming), one of the most essential object-orientation principles.
 The warning goes away when you add the `new` keyword, but it keeps sub-classes difficult to understand. Consider the following two classes:

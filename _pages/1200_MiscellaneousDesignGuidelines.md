@@ -20,7 +20,7 @@ For example, if a method receives a `null` argument, it should throw `ArgumentNu
 
 ### <a name="av1210"></a> Don't swallow errors by catching generic exceptions  (AV1210) ![](/assets/images/1.png)
 
-Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only top-level code, such as a last-chance exception handler, should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
+Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only top-level code, such as a last-chance exception handler, you should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
 
 ### <a name="av1215"></a> Properly handle exceptions in asynchronous code (AV1215) ![](/assets/images/2.png)
 When throwing or handling exceptions in code that uses `async`/`await` or a `Task` remember the following two rules:

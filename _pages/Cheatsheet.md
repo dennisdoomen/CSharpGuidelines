@@ -31,7 +31,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 *  A class or interface should have a single purpose (AV1000)
 *  An interface should be small and focused (AV1003)  
 *  Use an interface to decouple classes from each other (AV1005)  
-*  Don't suppress compiler warnings using the new keyword (AV1010)  
+*  Don't suppress compiler warnings using the `new` keyword (AV1010)  
 *  It should be possible to treat a derived object as if it were a base class object (AV1011)  
 *  Don’t refer to derived classes from the base class (AV1013)  
 *  Avoid exposing the objects an object depends on (AV1014)  
@@ -43,7 +43,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 **Member Design**  
 
 * Allow properties to be set in any order (AV1100)  
-* Don’t use mutual exclusive properties (AV1110)  
+* Don’t use mutually exclusive properties (AV1110)  
 * A property, method or local function should do only one thing (AV1115)  
 * Don’t expose stateful objects through static members (AV1125)   
 * Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class (AV1130)   
@@ -73,7 +73,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don’t use "magic numbers" (AV1515)  
 * Only use `var` when the type is very obvious (AV1520)  
 * Declare and initialize variables as late as possible (AV1521)  
-* Favor Object and Collection Initializers over separate statements (AV1523)  
+* Favor object and collection initializers over separate statements (AV1523)  
 * Don’t make explicit comparisons to `true` or `false` (AV1525)  
 * Don’t change a loop variable inside a `for` or `foreach` loop (AV1530)  
 * Avoid nested loops (AV1532)  
@@ -88,7 +88,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Call the most overloaded method from other overloads (AV1551)  
 * Only use optional arguments to replace overloads (AV1553)  
 * Avoid using named arguments (AV1555)  
-* Don't declare signatures with more than three parameters (AV1561)
+* Don't declare signatures with more than 3 parameters (AV1561)
 * Don’t use `ref` or `out` parameters (AV1562)  
 * Avoid signatures that take a `bool` flag (AV1564)  
 * Prefer `is` patterns over `as` operations (AV1570)  
@@ -100,7 +100,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Use C# type aliases instead of the types from the `System` namespace (AV2201)  
 * Prefer language syntax over explicit calls to underlying implementations (AV2202)
 * Build with the highest warning level (AV2210)  
-* Use Lambda expressions instead of anonymous functions (AV2221)  
+* Use lambda expressions instead of anonymous functions (AV2221)  
 * Only use the `dynamic` keyword when talking to a dynamic object (AV2230)  
 * Favor `async`/`await` over the `Task` (AV2235)  
 </td>
@@ -174,13 +174,13 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 </td>
 <td class="column">
 
-* Use an underscore for irrelevant lambda parameters (AV1739)
+* Use an underscore for irrelevant parameters (AV1739)
 
 
 **Documentation**  
 
 * Write comments and documentation in US English (AV2301)
-* Document all public, protected and internal types and members (AV2305)
+* Document all `public`, `protected` and `internal` types and members (AV2305)
 * Avoid inline comments (AV2310)
 * Only write comments to explain complex algorithms or decisions (AV2316)
 * Don’t use comments for tracking work to be done later (AV2318)

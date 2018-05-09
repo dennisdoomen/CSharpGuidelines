@@ -17,7 +17,7 @@ The usage of `async` won't automagically run something on a worker thread like `
 ### <a name="av1825"></a> Prefer `Task.Run` for CPU-intensive activities (AV1825) ![](/assets/images/1.png)
 If you do need to execute a CPU bound operation, use `Task.Run` to offload the work to a thread from the Thread Pool. Remember that you have to marshal the result back to your main thread manually.
 
-### <a name="av1830"></a> Beware of mixing up `await`/`async` with `Task.Wait` (AV1830) ![](/assets/images/1.png)
+### <a name="av1830"></a> Beware of mixing up `async`/`await` with `Task.Wait` (AV1830) ![](/assets/images/1.png)
 `await` does not block the current thread but simply instructs the compiler to generate a state-machine. However, `Task.Wait` blocks the thread and may even cause deadlocks (see AV1835).
 
 ### <a name="av1835"></a> Beware of `async`/`await` deadlocks in single-threaded environments (AV1835) ![](/assets/images/1.png)

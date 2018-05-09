@@ -9,7 +9,7 @@ sidebar:
 ### <a name="av1500"></a> Methods should not exceed 7 statements (AV1500) ![](/assets/images/1.png)
 A method that requires more than 7 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. Break it down into multiple small and focused methods with self-explaining names, but make sure the high-level algorithm is still clear.
 
-### <a name="av1501"></a> Make all members private and types internal sealed by default (AV1501) ![](/assets/images/1.png)
+### <a name="av1501"></a> Make all members `private` and types `internal sealed` by default (AV1501) ![](/assets/images/1.png)
 To make a more conscious decision on which members to make available to other classes, first restrict the scope as much as possible. Then carefully decide what to expose as a public member or type.
 
 ### <a name="av1502"></a> Avoid conditions with double negatives (AV1502) ![](/assets/images/2.png)
@@ -45,7 +45,7 @@ When using partial types and allocating a part per file, name each file after th
 	public partial class MyClass
 	{...}
 
-### <a name="av1510"></a> Use using statements instead of fully qualified type names (AV1510) ![](/assets/images/3.png)
+### <a name="av1510"></a> Use `using` statements instead of fully qualified type names (AV1510) ![](/assets/images/3.png)
 Limit usage of fully qualified type names to prevent name clashing. For example, don't do this:
 
 	var list = new System.Collections.Generic.List<string>();
@@ -85,7 +85,7 @@ If the value of one constant depends on the value of another, attempt to make th
 
 **Note:** An enumeration can often be used for certain types of symbolic constants.
 
-### <a name="av1520"></a> Only use var when the type is very obvious (AV1520) ![](/assets/images/1.png)
+### <a name="av1520"></a> Only use `var` when the type is very obvious (AV1520) ![](/assets/images/1.png)
 Only use `var` as the result of a LINQ query, or if the type is very obvious from the same statement and using it would improve readability. So don't
 
 	var item = 3;                              // what type? int? uint? float?
@@ -120,7 +120,7 @@ Don't use confusing constructs like the one below:
 	
 	(int a, int b) = M();
 
-### <a name="av1523"></a> Favor Object and Collection Initializers over separate statements (AV1523) ![](/assets/images/2.png)
+### <a name="av1523"></a> Favor object and collection initializers over separate statements (AV1523) ![](/assets/images/2.png)
 Instead of:
 
 	var startInfo = new ProcessStartInfo("myapp.exe");	
@@ -160,7 +160,7 @@ It is usually bad style to compare a `bool`-type expression to `true` or `false`
 	while (((condition == true) == true) == true) // where do you stop?  
 	while (condition) // OK
 
-### <a name="av1530"></a> Don't change a loop variable inside a for loop (AV1530) ![](/assets/images/2.png)
+### <a name="av1530"></a> Don't change a loop variable inside a `for` loop (AV1530) ![](/assets/images/2.png)
 Updating the loop variable within the loop body is generally considered confusing, even more so if the loop variable is modified in more than one place.
 
 	for (int index = 0; index < 10; ++index)  
@@ -219,7 +219,7 @@ Add a descriptive comment if the `default` block is supposed to be empty. Moreov
 		}  
 	}
 
-### <a name="av1537"></a> Finish every if-else-if statement with an else-part (AV1537) ![](/assets/images/2.png)
+### <a name="av1537"></a> Finish every `if`-`else`-`if` statement with an `else` clause (AV1537) ![](/assets/images/2.png)
 For example:
 
 	void Foo(string answer)  
@@ -239,10 +239,10 @@ For example:
 		}  
 	}
 
-### <a name="av1540"></a> Be reluctant with multiple return statements (AV1540) ![](/assets/images/2.png)
+### <a name="av1540"></a> Be reluctant with multiple `return` statements (AV1540) ![](/assets/images/2.png)
 One entry, one exit is a sound principle and keeps control flow readable. However, if the method body is very small and complies with guideline AV1500 then multiple return statements may actually improve readability over some central boolean flag that is updated at various points.
 
-### <a name="av1545"></a> Don't use if-else statements instead of a simple (conditional) assignment (AV1545) ![](/assets/images/2.png)
+### <a name="av1545"></a> Don't use an `if`-`else` construct instead of a simple (conditional) assignment (AV1545) ![](/assets/images/2.png)
 Express your intentions directly. For example, rather than:
 
 	bool isPositive;
@@ -387,7 +387,7 @@ C# 4.0's named arguments have been introduced to make it easier to call COM comp
 
 	object[] myAttributes = type.GetCustomAttributes(typeof(MyAttribute), inherit: false);
 
-### <a name="av1561"></a> Don't declare signatures with more than three parameters (AV1561) ![](/assets/images/1.png)
+### <a name="av1561"></a> Don't declare signatures with more than 3 parameters (AV1561) ![](/assets/images/1.png)
 To keep constructors, methods, delegates and local functions small and focused, do not use more than three parameters. Do not use tuple parameters. Do not return tuples with more than two elements.
 
 If you want to use more parameters, use a structure or class to pass multiple arguments, as explained in the [Specification design pattern](http://en.wikipedia.org/wiki/Specification_pattern). 
