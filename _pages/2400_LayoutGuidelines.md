@@ -16,7 +16,7 @@ sidebar:
 
 - Add a space around operators like `+`, `-`, `==`, etc.
 
-- Always put opening and closing braces on a new line.
+- Always put opening and closing curly braces on a new line.
 
 - Don't indent object/collection initializers and initialize each property on a new line, so use a format like this: 
 
@@ -57,7 +57,7 @@ sidebar:
 - Start the LINQ statement with all the `from` expressions and don't interweave them with restrictions.
 - Add parentheses around every binary expression, but don't add parentheses around unary expressions. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
 
-- Add an empty line between multi-line statements, between multi-line members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
+- Add an empty line between multi-line statements, between multi-line members, after the closing curly braces, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
 
 ### <a name="av2402"></a> Order and group namespaces according to the company  (AV2402) ![](/assets/images/3.png)
@@ -81,11 +81,11 @@ Maintaining a common order allows other team members to find their way in your c
 
 1. Private fields and constants (in a region)
 2. Public constants
-3. Public read-only static fields
-4. Factory Methods
-5. Constructors and the Finalizer
+3. Public static readonly fields
+4. Factory methods
+5. Constructors and the finalizer
 6. Events 
-7. Public Properties
+7. Public properties
 8. Other methods and private properties in calling order
 
 Declare local functions at the bottom of their containing method bodies (after all executable code).
