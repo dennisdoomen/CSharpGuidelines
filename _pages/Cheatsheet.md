@@ -84,7 +84,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Finish every `if`-`else`-`if `statement with an `else`-part (AV1537)  
 * Be reluctant with multiple `return` statements (AV1540)  
 * Don’t use `if`-`else` statements instead of a simple (conditional) assignment  (AV1545)  
-* Encapsulate complex expressions in a method or property (AV1547)  
+* Encapsulate complex expressions in a property, method or local function (AV1547)  
 * Call the most overloaded method from other overloads (AV1551)  
 * Only use optional arguments to replace overloads (AV1553)  
 * Avoid using named arguments (AV1555)  
