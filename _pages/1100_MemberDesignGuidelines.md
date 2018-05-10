@@ -47,7 +47,7 @@ Returning `null` can be unexpected by the caller. Always return an empty collect
 
 ### <a name="av1137"></a> Define parameters as specific as possible (AV1137) ![](/assets/images/2.png)
 
-If your member needs a specific piece of data, define parameters as specific as that and don't take a container object instead. For instance, consider a method that needs a connection string that is exposed through a central `IConfiguration` interface. Rather than taking a dependency on the entire configuration, just define a parameter for the connection string. This not only prevents unnecessary coupling, it also improves maintainability in the long run.
+If your method or local function needs a specific piece of data, define parameters as specific as that and don't take a container object instead. For instance, consider a method that needs a connection string that is exposed through a central `IConfiguration` interface. Rather than taking a dependency on the entire configuration, just define a parameter for the connection string. This not only prevents unnecessary coupling, it also improves maintainability in the long run.
 
 **Note:** An easy trick to remember this guideline is the *Don't ship the truck if you only need a package*.
 
