@@ -56,7 +56,7 @@ For example, use `OnButtonClick` rather than `OnBtnClick`. Avoid single characte
 
 **Exceptions:** Use well-known acronyms and abbreviations that are widely accepted or well-known in your work domain. For instance, use acronym `UI` instead of `UserInterface` and abbreviation `Id` instead of `Identity`.
 
-### <a name="av1707"></a> Name a member, parameter or variable according to its meaning and not its type  (AV1707) ![](/assets/images/2.png)
+### <a name="av1707"></a> Name members, parameters and variables according to their meaning and not their type  (AV1707) ![](/assets/images/2.png)
 - Use functional names. For example, `GetLength` is a better name than `GetInt`.
 - Don't use terms like `Enum`, `Class` or `Struct` in a name.
 - Identifiers that refer to a collection type should have plural names.
