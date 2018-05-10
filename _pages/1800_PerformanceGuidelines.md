@@ -7,9 +7,9 @@ sidebar:
 ---
 
 ### <a name="av1800"></a> Consider using `Any()` to determine whether an `IEnumerable<T>` is empty (AV1800) ![](/assets/images/3.png)
-When a method or other member returns an `IEnumerable<T>` or other collection class that does not expose a `Count` property, use the `Any()` extension method rather than `Count()` to determine whether the collection contains items. If you do use `Count()`, you risk that iterating over the entire collection might have a significant impact (such as when it really is an `IQueryable<T>` to a persistent store).
+When a member or local function returns an `IEnumerable<T>` or other collection class that does not expose a `Count` property, use the `Any()` extension method rather than `Count()` to determine whether the collection contains items. If you do use `Count()`, you risk that iterating over the entire collection might have a significant impact (such as when it really is an `IQueryable<T>` to a persistent store).
 
-**Note:** If you return an `IEnumerable<T>` to prevent editing from outside the owner as explained in AV1130, and you're developing in .NET 4.5 or higher, consider the new read-only classes.
+**Note:** If you return an `IEnumerable<T>` to prevent changes from calling code as explained in AV1130, and you're developing in .NET 4.5 or higher, consider the new read-only classes.
 
 ### <a name="av1820"></a> Only use `async` for low-intensive long-running activities (AV1820) ![](/assets/images/1.png)
 The usage of `async` won't automagically run something on a worker thread like `Task.Run` does. It just adds the necessary logic to allow releasing the current thread, and marshal the result back on that same thread if a long-running asynchronous operation has completed. In other words, use `async` only for I/O bound operations.
