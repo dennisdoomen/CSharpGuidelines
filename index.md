@@ -14,7 +14,7 @@ header:
   cta_label: "Get the PDF here!"
   cta_url: "https://github.com/dennisdoomen/csharpguidelines/releases/latest"
   caption: ""
-excerpt: 'for versions 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1 and 7.2
+excerpt: 'for versions 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1, 7.2 and 7.3
  <br /> 
 [![](https://img.shields.io/github/release/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Latest)](https://github.com/dennisdoomen/csharpguidelines/releases/latest)
 [![](https://img.shields.io/github/stars/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Star)](https://github.com/dennisdoomen/csharpguidelines/stargazers)
