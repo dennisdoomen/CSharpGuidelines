@@ -20,7 +20,7 @@ Following the MSDN online help style and word choice helps developers find their
 **Tip:** The tool [GhostDoc](http://submain.com/products/ghostdoc.aspx) can generate a starting point for documenting code with a shortcut key.
 
 ### <a name="av2310"></a> Avoid inline comments  (AV2310) ![](/assets/images/2.png)
-If you feel the need to explain a block of code using a comment, consider replacing that block with a method with a clear name.
+If you feel the need to explain a block of code using a comment, consider replacing that block with a method or local function with a clear name.
 
 ### <a name="av2316"></a> Only write comments to explain complex algorithms or decisions  (AV2316) ![](/assets/images/1.png)
 Try to focus comments on the *why* and *what* of a code block and not the *how*. Avoid explaining the statements in words, but instead help the reader understand why you chose a certain solution or algorithm and what you are trying to achieve. If applicable, also mention that you chose an alternative solution because you ran into a problem with the obvious solution.
