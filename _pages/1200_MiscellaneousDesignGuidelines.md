@@ -18,9 +18,9 @@ The message should explain the cause of the exception, and clearly describe what
 
 For example, if a method receives a `null` argument, it should throw `ArgumentNullException` instead of its base type `ArgumentException`.
 
-### <a name="av1210"></a> Don't swallow errors by catching generic exceptions  (AV1210) ![](/assets/images/1.png)
+### <a name="av1210"></a> Don't swallow errors by catching generic exceptions (AV1210) ![](/assets/images/1.png)
 
-Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only top-level code, such as a last-chance exception handler, should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
+Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only top-level code, such as a last-chance exception handler, you should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
 
 ### <a name="av1215"></a> Properly handle exceptions in asynchronous code (AV1215) ![](/assets/images/2.png)
 When throwing or handling exceptions in code that uses `async`/`await` or a `Task` remember the following two rules:
@@ -50,7 +50,7 @@ Consider providing events that are raised when certain properties are changed. S
 
 **Note:** If your class has many properties that require corresponding events, consider implementing the `INotifyPropertyChanged` interface instead. It is often used in the [Presentation Model](http://martinfowler.com/eaaDev/PresentationModel.html) and [Model-View-ViewModel](http://msdn.microsoft.com/en-us/magazine/dd419663.aspx) patterns.
 
-### <a name="av1235"></a> Don't pass `null` as the `sender` argument when raising an event  (AV1235) ![](/assets/images/1.png)
+### <a name="av1235"></a> Don't pass `null` as the `sender` argument when raising an event (AV1235) ![](/assets/images/1.png)
 
 Often an event handler is used to handle similar events from multiple senders. The sender argument is then used to get to the source of the event. Always pass a reference to the source (typically `this`) when raising the event. Furthermore don't pass `null` as the event data parameter when raising an event. If there is no event data, pass `EventArgs.Empty` instead of `null`.
 
@@ -81,7 +81,7 @@ Instead of casting to and from the object type in generic types or methods, use 
 		}  
 	}
 
-### <a name="av1250"></a> Evaluate the result of a LINQ expression before returning it  (AV1250) ![](/assets/images/1.png)
+### <a name="av1250"></a> Evaluate the result of a LINQ expression before returning it (AV1250) ![](/assets/images/1.png)
 
 Consider the following code snippet
 
@@ -99,6 +99,6 @@ Consider the following code snippet
 
 Since LINQ queries use deferred execution, returning `query` will actually return the expression tree representing the above query. Each time the caller evaluates this result using a `foreach` cycle or similar, the entire query is re-executed resulting in new instances of `GoldMember` every time. Consequently, you cannot use the `==` operator to compare multiple `GoldMember` instances. Instead, always explicitly evaluate the result of a LINQ query using `ToList()`, `ToArray()` or similar methods.
 
-### <a name="av1251"></a> Do not use `this` and `base` prefixes unless it is required  (AV1251) ![](/assets/images/1.png)
+### <a name="av1251"></a> Do not use `this` and `base` prefixes unless it is required (AV1251) ![](/assets/images/1.png)
 
 In a class hierarchy, it is not necessary to know at which level a member is declared to use it. Refactoring derived classes is harder if that level is fixed in the code.

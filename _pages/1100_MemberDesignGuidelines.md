@@ -19,7 +19,7 @@ Properties should be stateless with respect to other properties, i.e. there shou
 
 **Exception:** Populating an internal cache or implementing [lazy-loading](http://www.martinfowler.com/eaaCatalog/lazyLoad.html) is a good exception.
 
-### <a name="av1110"></a> Don't use mutual exclusive properties (AV1110) ![](/assets/images/1.png)
+### <a name="av1110"></a> Don't use mutually exclusive properties (AV1110) ![](/assets/images/1.png)
 
 Having properties that cannot be used at the same time typically signals a type that represents two conflicting concepts. Even though those concepts may share some of their behavior and states, they obviously have different rules that do not cooperate.
 
