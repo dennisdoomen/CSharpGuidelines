@@ -240,7 +240,7 @@ For example:
 	}
 
 ### <a name="av1540"></a> Be reluctant with multiple return statements (AV1540) ![](/assets/images/2.png)
-One entry, one exit is a sound principle and keeps control flow readable. However, if the method is very small and complies with guideline AV1500 then multiple return statements may actually improve readability over some central boolean flag that is updated at various points.
+One entry, one exit is a sound principle and keeps control flow readable. However, if the method body is very small and complies with guideline AV1500 then multiple return statements may actually improve readability over some central boolean flag that is updated at various points.
 
 ### <a name="av1545"></a> Don't use if-else statements instead of a simple (conditional) assignment (AV1545) ![](/assets/images/2.png)
 Express your intentions directly. For example, rather than:
