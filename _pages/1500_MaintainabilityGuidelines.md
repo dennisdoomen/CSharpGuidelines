@@ -402,7 +402,7 @@ They make code less understandable and might cause people to introduce bugs. Ins
 
 	bool success = int.TryParse(text, out int number);
 
-### <a name="av1564"></a> Avoid signatures that take a `bool` flag (AV1564) ![](/assets/images/2.png)
+### <a name="av1564"></a> Avoid signatures that take a `bool` parameter (AV1564) ![](/assets/images/2.png)
 Consider the following method signature:
 
 	public Customer CreateCustomer(bool platinumLevel) {}
@@ -411,7 +411,7 @@ On first sight this signature seems perfectly fine, but when calling this method
 
 	Customer customer = CreateCustomer(true);
 
-Often, a method taking such a flag is doing more than one thing and needs to be refactored into two or more methods. An alternative solution is to replace the flag with an enumeration.
+Often, a method taking such a bool is doing more than one thing and needs to be refactored into two or more methods. An alternative solution is to replace the bool with an enumeration.
 
 ### <a name="av1568"></a> Don't use parameters as temporary variables (AV1568) ![](/assets/images/3.png)
 Never use a parameter as a convenient variable for storing temporary state. Even though the type of your temporary variable may be the same, the name usually does not reflect the purpose of the temporary variable.
