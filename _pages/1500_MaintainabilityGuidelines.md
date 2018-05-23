@@ -117,8 +117,8 @@ Don't use confusing constructs like the one below:
 	if ((items[0] is string text) || (items[1] is Action action))
 	{
 	}
-	
-	(int a, int b) = M();
+
+	(string name, string value) = SplitNameValuePair(text);
 
 ### <a name="av1523"></a> Favor object and collection initializers over separate statements (AV1523) ![](/assets/images/2.png)
 Instead of:
