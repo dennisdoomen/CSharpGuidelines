@@ -101,7 +101,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Use C# type aliases instead of the types from the `System` namespace (AV2201)
 * Prefer language syntax over explicit calls to underlying implementations (AV2202)
 * Build with the highest warning level (AV2210)
-* Use lambda expressions instead of anonymous functions (AV2221)
+* Use lambda expressions instead of anonymous methods (AV2221)
 * Only use the `dynamic` keyword when talking to a dynamic object (AV2230)
 * Favor `async`/`await` over `Task` continuations (AV2235)
 </td>
