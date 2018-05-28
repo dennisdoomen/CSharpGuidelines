@@ -99,7 +99,7 @@ Use it only for calling methods or members of a dynamically created instance cla
 ### <a name="av2235"></a> Favor `async`/`await` over `Task` continuations (AV2235) ![](/assets/images/1.png)
 Using the new C# 5.0 keywords results in code that can still be read sequentially and also improves maintainability a lot, even if you need to chain multiple asynchronous operations. For example, rather than defining your method like this:
 
-	public Task GetDataAsync()
+	public Task<Data> GetDataAsync()
 	{
 	  return MyWebService.FetchDataAsync()
 	    .ContinueWith(t => new Data(t.Result));
