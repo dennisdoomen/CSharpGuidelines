@@ -14,8 +14,6 @@ All identifiers (such as types, type members, parameters and variables) should b
 - Favor readability over brevity. The property name `CanScrollHorizontally` is better than `ScrollableX` (an obscure reference to the X-axis).
 - Avoid using names that conflict with keywords of widely used programming languages.
 
-**Exception:** In most projects, you will use words and phrases from your domain and names specific to your company. Visual Studio's Static Code Analysis performs a spelling check on all code, so you may need to add those terms to a [Custom Code Analysis Dictionary](http://blogs.msdn.com/fxcop/archive/2007/08/20/new-for-visual-studio-2008-custom-dictionaries.aspx).
-
 ### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) 
 
 | Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example|

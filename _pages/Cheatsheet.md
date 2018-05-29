@@ -238,12 +238,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 1. Other methods and private properties in calling order
 </div>
 
-<div markdown="1" class="sidebar">
-**Important Note**
-
-These coding guidelines are an extension to Visual Studio's Code Analysis functionalty, so make sure you enable that for all your projects. Check the full document for more details.
-</div>
-
 <td/>
 <tr>
 
