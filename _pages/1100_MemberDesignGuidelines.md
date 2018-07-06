@@ -39,7 +39,9 @@ A classic example of this is the `HttpContext.Current` property, part of ASP.NET
 
 You generally don't want callers to be able to change an internal collection, so don't return arrays, lists or other collection classes directly. Instead, return an `IEnumerable<T>`, or, if the caller must be able to determine the count, an `ICollection<T>`.
 
-**Note:** If you're using .NET 4.5, you can also use `IReadOnlyCollection<T>`, `IReadOnlyList<T>` or `IReadOnlyDictionary<TKey, TValue>`.
+**Note:** If you're using .NET 4.5 or higher, you can also use `IReadOnlyCollection<T>`, `IReadOnlyList<T>` or `IReadOnlyDictionary<TKey, TValue>`.
+
+**Exception:** Immutable collections such as `ImmutableArray<T>`, `ImmutableList<T>` and `ImmutableDictionary<TKey, TValue>` prevent modifications from the outside and are thus allowed.
 
 ### <a name="av1135"></a> Properties, arguments and return values representing strings or collections should never be `null` (AV1135) ![](/assets/images/1.png)
 

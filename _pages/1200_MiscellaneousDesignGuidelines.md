@@ -20,7 +20,7 @@ For example, if a method receives a `null` argument, it should throw `ArgumentNu
 
 ### <a name="av1210"></a> Don't swallow errors by catching generic exceptions (AV1210) ![](/assets/images/1.png)
 
-Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only top-level code, such as a last-chance exception handler, you should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
+Avoid swallowing errors by catching non-specific exceptions, such as `Exception`, `SystemException`, and so on, in application code. Only in top-level code, such as a last-chance exception handler, you should catch a non-specific exception for logging purposes and a graceful shutdown of the application.
 
 ### <a name="av1215"></a> Properly handle exceptions in asynchronous code (AV1215) ![](/assets/images/2.png)
 When throwing or handling exceptions in code that uses `async`/`await` or a `Task` remember the following two rules:
@@ -85,7 +85,7 @@ Instead of casting to and from the object type in generic types or methods, use 
 
 Consider the following code snippet
 
-	public IEnumerable GetGoldMemberCustomers()
+	public IEnumerable<GoldMember> GetGoldMemberCustomers()
 	{
 		const decimal GoldMemberThresholdInEuro = 1_000_000;
 		
@@ -97,7 +97,7 @@ Consider the following code snippet
 		return query;  
 	}
 
-Since LINQ queries use deferred execution, returning `query` will actually return the expression tree representing the above query. Each time the caller evaluates this result using a `foreach` cycle or similar, the entire query is re-executed resulting in new instances of `GoldMember` every time. Consequently, you cannot use the `==` operator to compare multiple `GoldMember` instances. Instead, always explicitly evaluate the result of a LINQ query using `ToList()`, `ToArray()` or similar methods.
+Since LINQ queries use deferred execution, returning `query` will actually return the expression tree representing the above query. Each time the caller evaluates this result using a `foreach` loop or similar, the entire query is re-executed resulting in new instances of `GoldMember` every time. Consequently, you cannot use the `==` operator to compare multiple `GoldMember` instances. Instead, always explicitly evaluate the result of a LINQ query using `ToList()`, `ToArray()` or similar methods.
 
 ### <a name="av1251"></a> Do not use `this` and `base` prefixes unless it is required (AV1251) ![](/assets/images/1.png)
 

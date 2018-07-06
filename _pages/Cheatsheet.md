@@ -101,7 +101,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Use C# type aliases instead of the types from the `System` namespace (AV2201)
 * Prefer language syntax over explicit calls to underlying implementations (AV2202)
 * Build with the highest warning level (AV2210)
-* Use lambda expressions instead of anonymous functions (AV2221)
+* Use lambda expressions instead of anonymous methods (AV2221)
 * Only use the `dynamic` keyword when talking to a dynamic object (AV2230)
 * Favor `async`/`await` over `Task` continuations (AV2235)
 </td>
@@ -236,12 +236,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 1. Events 
 1. Public properties
 1. Other methods and private properties in calling order
-</div>
-
-<div markdown="1" class="sidebar">
-**Important Note**
-
-These coding guidelines are an extension to Visual Studio's Code Analysis functionalty, so make sure you enable that for all your projects. Check the full document for more details.
 </div>
 
 <td/>

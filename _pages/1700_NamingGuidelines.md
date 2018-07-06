@@ -14,8 +14,6 @@ All identifiers (such as types, type members, parameters and variables) should b
 - Favor readability over brevity. The property name `CanScrollHorizontally` is better than `ScrollableX` (an obscure reference to the X-axis).
 - Avoid using names that conflict with keywords of widely used programming languages.
 
-**Exception:** In most projects, you will use words and phrases from your domain and names specific to your company. Visual Studio's Static Code Analysis performs a spelling check on all code, so you may need to add those terms to a [Custom Code Analysis Dictionary](http://blogs.msdn.com/fxcop/archive/2007/08/20/new-for-visual-studio-2008-custom-dictionaries.aspx).
-
 ### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) 
 
 | Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example|
@@ -53,7 +51,7 @@ In most cases they are a lazy excuse for not defining a clear and intention-reve
 For example, don't use `g_` or `s_` to distinguish static from non-static fields. A method in which it is difficult to distinguish local variables from member fields is generally too big. Examples of incorrect identifier names are: `_currentUser`, `mUserName`, `m_loginTime`.
 
 ### <a name="av1706"></a> Don't use abbreviations (AV1706) ![](/assets/images/2.png)
-For example, use `OnButtonClick` rather than `OnBtnClick`. Avoid single character variable names, such as `i` or `q`. Use `index` or `query` instead.
+For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single character variable names, such as `i` or `q`. Use `index` or `query` instead.
 
 **Exceptions:** Use well-known acronyms and abbreviations that are widely accepted or well-known in your work domain. For instance, use acronym `UI` instead of `UserInterface` and abbreviation `Id` instead of `Identity`.
 
@@ -137,7 +135,7 @@ Suppose you want to define events related to the deletion of an object. Avoid de
 - `Deleted`: Occurs when the object is already deleted.
 
 ### <a name="av1738"></a> Prefix an event handler with "On" (AV1738) ![](/assets/images/3.png)
-It is good practice to prefix the method that handles an event with "On". For example, a method that handles the `Closing` event can be named `OnClosing`.
+It is good practice to prefix the method that handles an event with "On". For example, a method that handles its own `Closing` event should be named `OnClosing`. And a method that handles the `Click` event of its `okButton` field should be named `OkButtonOnClick`.
 
 ### <a name="av1739"></a> Use an underscore for irrelevant lambda parameters (AV1739) ![](/assets/images/3.png)
 If you use a lambda expression (for instance, to subscribe to an event) and the actual parameters of the event are irrelevant, use the following convention to make that explicit:

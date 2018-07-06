@@ -117,8 +117,8 @@ Don't use confusing constructs like the one below:
 	if ((items[0] is string text) || (items[1] is Action action))
 	{
 	}
-	
-	(int a, int b) = M();
+
+	(string name, string value) = SplitNameValuePair(text);
 
 ### <a name="av1523"></a> Favor object and collection initializers over separate statements (AV1523) ![](/assets/images/2.png)
 Instead of:
@@ -376,9 +376,9 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
 
 If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1135, you must use overloaded methods instead.
 
-**Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value properly.
+**Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value.
 
-**Note:** When an interface method defines an optional parameter, its default value is not considered during overload resolution unless you call the concrete class through the interface reference. See [this post by Eric Lippert](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) for more details.
+**Note:** When an interface method defines an optional parameter, its default value is discarded during overload resolution unless you call the concrete class through the interface reference. See [this post by Eric Lippert](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) for more details.
 
 ### <a name="av1555"></a> Avoid using named arguments (AV1555) ![](/assets/images/1.png)
 C# 4.0's named arguments have been introduced to make it easier to call COM components that are known for offering many optional parameters. If you need named arguments to improve the readability of the call to a method, that method is probably doing too much and should be refactored.
@@ -402,7 +402,7 @@ They make code less understandable and might cause people to introduce bugs. Ins
 
 	bool success = int.TryParse(text, out int number);
 
-### <a name="av1564"></a> Avoid signatures that take a `bool` flag (AV1564) ![](/assets/images/2.png)
+### <a name="av1564"></a> Avoid signatures that take a `bool` parameter (AV1564) ![](/assets/images/2.png)
 Consider the following method signature:
 
 	public Customer CreateCustomer(bool platinumLevel) {}
@@ -411,7 +411,7 @@ On first sight this signature seems perfectly fine, but when calling this method
 
 	Customer customer = CreateCustomer(true);
 
-Often, a method taking such a flag is doing more than one thing and needs to be refactored into two or more methods. An alternative solution is to replace the flag with an enumeration.
+Often, a method taking such a bool is doing more than one thing and needs to be refactored into two or more methods. An alternative solution is to replace the bool with an enumeration.
 
 ### <a name="av1568"></a> Don't use parameters as temporary variables (AV1568) ![](/assets/images/3.png)
 Never use a parameter as a convenient variable for storing temporary state. Even though the type of your temporary variable may be the same, the name usually does not reflect the purpose of the temporary variable.
