@@ -89,7 +89,7 @@ use a lambda expression:
 
 Or even better:
 
-	var customer = customers.Where(customer => customer.Name == "Tom").FirstOrDefault();
+	var customer = customers.FirstOrDefault(customer => customer.Name == "Tom");
 
 ### <a name="av2230"></a> Only use the `dynamic` keyword when talking to a dynamic object (AV2230) ![](/assets/images/1.png)
 The `dynamic` keyword has been introduced for working with dynamic languages. Using it introduces a serious performance bottleneck because the compiler has to generate some complex Reflection code.
