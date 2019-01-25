@@ -64,7 +64,7 @@ Examples include connection strings, server addresses, etc. Use `Resources`, the
 ### <a name="av2210"></a> Build with the highest warning level (AV2210) ![](/assets/images/1.png)
 Configure the development environment to use **Warning Level 4** for the C# compiler, and enable the option **Treat warnings as errors** . This allows the compiler to enforce the highest possible code quality.
 
-### <a name="av2220"></a> Avoid LINQ for simple expressions (AV2220) ![](/assets/images/3.png)
+### <a name="av2220"></a> Avoid LINQ query syntax for simple expressions (AV2220) ![](/assets/images/3.png)
 Rather than:
 
 	var query = from item in items where item.Length > 0 select item;
