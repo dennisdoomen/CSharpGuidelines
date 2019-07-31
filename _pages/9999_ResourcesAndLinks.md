@@ -29,11 +29,11 @@ Another great all-encompassing trip through the many practices preached by proce
 * [Applying Domain-Driven Design and Patterns: With Examples in C# and .NET](http://www.amazon.com/Applying-Domain-Driven-Design-Patterns-Examples/dp/0321268202) (Jimmy Nilsson)  
 The book that started my interest for both Domain-Driven Design and Test-Driven Development. It's one of those books that I wished I had read a few years earlier. It would have spared me from many mistakes.
 
-* [Jeremy D. Miller's Blog](http://codebetter.com/blogs/jeremy.miller/)  
+* [Jeremy D. Miller's Blog](http://codebetter.com/jeremymiller/author/jeremymiller/)  
 Although he is not that active anymore, in the last couple of years he has written some excellent blog posts on Test-Driven Development, Design Patterns and design principles. I've learned a lot from his real-life and practical insights.
 
-* [LINQ Framework Design Guidelines](http://blogs.msdn.com/b/mirceat/archive/2008/03/13/linq-framework-design-guidelines.aspx)  
-A set of rules and recommendations that you should adhere to when creating your own implementations of IQueryable.
+* [LINQ Framework Design Guidelines](https://blogs.msdn.microsoft.com/mirceat/2008/03/12/linq-framework-design-guidelines/)  
+A set of rules and recommendations that you should adhere to when creating your own implementations of `IQueryable`.
 
-* [Best Practices for c# async/await](http://code.jonwagner.com/2012/09/06/best-practices-for-c-asyncawait/)  
-The rationale and source of several of the new guidelines in this document, written by [Jon Wagner](https://twitter.com/jonwagnerdotcom).
+* [Best Practices for c# async/await](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx)  
+Older (but still valid) overview of crucial practices to follow when adopting `async` and `await` in your own code base.
