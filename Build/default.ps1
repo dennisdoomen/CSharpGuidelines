@@ -61,7 +61,7 @@ task Compile {
 			$title = $Matches[2]
 		}
 
-		$content = ($content -replace "---(.|\n)+---\n*", "")
+		$content = ($content -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
 
 		if ($title) {
 			$content = "<h1>$title</h1>" + $content;

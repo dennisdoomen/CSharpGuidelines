@@ -5,7 +5,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%">
 <tr>
-<td class="title">Coding Guidelines for C# 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1, 7.2 and 7.3 Cheat Sheet</td>
+<td class="title" width="70%">Coding Guidelines for C# 1.0 - 7.3 Cheat Sheet</td>
 <td rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
 </tr>
 <tr>
@@ -123,7 +123,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" style="page-break-before: always;">
  <tr>
-  <td class="title">Coding Guidelines for C# 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1, 7.2 and 7.3 Cheat Sheet</td>
+  <td class="title" width="70%">Coding Guidelines for C# 1.0 - 7.3 Cheat Sheet</td>
   <td markdown="1" rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
  </tr>
  <tr>
@@ -152,14 +152,8 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 | Event                                 | `Click`                                                     |
 | Method                                | `ToString`                                                  |
 | Local function                        | `FormatText`                                                |
-| Tuple element names                   | `(string First, string Last) name = ("John", "Doe");`       |
-|                                       | `var name = (First: "John", Last: "Doe");`                  |
-|                                       | `(string First, string Last) GetName() => ("John", "Doe");` |
-| <br/>**Camel Casing**                 |                                                             |
 | Private field                         | `listItem`                                                  |
 | Parameter                             | `typeName`                                                  |
-| Variables declared using tuple syntax | `(string first, string last) = ("John", "Doe");`            |
-|                                       | `var (first, last) = ("John", "Doe");`                      |
 | Local variable                        | `listOfValues`                                              |
 
 </div>
@@ -229,13 +223,13 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 **Member order**
 
 1. Private fields and constants
-1. Public constants
-1. Public static readonly fields
-1. Factory methods
-1. Constructors and the finalizer
-1. Events 
-1. Public properties
-1. Other methods and private properties in calling order
+2. Public constants
+3. Public static readonly fields
+4. Factory methods
+5. Constructors and the finalizer
+6. Events 
+7. Public properties
+8. Other methods and private properties in calling order
 </div>
 
 <td/>

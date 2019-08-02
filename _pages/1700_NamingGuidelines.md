@@ -17,8 +17,8 @@ All identifiers (such as types, type members, parameters and variables) should b
 
 ### <a name="av1702"></a> Use proper casing for language elements (AV1702) ![](/assets/images/1.png) 
 
-| Language element&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Casing&nbsp;&nbsp;&nbsp;&nbsp;|Example|
-|--------------------|----------|:-----------
+| Language element | Casing| Example |
+|:--------------------|:----------|:-----------|
 | Namespace | Pascal | `System.Drawing` |
 | Type parameter | Pascal | `TView` |
 | Interface | Pascal | `IBusinessService`
@@ -35,11 +35,8 @@ All identifiers (such as types, type members, parameters and variables) should b
 | Method | Pascal | `ToString` |
 | Local function | Pascal | `FormatText` |
 | Parameter | Camel | `typeName` |
-| Tuple element names | Pascal | `(string First, string Last) name = ("John", "Doe");` |
-| | | `var name = (First: "John", Last: "Doe");` |
-| | | `(string First, string Last) GetName() => ("John", "Doe");` |
-| Variables declared using tuple syntax | Camel | `(string first, string last) = ("John", "Doe");` |
-| | | `var (first, last) = ("John", "Doe");` |
+| Tuple element names | Pascal | `(string First, string Last) name = ("John", "Doe");` <br/>`var name = (First: "John", Last: "Doe");` <br/>`(string First, string Last) GetName() => ("John", "Doe");` |
+| Variables declared using tuple syntax | Camel | `(string first, string last) = ("John", "Doe");` <br/>`var (first, last) = ("John", "Doe");` <br/> |
 | Local variable | Camel | `listOfValues` |
 
 **Note:** in case of ambiguity, the rule higher in the table wins.
