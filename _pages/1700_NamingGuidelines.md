@@ -62,7 +62,7 @@ For example, use `ButtonOnClick` rather than `BtnOnClick`. Avoid single characte
 For example, the name IComponent uses a descriptive noun, ICustomAttributeProvider uses a noun phrase and IPersistable uses an adjective.
 Bad examples include `SearchExamination` (a page to search for examinations), `Common` (does not end with a noun, and does not explain its purpose) and `SiteSecurity` (although the name is technically okay, it does not say anything about its purpose).
 
-Don't include terms like `Utility` or `Helper` in classes. Classes with names like that are usually static classes and are introduced without considering object-oriented principles (see also AV1008).
+Don't include terms like `Utility` or `Helper` in classes. Classes with names like that are usually static classes and are introduced without considering object-oriented principles (see also [AV1008](/member-design-guidelines#av1008)).
 
 ### <a name="av1709"></a> Name generic type parameters with descriptive names (AV1709) ![](/assets/images/2.png)
 - Always prefix type parameter names with the letter `T`.
@@ -104,7 +104,7 @@ Although technically correct, statements like the following can be confusing:
 ### <a name="av1720"></a> Name methods and local functions using verbs or verb-object pairs (AV1720) ![](/assets/images/2.png)
 Name a method or local function using a verb like `Show` or a verb-object pair such as `ShowDialog`. A good name should give a hint on the *what* of a member, and if possible, the *why*.
 
-Also, don't include `And` in the name of a method or local function. That implies that it is doing more than one thing, which violates the Single Responsibility Principle explained in AV1115.
+Also, don't include `And` in the name of a method or local function. That implies that it is doing more than one thing, which violates the Single Responsibility Principle explained in [AV1115](/member-design-guidelines#av1115).
 
 ### <a name="av1725"></a> Name namespaces using names, layers, verbs and features (AV1725) ![](/assets/images/3.png)
 For instance, the following namespaces are good examples of that guideline.

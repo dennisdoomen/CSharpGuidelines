@@ -60,7 +60,6 @@ sidebar:
 
 - Add an empty line between multi-line statements, between multi-line members, after the closing curly braces, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
-
 ### <a name="av2402"></a> Order and group namespaces according to the company (AV2402) ![](/assets/images/3.png)
 
 	// Microsoft namespaces are first
@@ -82,7 +81,7 @@ Maintaining a common order allows other team members to find their way in your c
 
 1. Private fields and constants (in a region)
 2. Public constants
-3. Public static readonly fields
+3. Public static read-only fields
 4. Factory methods
 5. Constructors and the finalizer
 6. Events 

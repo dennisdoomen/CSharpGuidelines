@@ -28,7 +28,7 @@ This violation is often seen in domain models and introduces all kinds of condit
 
 ### <a name="av1115"></a> A property, method or local function should do only one thing (AV1115) ![](/assets/images/1.png)
 
-Similarly to rule AV1000, a method body should have a single responsibility.
+Similarly to rule [AV1000](/class-design-guidelines#av1000), a method body should have a single responsibility.
 
 ### <a name="av1125"></a> Don't expose stateful objects through static members (AV1125) ![](/assets/images/2.png)
 

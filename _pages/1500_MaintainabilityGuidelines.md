@@ -241,7 +241,7 @@ For example:
 	}
 
 ### <a name="av1540"></a> Be reluctant with multiple `return` statements (AV1540) ![](/assets/images/2.png)
-One entry, one exit is a sound principle and keeps control flow readable. However, if the method body is very small and complies with guideline AV1500 then multiple return statements may actually improve readability over some central boolean flag that is updated at various points.
+One entry, one exit is a sound principle and keeps control flow readable. However, if the method body is very small and complies with guideline [AV1500](#av1500) then multiple return statements may actually improve readability over some central boolean flag that is updated at various points.
 
 ### <a name="av1545"></a> Don't use an `if`-`else` construct instead of a simple (conditional) assignment (AV1545) ![](/assets/images/2.png)
 Express your intentions directly. For example, rather than:
@@ -367,7 +367,7 @@ The class `MyString` provides three overloads for the `IndexOf` method, but two 
 **Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a non-private `virtual` method that is called by all overloads.
 
 ### <a name="av1553"></a> Only use optional arguments to replace overloads (AV1553) ![](/assets/images/1.png)
-The only valid reason for using C# 4.0's optional arguments is to replace the example from rule AV1551 with a single method like:
+The only valid reason for using C# 4.0's optional arguments is to replace the example from rule [AV1551](#av1551) with a single method like:
 
     public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
     {
@@ -375,7 +375,7 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
         return someText.IndexOf(phrase, startIndex, length);
     }
 
-If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule AV1135, you must use overloaded methods instead.
+If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule [AV1135](/member-design-guidelines#av1135), you must use overloaded methods instead.
 
 **Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value.
 

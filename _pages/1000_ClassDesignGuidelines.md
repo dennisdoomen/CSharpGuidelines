@@ -19,7 +19,7 @@ A class or interface should have a single purpose within the system it functions
 
 ### <a name="av1001"></a> Only create a constructor that returns a useful object (AV1001) ![](/assets/images/3.png)
 
-There should be no need to set additional properties before the object can be used for whatever purpose it was designed. However, if your constructor needs more than three parameters (which violates AV1561), your class might have too much responsibility (and violates AV1000).
+There should be no need to set additional properties before the object can be used for whatever purpose it was designed. However, if your constructor needs more than three parameters (which violates [AV1561](/maintainability-guidelines#av1561)), your class might have too much responsibility (and violates [AV1000](#av1000)).
 
 ### <a name="av1003"></a> An interface should be small and focused (AV1003) ![](/assets/images/2.png)
 
@@ -106,7 +106,7 @@ This means that two classes know about each other's public members or rely on ea
 
 ### <a name="av1025"></a> Classes should have state and behavior (AV1025) ![](/assets/images/1.png)
 
-In general, if you find a lot of data-only classes in your code base, you probably also have a few (static) classes with a lot of behavior (see AV1008). Use the principles of object-orientation explained in this section and move the logic close to the data it applies to.
+In general, if you find a lot of data-only classes in your code base, you probably also have a few (static) classes with a lot of behavior (see [AV1008](#av1008)). Use the principles of object-orientation explained in this section and move the logic close to the data it applies to.
 
 **Exception:** The only exceptions to this rule are classes that are used to transfer data over a communication channel, also called [Data Transfer Objects](http://martinfowler.com/eaaCatalog/dataTransferObject.html), or a class that wraps several parameters of a method.
 

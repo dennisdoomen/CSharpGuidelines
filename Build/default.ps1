@@ -57,11 +57,16 @@ task Compile {
 		$content = $content.replace('%commitdate%', $script:CommitDate) 
 		$content = $content.replace('![](/assets', '![](assets') 
 
+		# Extract the title of the section from the Frontmatter block
 		if ($content -match "---(.|\n)*title\: (.+)") {
 			$title = $Matches[2]
 		}
 
+		# Remove the entire Frontmatter block
 		$content = ($content -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
+
+		# Replace cross-page relative links with local links (since everything becomes a single HTML)
+		$content = ($content -replace '\(\/.+?(#av\d+)\)', '($1)')
 
 		if ($title) {
 			$content = "<h1>$title</h1>" + $content;
