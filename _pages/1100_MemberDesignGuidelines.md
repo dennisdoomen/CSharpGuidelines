@@ -44,7 +44,7 @@ You generally don't want callers to be able to change an internal collection, so
 
 **Exception:** Immutable collections such as `ImmutableArray<T>`, `ImmutableList<T>` and `ImmutableDictionary<TKey, TValue>` prevent modifications from the outside and are thus allowed.
 
-### <a name="av1135"></a> Properties, arguments and return values representing strings or collections should never be `null` (AV1135) ![](/assets/images/1.png)
+### <a name="av1135"></a> Properties, arguments and return values representing strings, collections or tasks should never be `null` (AV1135) ![](/assets/images/1.png)
 
 Returning `null` can be unexpected by the caller. Always return an empty collection or an empty string instead of a `null` reference. When your member return `Task` or `Task<T>`, return `Task.CompletedTask` or `Task.FromResult()`. This also prevents cluttering your code base with additional checks for `null`, or even worse, `string.IsNullOrEmpty()`.
 
