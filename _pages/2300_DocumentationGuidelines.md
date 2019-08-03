@@ -18,7 +18,6 @@ Write the documentation of your type with other developers in mind. Assume they 
 ### <a name="av2307"></a> Write MSDN-style documentation (AV2307) ![](/assets/images/3.png)
 Following the MSDN online help style and word choice helps developers find their way through your documentation more easily.
 
-**Tip:** The tool [GhostDoc](http://submain.com/products/ghostdoc.aspx) can generate a starting point for documenting code with a shortcut key.
 
 ### <a name="av2310"></a> Avoid inline comments (AV2310) ![](/assets/images/2.png)
 If you feel the need to explain a block of code using a comment, consider replacing that block with a method with a clear name.
