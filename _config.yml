@@ -20,7 +20,7 @@ title                    : "C# Coding Guidelines for versions 1.0, 2.0, 3.0, 4.0
 title_separator          : "-"
 name                     : "Dennis Doomen"
 description              : "C# Coding Guidelines for versions 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 7.1, 7.2 and 7.3"
-url                      : "http://csharpcodingguidelines.com/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://csharpcodingguidelines.com/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "dennisdoomen/csharpguidelines" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/logo.png"
