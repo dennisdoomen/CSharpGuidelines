@@ -6,18 +6,6 @@ sidebar:
   nav: "sidebar"
 ---
 
-# A1. Important Resources
-## The companion website
-This document is part of an effort to increase the consciousness with which C# developers do their daily job on a professional level. Therefore I've started a dedicated CodePlex site that can be found at [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com).
-
-In addition to the most up to date version of this document, you'll find:
-
-- A companion quick-reference sheet
-- Visual Studio 2010/2012 Rule Sets for different types of systems.
-- [ReSharper](http://www.jetbrains.com/resharper/download/) layout configurations matching the rules in chapter 10.
-- A place to discuss C# coding quality.
-
-## Useful links
 In addition to the many links provided throughout this document, I'd like to recommend the following books, articles and sites for everyone interested in software quality:
 
 * [Code Complete: A Practical Handbook of Software Construction](http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670) (Steve McConnel)  
