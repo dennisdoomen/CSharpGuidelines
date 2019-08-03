@@ -136,7 +136,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <td class="column" markdown="1">
 <div class="sidebar">
 
-| **Pascal Casing**                     |                                                             |
+| **Symbol kind**                       | **Example**                                                 |
 |:--------------------------------------|-------------------------------------------------------------|
 | Namespace                             | `System.Drawing`                                            |
 | Type parameter                        | `TView`                                                     |
