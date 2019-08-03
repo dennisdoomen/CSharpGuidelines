@@ -73,7 +73,7 @@ prefer the use of extension methods from the `System.Linq` namespace:
 
 	var query = items.Where(item => item.Length > 0);
 
-Since LINQ queries should be written out over multiple lines for readability, the second example is a bit more compact.
+The second example is a bit less convoluted.
 
 ### <a name="av2221"></a> Use lambda expressions instead of anonymous methods (AV2221) ![](/assets/images/2.png)
 
