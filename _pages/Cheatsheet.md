@@ -46,7 +46,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don't use mutually exclusive properties (AV1110)
 * A property, method or local function should do only one thing (AV1115)
 * Don't expose stateful objects through static members (AV1125)
-* Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class (AV1130) 
+* Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class (AV1130)
 * Properties, arguments and return values representing strings, collections or tasks should never be `null` (AV1135)
 * Define parameters as specific as possible (AV1137)
 </td>
@@ -203,7 +203,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Add parentheses around every binary expression, but don't add parentheses around unary expressions
 <br/>
 
-* Be reluctant with #region (AV2407)
+* Do not use `#region` (AV2407)
 * Use expression-bodied members appropriately (AV2410)
 </td>
 <td class="column">
@@ -227,7 +227,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 3. Public static readonly fields
 4. Factory methods
 5. Constructors and the finalizer
-6. Events 
+6. Events
 7. Public properties
 8. Other methods and private properties in calling order
 </div>
