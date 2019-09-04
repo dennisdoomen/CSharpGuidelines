@@ -65,7 +65,7 @@ sidebar:
 	// Microsoft namespaces are first
 	using System;
 	using System.Collections.Generic;
-	using System.XML;
+	using System.Xml;
 	
 	// Then any other namespaces in alphabetic order
 	using AvivaSolutions.Business;
