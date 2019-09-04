@@ -5,9 +5,9 @@ See the landing page at https://www.csharpcodingguidelines.com
 
 ## How to create the PDFs
 
-1. From the root of the repo, run the `build.ps1` script to build the HTML versions of the guidelines and cheat sheet.
-2. From the `Artifacts` folder, open the `CSharpCodingGuidelines.htm` into your favorite browser and print as PDF. Use the default margins, no headers and footers, and set the scaling to 80% for A4 sheets. 
-3. Do the same for the `CSharpCodingGuidelinesCheatsheet.htm`, but use  landscape orientation and minimum margins. A scaling of 84% should allow you to print the cheat sheet as a double-sided A4 sheet. Just make sure you disable headers and footers, and  enable printing background graphics to keep the colored boxes with auxiliary information. 
+1. From the root of the repo, run the `build.bat` script to build the HTML versions of the guidelines and cheat sheet.
+2. From the `Artifacts` folder, open the `CSharpCodingGuidelines.htm` into your favorite browser and print as PDF. Use the default margins, no headers and footers, and set the scaling to 80% for A4 sheets.
+3. Do the same for the `CSharpCodingGuidelinesCheatsheet.htm`, but use  landscape orientation and minimum margins. A scaling of 84% should allow you to print the cheat sheet as a double-sided A4 sheet. Just make sure you disable headers and footers, and  enable printing background graphics to keep the colored boxes with auxiliary information.
 
 ## How to build this site
 
