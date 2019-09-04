@@ -7,7 +7,7 @@ This document attempts to provide guidelines (or coding standards if you like) f
 Although some might see coding guidelines as undesired overhead or something that limits creativity, this approach has already proven its value for many years. This is because not every developer:
 
 - is aware that code is generally read 10 times more than it is changed;
-- is aware of the potential pitfalls of certain constructions in C#;
+- is aware of the potential pitfalls of certain constructs in C#;
 - is up to speed on certain conventions when using the .NET Framework such as `IDisposable`, `async`/`await`, or the deferred execution nature of LINQ;
 - is aware of the impact of using (or neglecting to use) particular solutions on aspects like security, performance, multi-language support, etc;
 - realizes that not every developer is as capable, skilled or experienced to understand elegant, but potentially very abstract solutions;
