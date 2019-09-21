@@ -366,8 +366,8 @@ The class `MyString` provides three overloads for the `IndexOf` method, but two 
 
 **Important:** If you also want to allow derived classes to override these methods, define the most complete overload as a non-private `virtual` method that is called by all overloads.
 
-### <a name="av1553"></a> Only use optional arguments to replace overloads (AV1553) ![](/assets/images/1.png)
-The only valid reason for using C# 4.0's optional arguments is to replace the example from rule [AV1551](#av1551) with a single method like:
+### <a name="av1553"></a> Only use optional parameters to replace overloads (AV1553) ![](/assets/images/1.png)
+The only valid reason for using C# 4.0's optional parameters is to replace the example from rule [AV1551](#av1551) with a single method like:
 
     public virtual int IndexOf(string phrase, int startIndex = 0, int count = -1)
     {
@@ -375,11 +375,23 @@ The only valid reason for using C# 4.0's optional arguments is to replace the ex
         return someText.IndexOf(phrase, startIndex, length);
     }
 
-If the optional parameter is a reference type then it can only have a default value of `null`. But since strings, lists and collections should never be `null` according to rule [AV1135](/member-design-guidelines#av1135), you must use overloaded methods instead.
+Since strings, lists and collections should never be `null` according to rule [AV1135](/member-design-guidelines#av1135), if you have an optional parameter of these types with default value `null` then you must use overloaded methods instead.
 
-**Note:** The default values of the optional parameters are stored at the caller side. As such, changing the default value without recompiling the calling code will not apply the new default value.
+Strings, unlike other reference types, can have non-null default values. So an optional string parameter may be used to replace overloads with the condition of having a non-null default value.
 
-**Note:** When an interface method defines an optional parameter, its default value is discarded during overload resolution unless you call the concrete class through the interface reference. See [this post by Eric Lippert](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) for more details.
+Regardless of optional parameters' types, following caveats always apply:
+
+1) The default values of the optional parameters are stored at the caller side. As such, changing the default argument without recompiling the calling code will not apply the new default value. Unless your method is private or internal, this aspect should be carefully considered before choosing optional parameters over method overloads.
+
+2) If optional parameters cause the method to follow and/or exit from alternative paths, overloaded methods are probably a better fit for your case.
+
+### <a name="av1554"></a> Do not use optional parameters in interface methods or their concrete implementations (AV1554) ![](/assets/images/1.png)
+
+When an interface method defines an optional parameter, its default value is discarded during overload resolution unless you call the concrete class through the interface reference.
+
+When a concrete implementation of an interface method sets a default argument for a parameter, the default value is discarded during overload resolution if you call the concrete class through the interface reference.
+
+See [this series by Eric Lippert](http://blogs.msdn.com/b/ericlippert/archive/2011/05/09/optional-argument-corner-cases-part-one.aspx) for more details.
 
 ### <a name="av1555"></a> Avoid using named arguments (AV1555) ![](/assets/images/1.png)
 C# 4.0's named arguments have been introduced to make it easier to call COM components that are known for offering many optional parameters. If you need named arguments to improve the readability of the call to a method, that method is probably doing too much and should be refactored.
