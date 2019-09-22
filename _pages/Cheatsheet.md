@@ -87,7 +87,8 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don't use an `if`-`else` construct instead of a simple (conditional) assignment (AV1545)
 * Encapsulate complex expressions in a property, method or local function (AV1547)
 * Call the more overloaded method from other overloads (AV1551)
-* Only use optional arguments to replace overloads (AV1553)
+* Only use optional parameters to replace overloads (AV1553)
+* Do not use optional parameters in interface methods or their concrete implementations (AV1554)
 * Avoid using named arguments (AV1555)
 * Don't declare signatures with more than 3 parameters (AV1561)
 * Don't use `ref` or `out` parameters (AV1562)
@@ -215,7 +216,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Between multi-line members
 * After the closing curly brace
 * Between unrelated code blocks
-* Around the `#region` keyword
 * Between the `using` statements of different root namespaces
 </div>
 
