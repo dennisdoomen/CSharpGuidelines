@@ -1,0 +1,8 @@
+---
+layout: single
+---
+{% assign filtered-rules = site.rules | where_exp: "item", "item.id contains page.category-id" %}
+{% for rule in filtered-rules %}
+<h3 id="{{ rule.rule-id }}">{{ rule.title }} ({{ rule.rule-id }}) <img src="/assets/images/{{ rule.severity }}.png" /></h3>
+{{ rule.content }}
+{% endfor %}

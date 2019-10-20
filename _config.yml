@@ -73,6 +73,10 @@ bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
 
+collections:
+  - rules
+
+
 # Social Sharing
 twitter:
   username               : ddoomen
