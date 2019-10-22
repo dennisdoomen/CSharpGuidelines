@@ -5,6 +5,6 @@ classes: wide
 search: true
 sidebar:
   nav: "sidebar"
-category-id: AV23
+rule_category: commenting
 layout: rule-category
 ---

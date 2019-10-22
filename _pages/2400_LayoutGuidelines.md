@@ -5,6 +5,6 @@ classes: wide
 search: true
 sidebar:
   nav: "sidebar"
-category-id: AV24
+rule_category: layout
 layout: rule-category
 ---

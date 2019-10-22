@@ -5,6 +5,6 @@ classes: wide
 search: true
 sidebar:
   nav: "sidebar"
-category-id: AV22
+rule_category: dotnet-framework-usage
 layout: rule-category
 ---
