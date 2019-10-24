@@ -1,0 +1,52 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-family !important;
+  font-weight: 900 !important;
+  color: $black !important;
+}
+
+h1 {
+  font-size: 45px !important;
+  line-height: 56px !important;
+}
+
+h2 {
+  font-size: 21px !important;
+  line-height: 31px !important;
+}
+
+p,
+li {
+  font-family: $font-family;
+  font-size: 16px !important;
+  line-height: 32px !important;
+
+  code {
+    font-size: 16px;
+    line-height: 32px;
+  }
+}
+
+.page__hero--overlay {
+  h1 {
+    color: $blue !important;
+  }
+}
+
+.nav__sub-title {
+  font-family: $font-family;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.nav__items {
+  a {
+    font-family: $font-family;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
