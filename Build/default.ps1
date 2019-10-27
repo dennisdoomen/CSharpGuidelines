@@ -2,6 +2,7 @@
     $BaseDirectory = Resolve-Path ..     
     $ArtifactsDirectory = "$BaseDirectory\Artifacts\"     
 	$LibDir = "$BaseDirectory\Lib"
+	$defaultRulePrefix = "AV"
 }
 
 task default -depends Clean, ExtractVersionsFromGit, Compile, CompileCheatsheet, BuildHtml
@@ -49,27 +50,78 @@ task Compile {
 
 	$outfile = "$ArtifactsDirectory\Guidelines\CSharpCodingGuidelines.md"
 
-	foreach ($file in $files) {	
-		Write-Host "Including " $file
-		$content = Get-Content $file | Out-String
-		
-		$content = $content.replace('%semver%', $script:Semver)
-		$content = $content.replace('%commitdate%', $script:CommitDate) 
-		$content = $content.replace('![](/assets', '![](assets') 
+	foreach ($file in $files) {
+		$rawContent = Get-Content $file | Out-String	
+
+		$rawContent = $rawContent.replace('%semver%', $script:Semver)
+		$rawContent = $rawContent.replace('%commitdate%', $script:CommitDate) 
+		$rawContent = $rawContent.replace('![](/assets', '![](assets') 
 
 		# Extract the title of the section from the Frontmatter block
-		if ($content -match "---(.|\n)*title\: (.+)") {
-			$title = $Matches[2]
+		$title = ""
+		if ($rawContent -match "---(.|\n)*title\: (.+)") {
+			$title = $Matches[2].Trim()
+		}
+		# Extract the category from the Frontmatter block
+		$category = ""
+		if ($rawContent -match "---(.|\n)*rule_category\: (.+)") {
+			$category = $Matches[2].Trim()
 		}
 
 		# Remove the entire Frontmatter block
-		$content = ($content -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
+		$rawContent = ($rawContent -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
+
+		# Extract the category from the Frontmatter block
+		if ([string]::IsNullOrEmpty($category)) {
+			Write-Host "Including " $file
+			$content = $rawContent
+		} else {
+			Write-Host "Including rules of category " $category
+			$content = ""
+			foreach ($ruleFile in (Get-ChildItem "$BaseDirectory\_rules\*")) {
+				$rule = Get-Content $ruleFile.FullName | Out-String
+				if ($rule -match "---(.|\n)*rule_category\: $category") {
+					# Extract the title of the rule from the Frontmatter block
+					$ruleTitle = ""
+					if ($rule -match "---(.|\n)*title\: (.+)") {
+						$ruleTitle = $Matches[2].Trim()
+					}
+					
+					# Extract the severity of the rule from the Frontmatter block
+					$ruleSeverity = ""
+					if ($rule -match "---(.|\n)*severity\: (.+)") {
+						$ruleSeverity = $Matches[2].Trim()
+					}
+					
+					# Extract the id of the rule from the Frontmatter block
+					$ruleId = ""
+					if ($rule -match "---(.|\n)*rule_id\: (.+)") {
+						$ruleId = $Matches[2].Trim()
+					}
+					
+					# Extract the id prefix of the rule from the Frontmatter block
+					$ruleIdPrefix = "{{ site.default_rule_prefix }}"
+					if ($rule -match "---(.|\n)*custom_prefix\: (.+)") {
+						$ruleIdPrefix = $Matches[2].Trim()
+					}
+
+					$content += "<h3 id=`"${ruleIdPrefix}${ruleId}`">$ruleTitle (${ruleIdPrefix}${ruleId}) <img src=`"assets/images/$ruleSeverity.png`" /></h3>`n"
+
+					# Add rule content without Frontmatter
+					$content += ($rule -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
+					$content += "`n"
+				}
+			}
+		}
+
+		# Replace rule prefix variable
+		$content =  ($content -replace '{{ site.default_rule_prefix }}', $defaultRulePrefix)
 
 		# Replace cross-page relative links with local links (since everything becomes a single HTML)
-		$content = ($content -replace '\(\/.+?(#av\d+)\)', '($1)')
+		$content = ($content -replace '\(\/.+?(#\w+)\)', '($1)')
 
 		if ($title) {
-			$content = "<h1>$title</h1>" + $content;
+			$content = "<h1>$title</h1>`n" + $content;
 		}
 
 		Add-Content -Path $outfile $content
@@ -86,7 +138,11 @@ task CompileCheatsheet {
 
 	$outfile = "$ArtifactsDirectory\Cheatsheet\Cheatsheet.md"
 	
-	(Get-Content "$BaseDirectory\_pages\Cheatsheet.md").replace('%semver%', $script:Semver).replace('%commitdate%', $script:CommitDate) |  Add-Content $outfile
+	$content = Get-Content "$BaseDirectory\_pages\Cheatsheet.md"
+	$content = ($content -replace '%semver%', $script:Semver)
+	$content = ($content -replace '%commitdate%', $script:CommitDate) 
+	$content = ($content -replace '{{ site.default_rule_prefix }}', $defaultRulePrefix)
+	Add-Content $outfile $content
 		
 	Copy-Item -Path "$BaseDirectory\assets\css\CheatSheet.css" -Destination "$ArtifactsDirectory\Cheatsheet\style.css" -recurse -Force
 	Copy-Item -Path "$BaseDirectory\assets\Images" -Destination "$ArtifactsDirectory\Cheatsheet\Assets\Images" -recurse -Force
