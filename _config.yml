@@ -73,6 +73,9 @@ bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
 
+collections:
+  - rules
+
 # Social Sharing
 twitter:
   username               : ddoomen
@@ -277,3 +280,5 @@ defaults:
       share: true
       sidebar:
         nav: "sidebar"
+
+default_rule_prefix: "AV"
