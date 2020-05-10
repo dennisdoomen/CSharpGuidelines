@@ -201,7 +201,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Don't indent lambda statement blocks
 * Keep expression-bodied-members on one line; break long lines after the arrow sign
 * Put the entire LINQ statement on one line, or start each keyword at the same indentation
-* Add parentheses around every binary expression, but don't add parentheses around unary expressions
+* Remove redundant parentheses in expressions if they do not clarify precedence; add parentheses in expressions to avoid non-obvious precedence
 <br/>
 
 * Do not use `#region` ({{ site.default_rule_prefix }}2407)
