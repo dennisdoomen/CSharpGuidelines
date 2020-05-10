@@ -95,6 +95,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Avoid signatures that take a `bool` flag ({{ site.default_rule_prefix }}1564)
 * Prefer `is` patterns over `as` operations ({{ site.default_rule_prefix }}1570)
 * Don't comment out code ({{ site.default_rule_prefix }}1575)
+* Write code that is easy to debug ({{ site.default_rule_prefix }}1580)
 
 <br/>
 **Framework Guidelines**
