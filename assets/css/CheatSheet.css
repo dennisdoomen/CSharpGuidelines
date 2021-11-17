@@ -349,7 +349,7 @@ img {
     color: rgb(167, 21, 0); 
   }
 
-img[src*="logo.png"]
+img[src*="logo.svg"]
 {
 	height: 80px;
 }

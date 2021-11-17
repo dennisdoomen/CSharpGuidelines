@@ -5,7 +5,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <link href="style.css" type="text/css" rel="stylesheet"></link>
 
 <div style="text-align:right" markdown="1">
-![logo](assets/images/logo.png)
+![logo](assets/images/logo.svg)
 </div>
 <br/>
 <div class="title">

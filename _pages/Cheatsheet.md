@@ -6,7 +6,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <table width="100%">
 <tr>
 <td class="title" width="70%">Coding Guidelines for C# 1.0 - 7.3 Cheat Sheet</td>
-<td rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
+<td rowspan="2" style="text-align:right">![logo](assets/images/logo.svg)</td>
 </tr>
 <tr>
 <td><div class="subTitle">Design & Maintainability</div> (level 1 and 2 only)</td>
@@ -126,7 +126,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <table width="100%" style="page-break-before: always;">
  <tr>
   <td class="title" width="70%">Coding Guidelines for C# 1.0 - 7.3 Cheat Sheet</td>
-  <td markdown="1" rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
+  <td markdown="1" rowspan="2" style="text-align:right">![logo](assets/images/logo.svg)</td>
  </tr>
  <tr>
  <td><div class="subTitle">Naming & Layout</div> (level 1 and 2 only)</td>

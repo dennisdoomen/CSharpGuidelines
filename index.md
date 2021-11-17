@@ -10,7 +10,7 @@ sidebar:
 header:
   overlay_color: "#373737"
   overlay_filter: "0.7"
-  overlay_image: "/assets/images/logo.png"
+  overlay_image: "/assets/images/logo.svg"
   cta_label: "Get the PDF here!"
   cta_url: "https://github.com/dennisdoomen/csharpguidelines/releases/latest"
   caption: ""
