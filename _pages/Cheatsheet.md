@@ -67,7 +67,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <br/>
 **Maintainability**
 
-* Methods should not exceed 7 statements ({{ site.default_rule_prefix }}1500)
+* Methods should not exceed 15 statements ({{ site.default_rule_prefix }}1500)
 * Make all members `private` and types `internal sealed` by default ({{ site.default_rule_prefix }}1501)
 * Avoid conditions with double negatives ({{ site.default_rule_prefix }}1502)
 * Don't use "magic" numbers ({{ site.default_rule_prefix }}1515)
