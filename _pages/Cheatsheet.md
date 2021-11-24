@@ -71,7 +71,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Make all members `private` and types `internal sealed` by default ({{ site.default_rule_prefix }}1501)
 * Avoid conditions with double negatives ({{ site.default_rule_prefix }}1502)
 * Don't use "magic" numbers ({{ site.default_rule_prefix }}1515)
-* Only use `var` when the type is very obvious ({{ site.default_rule_prefix }}1520)
 * Declare and initialize variables as late as possible ({{ site.default_rule_prefix }}1521)
 * Assign each variable in a separate statement ({{ site.default_rule_prefix }}1522)
 * Favor object and collection initializers over separate statements ({{ site.default_rule_prefix }}1523)
@@ -96,6 +95,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Prefer `is` patterns over `as` operations ({{ site.default_rule_prefix }}1570)
 * Don't comment out code ({{ site.default_rule_prefix }}1575)
 * Write code that is easy to debug ({{ site.default_rule_prefix }}1580)
+* Limit method call depth to 2 ({{ site.default_rule_prefix }}1581)
 
 <br/>
 **Framework Guidelines**
@@ -184,7 +184,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 **Documentation**
 
 * Write comments and documentation in US English ({{ site.default_rule_prefix }}2301)
-* Document all `public`, `protected` and `internal` types and members ({{ site.default_rule_prefix }}2305)
 * Write XML documentation with other developers in mind ({{ site.default_rule_prefix }}2306)
 * Avoid inline comments ({{ site.default_rule_prefix }}2310)
 * Only write comments to explain complex algorithms or decisions ({{ site.default_rule_prefix }}2316)
@@ -192,7 +191,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 **Layout**
 
-* Maximum line length is 130 characters
+* Maximum line length is 250 characters
 * Indent 4 spaces, don't use tabs
 * Keep one space between keywords like `if` and the expression, but don't add spaces after `(` and before `)`
 * Add a space around operators, like `+`, `-`, `==`, etc.
@@ -205,7 +204,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Remove redundant parentheses in expressions if they do not clarify precedence; add parentheses in expressions to avoid non-obvious precedence
 <br/>
 
-* Do not use `#region` ({{ site.default_rule_prefix }}2407)
+* Avoid using `#region` ({{ site.default_rule_prefix }}2407)
 * Use expression-bodied members appropriately ({{ site.default_rule_prefix }}2410)
 </td>
 <td class="column">
