@@ -13,7 +13,7 @@ sidebar:
         url: /#11-what-is-this
       - title: Why would you use this document?
         url: /#12-why-would-you-use-this-document
-      - title: Basic Principles
+      - title: Basic principles
         url: /#13-basic-principles
       - title: How do you get started?
         url: /#14-how-do-you-get-started
@@ -28,21 +28,21 @@ sidebar:
         url: /class-design-guidelines/
       - title: Member Design (AV1100)
         url: /member-design-guidelines/
-      - title: Miscellaneous (AV1200)
+      - title: Miscellaneous Design (AV1200)
         url: /misc-design-guidelines/
-      - title: Maintainability Guidelines (AV1500)
+      - title: Maintainability (AV1500)
         url: /maintainability-guidelines/
-      - title: Naming Conventions (AV1700)
+      - title: Naming (AV1700)
         url: /naming-guidelines/
-      - title: Performance Guidelines (AV1800)
+      - title: Performance (AV1800)
         url: /performance-guidelines/
-      - title: .NET Framework Usage (AV2200)
+      - title: Framework (AV2200)
         url: /framework-guidelines/
-      - title: Comments and XML Documentation (AV2300)
+      - title: Documentation (AV2300)
         url: /documentation-guidelines/
-      - title: Layout Guidelines (AV2400)
+      - title: Layout (AV2400)
         url: /layout-guidelines/
-      - title: Resources & Articles
+      - title: Links & Articles
         url: /resources/
 
   - title: Community Support
