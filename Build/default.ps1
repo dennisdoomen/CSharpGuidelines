@@ -105,7 +105,7 @@ task Compile {
 						$ruleIdPrefix = $Matches[2].Trim()
 					}
 
-					$content += "<h3 id=`"${ruleIdPrefix}${ruleId}`">$ruleTitle (${ruleIdPrefix}${ruleId}) <img src=`"assets/images/$ruleSeverity.png`" /></h3>`n"
+					$content += "<div id=`"${ruleIdPrefix}${ruleId}`"></div>### $ruleTitle (${ruleIdPrefix}${ruleId}) <img src=`"assets/images/$ruleSeverity.png`" />`n"
 
 					# Add rule content without Frontmatter
 					$content += ($rule -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
