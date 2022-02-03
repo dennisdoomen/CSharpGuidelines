@@ -14,7 +14,7 @@ header:
   cta_label: "Get the PDF here!"
   cta_url: "https://github.com/dennisdoomen/csharpguidelines/releases/latest"
   caption: ""
-excerpt: 'for all C# versions up to 7.3
+excerpt: 'for all C# versions up to 9.0
  <br /> 
 [![](https://img.shields.io/github/release/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Latest)](https://github.com/dennisdoomen/csharpguidelines/releases/latest)
 [![](https://img.shields.io/github/stars/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Star)](https://github.com/dennisdoomen/csharpguidelines/stargazers)
