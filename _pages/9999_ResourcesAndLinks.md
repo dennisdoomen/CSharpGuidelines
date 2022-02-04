@@ -23,5 +23,8 @@ Although he is not that active anymore, in the last couple of years he has writt
 * [LINQ Framework Design Guidelines](https://blogs.msdn.microsoft.com/mirceat/2008/03/12/linq-framework-design-guidelines/)
 A set of rules and recommendations that you should adhere to when creating your own implementations of `IQueryable`.
 
+* [Guidance on Asynchronous Programming](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md) (David Fowler)
+Best practices for `async`/`await` with examples of bad and good patterns of how to write asynchronous code.
+
 * [Best Practices for c# async/await](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx)
 Older (but still valid) overview of crucial practices to follow when adopting `async` and `await` in your own code base.
