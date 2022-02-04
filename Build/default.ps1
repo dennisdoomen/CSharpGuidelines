@@ -1,25 +1,25 @@
-﻿properties {
-    $BaseDirectory = Resolve-Path ..     
-    $ArtifactsDirectory = "$BaseDirectory\Artifacts\"     
+properties {
+    $BaseDirectory = Resolve-Path ..
+    $ArtifactsDirectory = "$BaseDirectory\Artifacts\"
 	$LibDir = "$BaseDirectory\Lib"
 	$defaultRulePrefix = "AV"
 }
 
 task default -depends Clean, ExtractVersionsFromGit, Compile, CompileCheatsheet, BuildHtml
 
-task Clean {	
+task Clean {
 	if (Test-Path $ArtifactsDirectory) {
 		Get-ChildItem $ArtifactsDirectory | ForEach { Remove-Item $_.FullName -Recurse -Force }
 	}
 }
 
 task ExtractVersionsFromGit {
-    
-        $json = . "$LibDir\GitVersion.exe" 
-        
+
+        $json = . "$LibDir\GitVersion.exe"
+
         if ($LASTEXITCODE -eq 0) {
             $version = (ConvertFrom-Json ($json -join "`n"));
-          
+
             $script:SemVer = $version.SemVer;
             $script:CommitDate = ([datetime]$version.CommitDate).ToString("MMMM d, yyyy");
         }
@@ -51,11 +51,11 @@ task Compile {
 	$outfile = "$ArtifactsDirectory\Guidelines\CSharpCodingGuidelines.md"
 
 	foreach ($file in $files) {
-		$rawContent = Get-Content $file | Out-String	
+		$rawContent = Get-Content $file | Out-String
 
 		$rawContent = $rawContent.replace('%semver%', $script:Semver)
-		$rawContent = $rawContent.replace('%commitdate%', $script:CommitDate) 
-		$rawContent = $rawContent.replace('![](/assets', '![](assets') 
+		$rawContent = $rawContent.replace('%commitdate%', $script:CommitDate)
+		$rawContent = $rawContent.replace('![](/assets', '![](assets')
 
 		# Extract the title of the section from the Frontmatter block
 		$title = ""
@@ -86,19 +86,19 @@ task Compile {
 					if ($rule -match "---(.|\n)*title\: (.+)") {
 						$ruleTitle = $Matches[2].Trim()
 					}
-					
+
 					# Extract the severity of the rule from the Frontmatter block
 					$ruleSeverity = ""
 					if ($rule -match "---(.|\n)*severity\: (.+)") {
 						$ruleSeverity = $Matches[2].Trim()
 					}
-					
+
 					# Extract the id of the rule from the Frontmatter block
 					$ruleId = ""
 					if ($rule -match "---(.|\n)*rule_id\: (.+)") {
 						$ruleId = $Matches[2].Trim()
 					}
-					
+
 					# Extract the id prefix of the rule from the Frontmatter block
 					$ruleIdPrefix = "{{ site.default_rule_prefix }}"
 					if ($rule -match "---(.|\n)*custom_prefix\: (.+)") {
@@ -126,7 +126,7 @@ task Compile {
 
 		Add-Content -Path $outfile $content
 	}
-	
+
 	Copy-Item -Path "$BaseDirectory\Assets\css\guidelines.css" -Destination "$ArtifactsDirectory\Guidelines\style.css" -recurse -Force
 	Copy-Item -Path "$BaseDirectory\Assets\Images\" -Destination "$ArtifactsDirectory\Guidelines\Assets\Images" -recurse -Force
 }
@@ -137,13 +137,13 @@ task CompileCheatsheet {
 	}
 
 	$outfile = "$ArtifactsDirectory\Cheatsheet\Cheatsheet.md"
-	
+
 	$content = Get-Content "$BaseDirectory\_pages\Cheatsheet.md"
 	$content = ($content -replace '%semver%', $script:Semver)
-	$content = ($content -replace '%commitdate%', $script:CommitDate) 
+	$content = ($content -replace '%commitdate%', $script:CommitDate)
 	$content = ($content -replace '{{ site.default_rule_prefix }}', $defaultRulePrefix)
 	Add-Content $outfile $content
-		
+
 	Copy-Item -Path "$BaseDirectory\assets\css\CheatSheet.css" -Destination "$ArtifactsDirectory\Cheatsheet\style.css" -recurse -Force
 	Copy-Item -Path "$BaseDirectory\assets\Images" -Destination "$ArtifactsDirectory\Cheatsheet\Assets\Images" -recurse -Force
 }
@@ -157,26 +157,25 @@ task BuildHtml {
 		Set-Location "$ArtifactsDirectory\Guidelines"
 
 		$outfile = "$ArtifactsDirectory\CSharpCodingGuidelines.htm"
-		
-		if (Test-Path $outfile) {	
+
+		if (Test-Path $outfile) {
 			Remove-Item $outfile
 		}
-	
-		& "$LibDir\Pandoc\pandoc.exe" CSharpCodingGuidelines.md -f markdown_phpextra -s -o $outfile --self-contained 
+
+		& "$LibDir\Pandoc\pandoc.exe" CSharpCodingGuidelines.md -f markdown_phpextra -s -o $outfile --self-contained
 
 		Set-Location "$ArtifactsDirectory\Cheatsheet\"
 
 		$outfile = "$ArtifactsDirectory\CSharpCodingGuidelinesCheatsheet.htm"
-		
+
 		if (Test-Path $outfile) {
 			Remove-Item $outfile
 		}
-	
-		& "$LibDir\Pandoc\pandoc.exe" Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o $outfile --self-contained 
+
+		& "$LibDir\Pandoc\pandoc.exe" Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o $outfile --self-contained
 	}
 	finally
 	{
 		Set-Location $PreviousPwd
 	}
-	
 }

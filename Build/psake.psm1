@@ -359,15 +359,15 @@ function Invoke-psake {
         }
 
         ExecuteInBuildFileScope $buildFile $MyInvocation.MyCommand.Module {
-            param($currentContext, $module)            
+            param($currentContext, $module)
 
             $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
-            
+
             if ($docs -or $detailedDocs) {
                 WriteDocumentation($detailedDocs)
                 return
             }
-            
+
             foreach ($key in $parameters.keys) {
                 if (test-path "variable:\$key") {
                     set-item -path "variable:\$key" -value $parameters.$key -WhatIf:$false -Confirm:$false | out-null
@@ -375,22 +375,22 @@ function Invoke-psake {
                     new-item -path "variable:\$key" -value $parameters.$key -WhatIf:$false -Confirm:$false | out-null
                 }
             }
-            
+
             # The initial dot (.) indicates that variables initialized/modified in the propertyBlock are available in the parent scope.
             foreach ($propertyBlock in $currentContext.properties) {
                 . $propertyBlock
             }
-            
+
             foreach ($key in $properties.keys) {
                 if (test-path "variable:\$key") {
                     set-item -path "variable:\$key" -value $properties.$key -WhatIf:$false -Confirm:$false | out-null
                 }
             }
-            
+
             # Simple dot sourcing will not work. We have to force the script block into our
             # module's scope in order to initialize variables properly.
             . $module $initialization
-            
+
             # Execute the list of tasks or the default task
             if ($taskList) {
                 foreach ($task in $taskList) {
@@ -401,9 +401,9 @@ function Invoke-psake {
             } else {
                 throw $msgs.error_no_default_task
             }
-            
+
             WriteColoredOutput ("`n" + $msgs.build_success + "`n") -foregroundcolor Green
-            
+
             $stopwatch.Stop()
             if (-not $notr) {
                 WriteTaskTimeSummary $stopwatch.Elapsed
@@ -646,9 +646,9 @@ function ConfigureBuildEnvironment {
     $global:ErrorActionPreference = "Stop"
 }
 
-function ExecuteInBuildFileScope {    
+function ExecuteInBuildFileScope {
     param([string]$buildFile, $module, [scriptblock]$sb)
-    
+
     # Execute the build file to set up the tasks and defaults
     Assert (test-path $buildFile -pathType Leaf) ($msgs.error_build_file_not_found -f $buildFile)
 
@@ -795,7 +795,7 @@ function ResolveError
     }
 }
 
-function GetTasksFromContext($currentContext) {    
+function GetTasksFromContext($currentContext) {
 
     $docs = $currentContext.tasks.Keys | foreach-object {
 
@@ -820,13 +820,13 @@ function WriteDocumentation($showDetailed) {
     } else {
         $defaultTaskDependencies = @()
     }
-    
-    $docs = GetTasksFromContext $currentContext | 
-                Where   {$_.Name -ne 'default'} | 
+
+    $docs = GetTasksFromContext $currentContext |
+                Where   {$_.Name -ne 'default'} |
                 ForEach {
                     $isDefault = $null
-                    if ($defaultTaskDependencies -contains $_.Name) { 
-                        $isDefault = $true 
+                    if ($defaultTaskDependencies -contains $_.Name) {
+                        $isDefault = $true
                     }
                     return Add-Member -InputObject $_ 'Default' $isDefault -PassThru
                 }
