@@ -13,15 +13,16 @@ See the landing page at https://www.csharpcodingguidelines.com
 
 ### Prerequisites
 
-* Ruby 3.1. (note: 2.5 and higher may fail due to the ffi ruby lib only supporting < 2.5).
+* Ruby 3.1. 
     * An easy way to install is to use `choco install ruby`.
     * Or use the **Ruby+Devkit installer** from [RubyInstaller for Windows](https://rubyinstaller.org/downloads/archives/).
-* The `bundler` gem (`gem install bundler`). If you receive SSL-related errors while running gem install, try running `refreshenv` first.
+    * Note that you may have to reopen your command shell to get the `ruby --version` command to work,
+* The `bundler` 
+    * Run `gem install bundler` to install it. If you receive SSL-related errors while running gem install, try running `refreshenv` first.
 
 ### Building
 
 * Clone this repository
-* Install the Ruby Devkit using `ridk install` followed by option 3.
 * Run `bundle install`
 * Run `bundle exec jekyll serve`. To have it monitor your working directory for changes, add the `--incremental` option.
 
