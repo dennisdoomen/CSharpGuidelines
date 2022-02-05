@@ -7,6 +7,6 @@ layout: single
     {% if rule.custom_prefix != nil  %}
         {% assign full_rule_id = rule.custom_prefix | append: rule.rule_id  %}
     {% endif %}
-    <h3 id="{{ full_rule_id }}">{{ rule.title }} ({{ full_rule_id }}) <img src="/assets/images/{{ rule.severity }}.png" /></h3>
+    <h3 id="{{ full_rule_id }}">{{ rule.title | markdownify | replace: "<p>", "" | replace: "</p>", "" }} ({{ full_rule_id }}) <img src="/assets/images/{{ rule.severity }}.png" /></h3>
     {{ rule.content }}
 {% endfor %}
