@@ -44,7 +44,7 @@ var store = [
     {% assign full_rule_id = site.default_rule_prefix | append: rule.rule_id  %}
     {% assign category_page = site.pages | where: "rule_category", rule.rule_category | first  %}
     {
-      "title": {{ full_rule_id | append: ": " | append: rule.title | jsonify }},
+      "title": {{ full_rule_id | append: ": " | append: rule.title | markdownify | replace: "<p>", "" | replace: "</p>", "" | jsonify }},
       "excerpt":
         {%- if site.search_full_content == true -%}
           {{ rule.content |
