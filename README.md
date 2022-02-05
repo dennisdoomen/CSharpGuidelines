@@ -1,4 +1,4 @@
-Coding Guidelines for C# (up to version 9.0)
+Coding Guidelines for C# (up to v10)
 ================
 
 See the landing page at https://www.csharpcodingguidelines.com
