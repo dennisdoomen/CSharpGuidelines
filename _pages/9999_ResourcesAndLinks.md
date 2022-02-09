@@ -17,8 +17,8 @@ Another great all-encompassing trip through the many practices preached by proce
 * [Applying Domain-Driven Design and Patterns: With Examples in C# and .NET](http://www.amazon.com/Applying-Domain-Driven-Design-Patterns-Examples/dp/0321268202) (Jimmy Nilsson)
 The book that started my interest for both Domain-Driven Design and Test-Driven Development. It's one of those books that I wished I had read a few years earlier. It would have spared me from many mistakes.
 
-* [Jeremy D. Miller's Blog](http://codebetter.com/jeremymiller/author/jeremymiller/)
-Although he is not that active anymore, in the last couple of years he has written some excellent blog posts on Test-Driven Development, Design Patterns and design principles. I've learned a lot from his real-life and practical insights.
+* [Jeremy D. Miller's Blog](https://jeremydmiller.com/)
+Jeremy has written some excellent blog posts on Test-Driven Development, Design Patterns and design principles. I've learned a lot from his real-life and practical insights.
 
 * [LINQ Framework Design Guidelines](https://blogs.msdn.microsoft.com/mirceat/2008/03/12/linq-framework-design-guidelines/)
 A set of rules and recommendations that you should adhere to when creating your own implementations of `IQueryable`.
