@@ -3,7 +3,9 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 -->
 
 <link href="style.css" type="text/css" rel="stylesheet"></link>
-
+<div style="text-align:right" markdown="1">
+![logo](assets/images/optoslogo.jpg)
+</div>
 <div style="text-align:right" markdown="1">
 ![logo](assets/images/logo.png)
 </div>
@@ -16,7 +18,7 @@ for all C# versions up to v10
 </div>
 <br/>
 <div class="author">
-Dennis Doomen<br/>
+Dennis Doomen (with modifications by Optos)<br/>
 Version %semver%<br/>
 %commitdate%
 </div>
