@@ -12,7 +12,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 Coding Guidelines
 </div><br/>
 <div class="subTitle">
-for all C# versions up to v10
+for all versions up to C# 14
 </div>
 <br/>
 <div class="author">
