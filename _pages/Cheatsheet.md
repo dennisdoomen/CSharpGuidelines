@@ -28,9 +28,14 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 **General**
 
+* Apply the Principle of Least Surprise ({{ site.default_rule_prefix }}0112)
+* Keep It Simple Stupid ({{ site.default_rule_prefix }}0115)
+* You Ain't Gonna Need It ({{ site.default_rule_prefix }}0120)
+* Don't Repeat Yourself ({{ site.default_rule_prefix }}0125)
 * Understand the boundaries of your codebase ({{ site.default_rule_prefix }}0100)
 * Use design patterns to communicate intent ({{ site.default_rule_prefix }}0105)
 * Prefer composition over class inheritance ({{ site.default_rule_prefix }}0110)
+* Treat AI-generated code as your own ({{ site.default_rule_prefix }}0135)
 
 **Class Design**
 
@@ -43,6 +48,8 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Avoid exposing the other objects an object depends on ({{ site.default_rule_prefix }}1014)
 * Avoid bidirectional dependencies ({{ site.default_rule_prefix }}1020)
 * Classes should have state and behavior ({{ site.default_rule_prefix }}1025)
+* Know when to use a record and when to use a class ({{ site.default_rule_prefix }}1030)
+* Use primary constructors when they improve readability ({{ site.default_rule_prefix }}1035)
 
 <br/>
 **Member Design**
@@ -94,6 +101,9 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Avoid signatures that take a `bool` flag ({{ site.default_rule_prefix }}1564)
 * Prefer `is` patterns over `as` operations ({{ site.default_rule_prefix }}1570)
 * Don't comment out code ({{ site.default_rule_prefix }}1575)
+* Align projects with deployment units, not layers ({{ site.default_rule_prefix }}1578)
+* Make properties required when they must be set during initialization ({{ site.default_rule_prefix }}1585)
+* Use raw string literals for multi-line or escape-heavy strings ({{ site.default_rule_prefix }}1582)
 
 <br/>
 **Framework Guidelines**

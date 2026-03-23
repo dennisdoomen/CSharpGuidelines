@@ -18,13 +18,8 @@ Although some might see coding guidelines as undesired overhead or something tha
 
 There are many unexpected things I run into during my work as a consultant, each deserving at least one guideline. Unfortunately, I still need to keep this document within a reasonable size. But unlike what some junior developers believe, that doesn't mean that something is okay just because it is not mentioned in this document.
 
-In general, if I have a discussion with a colleague about a smell that this document does not cover, I'll refer back to a set of basic principles that apply to all situations, regardless of context. These include:
+In general, if I have a discussion with a colleague about a smell that this document does not cover, I'll refer back to the [General Guidelines](/general-guidelines/) that apply to all situations, regardless of context. The only remaining exception is:
 
-- The Principle of Least Surprise (or Astonishment): you should choose a solution that everyone can understand, and that keeps them on the right track.
-- Keep It Simple Stupid (a.k.a. KISS): the simplest solution is more than sufficient.
-- You Ain't Gonna Need It (a.k.a. YAGNI): create a solution for the problem at hand, not for the ones you think may happen later on. Can you predict the future?
-- Don't Repeat Yourself (a.k.a. DRY): avoid duplication within a component, a source control repository or a [bounded context](http://martinfowler.com/bliki/BoundedContext.html), without forgetting the [Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) heuristic. However, when sharing code across architectural or team boundaries would introduce tight coupling, consider duplicating simple logic rather than creating an unwanted dependency.
-- The [four principles of object-oriented programming](https://github.com/TelerikAcademy/Object-Oriented-Programming/tree/master/Topics/04.%20OOP-Principles-Part-1): encapsulation, abstraction, inheritance and polymorphism.
 - In general, generated code should not need to comply with coding guidelines. However, if it is possible to modify the templates used for generation, try to make them generate code that complies as much as possible.
 
 Regardless of the elegance of someone's solution, if it's too complex for the ordinary developer, exposes unusual behavior, or tries to solve many possible future issues, it is very likely the wrong solution and needs redesign. The worst response a developer can give you to these principles is: "But it works?".
@@ -39,7 +34,6 @@ Regardless of the elegance of someone's solution, if it's too complex for the or
 - Both ReSharper and Rider have a File Structure window that displays an overview of the members of your class or interface, and allows you to easily rearrange them using a simple drag-and-drop action.
 - [CSharpGuidelinesAnalyzer](https://github.com/bkoelman/CSharpGuidelinesAnalyzer) verifies over 40 of our guidelines, while typing code in Visual Studio 2017-2022 and during CI builds. An updated Resharper settings file is included.
 - Many of these guidelines are also enforced by [Roslyn analyzers](https://learn.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview). You can configure them centrally in a `Directory.Build.props` file to apply them to all projects in your solution.
-- Using AI-generated code is fine, as long as you treat all that code as your own. You are responsible for understanding, reviewing and maintaining the code, just as if you had written it yourself.
 
 ## 1.5. Why did we create it?
 
