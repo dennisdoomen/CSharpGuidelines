@@ -5,9 +5,8 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%">
 <tr>
-<td class="title" width="70%">Coding Guidelines for C# v10 Cheat Sheet</td>
+<td class="title" width="70%">Coding Guidelines for C# v14 Cheat Sheet</td>
 <td rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
-</tr>
 <tr>
 <td><div class="subTitle">Design & Maintainability</div> (level 1 and 2 only)</td>
 </tr>
@@ -125,7 +124,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" style="page-break-before: always;">
  <tr>
-  <td class="title" width="70%">Coding Guidelines for C# v10 Cheat Sheet</td>
+  <td class="title" width="70%">Coding Guidelines for C# v14 Cheat Sheet</td>
   <td markdown="1" rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
  </tr>
  <tr>

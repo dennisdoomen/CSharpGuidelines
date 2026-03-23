@@ -1,6 +1,6 @@
 ## 1.1. What is this?
 
-This document attempts to provide guidelines (or coding standards if you like) for all versions of C# up to and including v10 that are both valuable and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](https://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
+This document attempts to provide guidelines (or coding standards if you like) for all versions of C# up to and including v14 that are both valuable and pragmatic. Of course, if you create such a document you should practice what you preach. So rest assured, these guidelines are representative to what we at [Aviva Solutions](https://www.avivasolutions.nl) do in our day-to-day work. Notice that not all guidelines have a clear rationale. Some of them are simply choices we made at Aviva Solutions. In the end, it doesn't matter what choice you made, as long as you make one and apply it consistently.
 
 ## 1.2. Why would you use this document?
 
@@ -8,7 +8,7 @@ Although some might see coding guidelines as undesired overhead or something tha
 
 - is aware that code is generally read 10 times more than it is changed;
 - is aware of the potential pitfalls of certain constructs in C#;
-- is up to speed on certain conventions when using the .NET Framework such as `IDisposable`, `async`/`await`, or the deferred execution nature of LINQ;
+- is up to speed on certain conventions when using .NET such as `IDisposable`, `async`/`await`, or the deferred execution nature of LINQ;
 - is aware of the impact of using (or neglecting to use) particular solutions on aspects like security, performance, multi-language support, etc;
 - realizes that not every developer is as capable, skilled or experienced to understand elegant, but potentially very abstract solutions;
 
@@ -24,6 +24,7 @@ In general, if I have a discussion with a colleague about a smell that this docu
 - Don't Repeat Yourself (a.k.a. DRY): avoid duplication within a component, a source control repository or  a [bounded context](http://martinfowler.com/bliki/BoundedContext.html), without forgetting the [Rule of Three](http://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/) heuristic.
 - The [four principles of object-oriented programming](https://github.com/TelerikAcademy/Object-Oriented-Programming/tree/master/Topics/04.%20OOP-Principles-Part-1): encapsulation, abstraction, inheritance and polymorphism.
 - In general, generated code should not need to comply with coding guidelines. However, if it is possible to modify the templates used for generation, try to make them generate code that complies as much as possible.
+- The use of AI-assisted coding tools (such as GitHub Copilot) is perfectly fine, as long as you treat all AI-generated code as your own and take full responsibility for its quality, correctness, and compliance with these guidelines.
 
 Regardless of the elegance of someone's solution, if it's too complex for the ordinary developer, exposes unusual behavior, or tries to solve many possible future issues, it is very likely the wrong solution and needs redesign. The worst response a developer can give you to these principles is: "But it works?".
 
@@ -34,7 +35,7 @@ Regardless of the elegance of someone's solution, if it's too complex for the or
 - Include the most critical coding guidelines on your [Project Checklist](https://www.continuousimprover.com/2010/03/alm-practices-5-checklists.html) and verify the remainder as part of your [Peer Review](https://www.continuousimprover.com/2010/02/tfs-development-practices-part-2-peer.html).
 - Consider forking the [original sources](https://github.com/dennisdoomen/csharpguidelines) on [GitHub](https://github.com/) and create your own [internal](https://github.com/dennisdoomen/csharpguidelines/blob/master/LICENSE.md) version of the document.
 - Jetbrain's [ReSharper](http://www.jetbrains.com/resharper/) and their fully fledged Visual Studio replacement [Rider](https://www.jetbrains.com/rider/), has an intelligent code inspection engine that, with some configuration, already supports many aspects of the Coding Guidelines. It automatically highlights any code that does not match the rules for naming members (e.g. Pascal or Camel casing), detects dead code, and many other things. One click of the mouse button (or the corresponding keyboard shortcut) is usually enough to fix it.
-- ReSharper also has a File Structure window that displays an overview of the members of your class or interface, and allows you to easily rearrange them using a simple drag-and-drop action.
+- ReSharper and Rider both have a File Structure window that displays an overview of the members of your class or interface, and allows you to easily rearrange them using a simple drag-and-drop action.
 - [CSharpGuidelinesAnalyzer](https://github.com/bkoelman/CSharpGuidelinesAnalyzer) verifies over 40 of our guidelines, while typing code in Visual Studio 2017-2022 and during CI builds. An updated Resharper settings file is included.
 
 ## 1.5. Why did we create it?
@@ -59,7 +60,7 @@ To help you in this decision, I've assigned a level of importance to each guidel
 
 ## 1.7. Feedback and disclaimer
 
-This document has been compiled using many contributions from community members, blog posts, on-line discussions and two decades of developing in C#. If you have questions, comments or suggestions, just let me know by sending me an email at [dennis.doomen@avivasolutions.nl](mailto:dennis.doomen@avivasolutions.nl), [creating an issue](https://github.com/dennisdoomen/csharpguidelines/issues) or Pull Request on GitHub, ping me at [http://twitter.com/ddoomen](http://twitter.com/ddoomen) or join the [Gitter discussions](https://gitter.im/dennisdoomen/CSharpGuidelines). I will try to revise and republish this document with new insights, experiences and remarks on a regular basis.
+This document has been compiled using many contributions from community members, blog posts, on-line discussions and two decades of developing in C#. If you have questions, comments or suggestions, just let me know by sending me an email at [dennis.doomen@avivasolutions.nl](mailto:dennis.doomen@avivasolutions.nl), [creating an issue](https://github.com/dennisdoomen/csharpguidelines/issues) or Pull Request on GitHub, or ping me at [https://twitter.com/ddoomen](https://twitter.com/ddoomen). I will try to revise and republish this document with new insights, experiences and remarks on a regular basis.
 
 Notice though that it merely reflects my view on proper C# code so Aviva Solutions will not be liable for any direct or indirect damages caused by applying the guidelines of this document. This document is published under a Creative Commons license, specifically the [Creative Commons Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/) license.
 
