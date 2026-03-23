@@ -24,6 +24,8 @@ sidebar:
 
   - title: Guidelines
     children:
+      - title: General (AV0100)
+        url: /general-guidelines/
       - title: Class Design (AV1000)
         url: /class-design-guidelines/
       - title: Member Design (AV1100)

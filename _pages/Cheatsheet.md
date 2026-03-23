@@ -26,6 +26,12 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * OOP: Encapsulation, abstraction, inheritance, polymorphism
 </div>
 
+**General**
+
+* Understand the boundaries of your codebase ({{ site.default_rule_prefix }}0100)
+* Use design patterns to communicate intent ({{ site.default_rule_prefix }}0105)
+* Prefer composition over class inheritance ({{ site.default_rule_prefix }}0110)
+
 **Class Design**
 
 * A class or interface should have a single purpose ({{ site.default_rule_prefix }}1000)
