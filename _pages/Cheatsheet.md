@@ -5,7 +5,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%">
 <tr>
-<td class="title" width="70%">Coding Guidelines for C# v10 Cheat Sheet</td>
+<td class="title" width="70%">Coding Guidelines for C# v14 Cheat Sheet</td>
 <td rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
 </tr>
 <tr>
@@ -33,22 +33,20 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Use an interface to decouple classes from each other ({{ site.default_rule_prefix }}1005)
 * Don't suppress compiler warnings using the `new` keyword ({{ site.default_rule_prefix }}1010)
 * It should be possible to treat a derived object as if it were a base class object ({{ site.default_rule_prefix }}1011)
-* Don't refer to derived classes from the base class ({{ site.default_rule_prefix }}1013)
+* Don't cast a base class to one of its derived classes ({{ site.default_rule_prefix }}1013)
 * Avoid exposing the other objects an object depends on ({{ site.default_rule_prefix }}1014)
 * Avoid bidirectional dependencies ({{ site.default_rule_prefix }}1020)
 * Classes should have state and behavior ({{ site.default_rule_prefix }}1025)
-* Classes should protect the consistency of their internal state ({{ site.default_rule_prefix }}1026)
 
 <br/>
 **Member Design**
 
 * Allow properties to be set in any order ({{ site.default_rule_prefix }}1100)
 * Don't use mutually exclusive properties ({{ site.default_rule_prefix }}1110)
-* A property, method or local function should do only one thing ({{ site.default_rule_prefix }}1115)
 * Don't expose stateful objects through static members ({{ site.default_rule_prefix }}1125)
-* Return an `IEnumerable<T>` or `ICollection<T>` instead of a concrete collection class ({{ site.default_rule_prefix }}1130)
+* Return interfaces to unchangeable collections ({{ site.default_rule_prefix }}1130)
 * Properties, arguments and return values representing strings, collections or tasks should never be `null` ({{ site.default_rule_prefix }}1135)
-* Define parameters as specific as possible ({{ site.default_rule_prefix }}1137)
+* Keep parameters as specific and narrow as possible ({{ site.default_rule_prefix }}1137)
 </td>
 <td class="column">
 **Miscellaneous Design**
@@ -57,17 +55,14 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Provide a rich and meaningful exception message text ({{ site.default_rule_prefix }}1202)
 * Don't swallow errors by catching generic exceptions ({{ site.default_rule_prefix }}1210)
 * Properly handle exceptions in asynchronous code ({{ site.default_rule_prefix }}1215)
-* Always check an event handler delegate for `null` ({{ site.default_rule_prefix }}1220)
-* Use a protected virtual method to raise each event ({{ site.default_rule_prefix }}1225)
-* Don't pass `null` as the `sender` argument when raising an event ({{ site.default_rule_prefix }}1235)
 * Use generic constraints if applicable ({{ site.default_rule_prefix }}1240)
-* Evaluate the result of a LINQ expression before returning it ({{ site.default_rule_prefix }}1250)
+* Materialize the result of a LINQ expression before returning it ({{ site.default_rule_prefix }}1250)
 * Do not use `this` and `base` prefixes unless it is required ({{ site.default_rule_prefix }}1251)
 
 <br/>
 **Maintainability**
 
-* Methods should not exceed 7 statements ({{ site.default_rule_prefix }}1500)
+* Methods should not exceed 15 statements ({{ site.default_rule_prefix }}1500)
 * Make all members `private` and types `internal sealed` by default ({{ site.default_rule_prefix }}1501)
 * Avoid conditions with double negatives ({{ site.default_rule_prefix }}1502)
 * Don't use "magic" numbers ({{ site.default_rule_prefix }}1515)
@@ -75,9 +70,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Declare and initialize variables as late as possible ({{ site.default_rule_prefix }}1521)
 * Assign each variable in a separate statement ({{ site.default_rule_prefix }}1522)
 * Favor object and collection initializers over separate statements ({{ site.default_rule_prefix }}1523)
-* Don't make explicit comparisons to `true` or `false` ({{ site.default_rule_prefix }}1525)
-* Don't change a loop variable inside a `for` loop ({{ site.default_rule_prefix }}1530)
-* Avoid nested loops ({{ site.default_rule_prefix }}1532)
+* Don't change a loop variable inside a `for` or `foreach` loop ({{ site.default_rule_prefix }}1530)
 </td>
 <td class="column">
 * Always add a block after the keywords `if`, `else`, `do`, `while`, `for`, `foreach` and `case` ({{ site.default_rule_prefix }}1535)
@@ -85,8 +78,8 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Finish every `if`-`else`-`if` statement with an `else` clause ({{ site.default_rule_prefix }}1537)
 * Be reluctant with multiple `return` statements ({{ site.default_rule_prefix }}1540)
 * Don't use an `if`-`else` construct instead of a simple (conditional) assignment ({{ site.default_rule_prefix }}1545)
+* Prefer interpolated strings over concatenation or `string.Format` ({{ site.default_rule_prefix }}1546)
 * Encapsulate complex expressions in a property, method or local function ({{ site.default_rule_prefix }}1547)
-* Call the more overloaded method from other overloads ({{ site.default_rule_prefix }}1551)
 * Only use optional parameters to replace overloads ({{ site.default_rule_prefix }}1553)
 * Do not use optional parameters in interface methods or their concrete implementations ({{ site.default_rule_prefix }}1554)
 * Avoid using named arguments ({{ site.default_rule_prefix }}1555)
@@ -95,7 +88,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Avoid signatures that take a `bool` flag ({{ site.default_rule_prefix }}1564)
 * Prefer `is` patterns over `as` operations ({{ site.default_rule_prefix }}1570)
 * Don't comment out code ({{ site.default_rule_prefix }}1575)
-* Write code that is easy to debug ({{ site.default_rule_prefix }}1580)
 
 <br/>
 **Framework Guidelines**
@@ -105,7 +97,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Build with the highest warning level ({{ site.default_rule_prefix }}2210)
 * Use lambda expressions instead of anonymous methods ({{ site.default_rule_prefix }}2221)
 * Only use the `dynamic` keyword when talking to a dynamic object ({{ site.default_rule_prefix }}2230)
-* Favor `async`/`await` over `Task` continuations ({{ site.default_rule_prefix }}2235)
 </td>
 <tr>
 
@@ -125,7 +116,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" style="page-break-before: always;">
  <tr>
-  <td class="title" width="70%">Coding Guidelines for C# v10 Cheat Sheet</td>
+  <td class="title" width="70%">Coding Guidelines for C# v14 Cheat Sheet</td>
   <td markdown="1" rowspan="2" style="text-align:right">![logo](assets/images/logo.png)</td>
  </tr>
  <tr>
@@ -174,7 +165,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Properly name properties ({{ site.default_rule_prefix }}1715)
 * Name methods and local functions using verbs or verb-object pairs ({{ site.default_rule_prefix }}1720)
 * Use a verb or verb phrase to name an event ({{ site.default_rule_prefix }}1735)
-* Postfix asynchronous methods with `Async` or `TaskAsync` ({{ site.default_rule_prefix }}1755)
+* Only use `Async` or `TaskAsync` as suffix when a method has both synchronous and asynchronous versions ({{ site.default_rule_prefix }}1755)
 </td>
 <td class="column">
 
