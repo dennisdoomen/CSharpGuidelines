@@ -34,6 +34,8 @@ sidebar:
         url: /misc-design-guidelines/
       - title: Maintainability (AV1500)
         url: /maintainability-guidelines/
+      - title: Testability (AV1600)
+        url: /testability-guidelines/
       - title: Naming (AV1700)
         url: /naming-guidelines/
       - title: Performance (AV1800)

@@ -106,6 +106,19 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Use raw string literals for multi-line or escape-heavy strings ({{ site.default_rule_prefix }}1582)
 
 <br/>
+**Testability**
+
+* Use short concise functional test names ({{ site.default_rule_prefix }}1600)
+* Postfix test classes with `Specs` instead of `Tests` ({{ site.default_rule_prefix }}1602)
+* Test behavior, not implementation details ({{ site.default_rule_prefix }}1605)
+* Show what's important in a test, hide what's not ({{ site.default_rule_prefix }}1608)
+* Use Test Data Builders or Object Mothers to construct test objects ({{ site.default_rule_prefix }}1610)
+* Prefer inline literals over constant variables in tests ({{ site.default_rule_prefix }}1615)
+* Don't use production code in test assertions ({{ site.default_rule_prefix }}1618)
+* Test reusable components separately from their consumers ({{ site.default_rule_prefix }}1620)
+* Test concrete implementations as part of a larger integration scope ({{ site.default_rule_prefix }}1622)
+
+<br/>
 **Framework Guidelines**
 
 * Use C# type aliases instead of the types from the `System` namespace ({{ site.default_rule_prefix }}2201)
