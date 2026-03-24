@@ -34,6 +34,7 @@ Regardless of the elegance of someone's solution, if it's too complex for the or
 - Both ReSharper and Rider have a File Structure window that displays an overview of the members of your class or interface, and allows you to easily rearrange them using a simple drag-and-drop action.
 - [CSharpGuidelinesAnalyzer](https://github.com/bkoelman/CSharpGuidelinesAnalyzer) verifies over 40 of our guidelines, while typing code in Visual Studio 2017-2022 and during CI builds. An updated Resharper settings file is included.
 - Many of these guidelines are also enforced by [Roslyn analyzers](https://learn.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview). You can configure them centrally in a `Directory.Build.props` file to apply them to all projects in your solution.
+- If you need to use newer C# language features in projects targeting older .NET versions, consider [PolySharp](https://github.com/Sergio0694/PolySharp). It provides polyfills for many modern C# features, allowing you to write modern C# even when targeting older runtimes.
 
 ## 1.5. Why did we create it?
 

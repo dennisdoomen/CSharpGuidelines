@@ -206,6 +206,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 * Write comments and documentation in US English ({{ site.default_rule_prefix }}2301)
 * Document all `public`, `protected` and `internal` types and members ({{ site.default_rule_prefix }}2305)
 * Write XML documentation with other developers in mind ({{ site.default_rule_prefix }}2306)
+* Document what a member tries to do, not what it does or how it does it ({{ site.default_rule_prefix }}2308)
 * Avoid inline comments ({{ site.default_rule_prefix }}2310)
 * Only write comments to explain complex algorithms or decisions ({{ site.default_rule_prefix }}2316)
 <br/>
