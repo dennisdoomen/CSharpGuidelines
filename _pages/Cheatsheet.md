@@ -40,6 +40,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 **Class Design**
 
 * A class or interface should have a single purpose ({{ site.default_rule_prefix }}1000)
+* Only pass things to a constructor that most or all members need ({{ site.default_rule_prefix }}1002)
 * An interface should be small and focused ({{ site.default_rule_prefix }}1003)
 * Use an interface to decouple classes from each other ({{ site.default_rule_prefix }}1005)
 * Don't suppress compiler warnings using the `new` keyword ({{ site.default_rule_prefix }}1010)
