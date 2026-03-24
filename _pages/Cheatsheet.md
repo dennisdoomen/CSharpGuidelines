@@ -122,10 +122,9 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 <br/>
 **Framework Guidelines**
 
-* Use C# type aliases instead of the types from the `System` namespace ({{ site.default_rule_prefix }}2201)
 * Prefer language syntax over explicit calls to underlying implementations ({{ site.default_rule_prefix }}2202)
 * Build with the highest warning level ({{ site.default_rule_prefix }}2210)
-* Use lambda expressions instead of anonymous methods ({{ site.default_rule_prefix }}2221)
+* Use deconstruction to simplify variable assignments ({{ site.default_rule_prefix }}2225)
 * Only use the `dynamic` keyword when talking to a dynamic object ({{ site.default_rule_prefix }}2230)
 </td>
 <tr>
