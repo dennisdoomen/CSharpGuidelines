@@ -1,12 +1,14 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.GitVersion;
 using Serilog;
+
+using GitVersionInfo = Nuke.Common.Tools.GitVersion.GitVersion;
 
 class Build : NukeBuild
 {
@@ -30,16 +32,12 @@ class Build : NukeBuild
         .DependsOn(Clean)
         .Executes(() =>
         {
-            var gitVersionExe = LibDirectory / "GitVersion.exe";
-            var process = ProcessTasks.StartProcess(gitVersionExe, workingDirectory: RootDirectory);
-            process.AssertZeroExitCode();
+            var result = GitVersionTasks.GitVersion(s => s
+                .SetProcessToolPath(LibDirectory / "GitVersion.exe")
+                .SetProcessWorkingDirectory(RootDirectory));
 
-            var json = string.Join(Environment.NewLine, process.Output.Select(x => x.Text));
-            using var doc = JsonDocument.Parse(json);
-            semVer = doc.RootElement.GetProperty("SemVer").GetString() ?? string.Empty;
-            commitDate = DateTime.Parse(
-                doc.RootElement.GetProperty("CommitDate").GetString() ?? string.Empty
-            ).ToString("MMMM d, yyyy");
+            semVer = result.Result.SemVer;
+            commitDate = DateTime.Parse(result.Result.CommitDate).ToString("MMMM d, yyyy");
         });
 
     Target Compile => _ => _
@@ -161,6 +159,13 @@ class Build : NukeBuild
                 $"Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o \"{ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.htm"}\" --self-contained",
                 ArtifactsDirectory / "Cheatsheet"
             ).AssertZeroExitCode();
+        });
+
+    Target JekyllBuild => _ => _
+        .Executes(() =>
+        {
+            ProcessTasks.StartProcess("bundle", "exec jekyll build", RootDirectory)
+                .AssertZeroExitCode();
         });
 
     Target Default => _ => _
