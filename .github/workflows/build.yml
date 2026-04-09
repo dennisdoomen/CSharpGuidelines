@@ -24,6 +24,10 @@ jobs:
       - name: Run Nuke build
         run: dotnet run --project build/_build.csproj -- Default
 
+  # The Nuke build and Jekyll build are independent:
+  # - Nuke compiles the guidelines into standalone HTML documents using Pandoc
+  # - Jekyll builds the static website from the same source Markdown files
+  # They share no artifacts and can run in parallel.
   jekyll:
     runs-on: ubuntu-latest
     permissions:
