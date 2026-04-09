@@ -17,5 +17,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Build website
-        run: .\Build.bat
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Run Nuke build
+        run: dotnet run --project build/_build.csproj -- Default
+
+  jekyll:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build

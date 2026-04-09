@@ -6,3 +6,7 @@ _site
 
 .idea/
 /node_modules/
+
+# Nuke build artifacts
+/build/bin/
+/build/obj/
