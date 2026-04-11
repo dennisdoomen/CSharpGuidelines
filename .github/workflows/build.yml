@@ -32,10 +32,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: true
-
       - name: Build Jekyll site via Nuke
         run: ./build.sh JekyllBuild

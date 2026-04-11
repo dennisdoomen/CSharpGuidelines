@@ -164,6 +164,9 @@ class Build : NukeBuild
     Target JekyllBuild => _ => _
         .Executes(() =>
         {
+            ProcessTasks.StartProcess("bundle", "install", RootDirectory)
+                .AssertZeroExitCode();
+
             ProcessTasks.StartProcess("bundle", "exec jekyll build", RootDirectory)
                 .AssertZeroExitCode();
         });
