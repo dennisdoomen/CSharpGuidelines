@@ -14,12 +14,11 @@ header:
   cta_label: "Get the PDF here!"
   cta_url: "https://github.com/dennisdoomen/csharpguidelines/releases/latest"
   caption: ""
-excerpt: 'for all C# versions up to v10
+excerpt: 'for all C# versions up to v14
  <br />
 [![](https://img.shields.io/github/release/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Latest)](https://github.com/dennisdoomen/csharpguidelines/releases/latest)
 [![](https://img.shields.io/github/stars/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Star)](https://github.com/dennisdoomen/csharpguidelines/stargazers)
 [![](https://img.shields.io/github/forks/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Fork)](https://github.com/dennisdoomen/csharpguidelines/fork)
-[![Join the chat at https://gitter.im/dennisdoomen/csharpguidelines](https://img.shields.io/badge/GITTER-join%20chat-green.svg?style=for-the-badge)](https://gitter.im/dennisdoomen/csharpguidelines?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 '
 ---
 
