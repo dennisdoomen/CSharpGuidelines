@@ -23,6 +23,7 @@ body {
   background-color: #fff;
   padding: 70px;
   margin: 0 auto;
+  max-width: none;
 }
 
 body>*:first-child {
@@ -325,4 +326,22 @@ img
 img[alt="logo"]
 {
 	width: 20%;
+}
+
+/* PRINT / PDF
+=============================================================================*/
+
+@media print
+{
+  @page
+  {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+
+  body
+  {
+    padding: 0;
+    margin: 0;
+  }
 }

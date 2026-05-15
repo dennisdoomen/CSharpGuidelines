@@ -5,7 +5,7 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%">
 <tr>
-<td class="title" width="70%">Coding Guidelines for C# v14 Cheat Sheet</td>
+<td class="title" width="70%">Coding Guidelines for C# 14 Cheat Sheet</td>
 <td rowspan="2" style="text-align:right">![logo](assets/images/logo.svg)</td>
 </tr>
 <tr>
@@ -104,21 +104,21 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" class="footer">
 <tr>
-<td>
+<td width="50%">
   Dennis Doomen
   Version %semver% (%commitdate%)
 </td>
 <td style="text-align:right">
-  [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)
-  [www.dennisdoomen.com](https://www.dennisdoomen.com)
-  [www.avivasolutions.nl](http://www.avivasolutions.nl)
+  <a href="http://www.csharpcodingguidelines.com">www.csharpcodingguidelines.com</a><br/>
+  <a href="https://www.dennisdoomen.com">www.dennisdoomen.com</a><br/>
+  <a href="http://www.avivasolutions.nl">www.avivasolutions.nl</a>
 </td>
 </tr>
 </table>
 
 <table width="100%" style="page-break-before: always;">
 <tr>
-<td class="title" width="70%">Coding Guidelines for C# v14 Cheat Sheet</td>
+<td class="title" width="70%">Coding Guidelines for C# 14 Cheat Sheet</td>
 <td markdown="1" rowspan="2" style="text-align:right">![logo](assets/images/logo.svg)</td>
 </tr>
 <tr>
@@ -238,14 +238,14 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 
 <table width="100%" class="footer">
 <tr>
- <td>
+ <td width="50%">
    Dennis Doomen
    Version %semver% (%commitdate%)
  </td>
  <td style="text-align:right">
-  [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)
-  [www.dennisdoomen.com](https://www.dennisdoomen.com)
-  [www.avivasolutions.nl](http://www.avivasolutions.nl)
+  <a href="http://www.csharpcodingguidelines.com">www.csharpcodingguidelines.com</a><br/>
+  <a href="https://www.dennisdoomen.com">www.dennisdoomen.com</a><br/>
+  <a href="http://www.avivasolutions.nl">www.avivasolutions.nl</a>
   </td>
 </tr>
 </table>

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Install Chrome
+        run: |
+          which google-chrome || which chromium-browser || (
+            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - &&
+            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list &&
+            sudo apt-get update -q &&
+            sudo apt-get install -y google-chrome-stable
+          )
+
+      - name: Build HTML, PDF artifacts and publish release
+        run: chmod +x ./build.sh && ./build.sh PublishRelease
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

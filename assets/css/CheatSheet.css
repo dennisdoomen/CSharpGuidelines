@@ -19,6 +19,7 @@ body {
   background-color: #fff;
   padding: 70px;
   margin: 0 auto;
+  max-width: none;
 }
 
 body>*:first-child {
@@ -259,6 +260,11 @@ hr {
 /* TABLES
 =============================================================================*/
 
+table
+{
+  overflow-x: visible;
+}
+
 table th {
   font-weight: bold;
 }
@@ -340,9 +346,23 @@ img {
 
 .footer
 {
+  display: table;
   color: #1672f3;
   line-height: 1;
+  width: 100%;
+  table-layout: fixed;
 }
+
+  .footer td:first-child
+  {
+    width: 50%;
+  }
+
+  .footer td:last-child
+  {
+    text-align: right;
+    width: 50%;
+  }
 
   .footer a
   {
@@ -363,4 +383,61 @@ td strong
 img[alt="logo"]
 {
 	width: 30%;
+}
+
+/* PRINT / PDF
+=============================================================================*/
+
+@media print
+{
+  @page
+  {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  body
+  {
+    padding: 0;
+    margin: 0;
+    font-size: 8.5pt;
+    line-height: 1.7;
+  }
+
+  p, blockquote, ul, ol, dl, pre
+  {
+    margin: 1px 0;
+  }
+
+  ul
+  {
+    padding-left: 16px;
+  }
+
+  h1, h2, h3, h4, h5, h6
+  {
+    margin: 6px 0 4px;
+  }
+
+  .title
+  {
+    padding-bottom: 8px;
+  }
+
+  .subTitle
+  {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  code, tt
+  {
+    font-size: inherit;
+  }
+
+  .sidebar
+  {
+    padding: 4px 8px;
+    margin-bottom: 4px;
+  }
 }
