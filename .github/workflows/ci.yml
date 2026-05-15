@@ -3,12 +3,15 @@ name: CI
 on:
   push:
     branches: [master]
+    tags: ['v*']
   pull_request:
     branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -39,5 +42,7 @@ jobs:
             sudo apt-get install -y google-chrome-stable
           )
 
-      - name: Build HTML and PDF artifacts
-        run: chmod +x ./build.sh && ./build.sh BuildPdf
+      - name: Build HTML, PDF artifacts and publish release
+        run: chmod +x ./build.sh && ./build.sh PublishRelease
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
