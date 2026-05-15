@@ -23,7 +23,7 @@ description              : "C# Coding Guidelines for all versions up to and incl
 url                      : "https://csharpcodingguidelines.com/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "dennisdoomen/csharpguidelines" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/images/logo.png"
+teaser                   : "/assets/images/logo.svg"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -126,6 +126,7 @@ author:
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           :
   twitter          : "https://twitter.com/ddoomen"
+  bluesky          : "https://bsky.app/profile/dennisdoomen.com"
   vine             :
   weibo            :
   xing             :

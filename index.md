@@ -10,15 +10,15 @@ sidebar:
 header:
   overlay_color: "#373737"
   overlay_filter: "0.7"
-  overlay_image: "/assets/images/logo.png"
+  overlay_image: "/assets/images/logo.svg"
   cta_label: "Get the PDF here!"
   cta_url: "https://github.com/dennisdoomen/csharpguidelines/releases/latest"
   caption: ""
 excerpt: 'for all C# versions up to v14
  <br />
-[![](https://img.shields.io/github/release/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Latest)](https://github.com/dennisdoomen/csharpguidelines/releases/latest)
-[![](https://img.shields.io/github/stars/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Star)](https://github.com/dennisdoomen/csharpguidelines/stargazers)
-[![](https://img.shields.io/github/forks/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Fork)](https://github.com/dennisdoomen/csharpguidelines/fork)
+[![](https://img.shields.io/github/release/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Latest&color=1672f3)](https://github.com/dennisdoomen/csharpguidelines/releases/latest)
+[![](https://img.shields.io/github/stars/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Star&color=1672f3)](https://github.com/dennisdoomen/csharpguidelines/stargazers)
+[![](https://img.shields.io/github/forks/dennisdoomen/csharpguidelines.svg?style=for-the-badge&label=Fork&color=1672f3)](https://github.com/dennisdoomen/csharpguidelines/fork)
 '
 ---
 
