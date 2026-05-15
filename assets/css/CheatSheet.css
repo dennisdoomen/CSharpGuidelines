@@ -388,12 +388,35 @@ img[alt="logo"]
   @page
   {
     size: A4 landscape;
-    margin: 10mm;
+    margin: 8mm;
   }
 
   body
   {
     padding: 0;
     margin: 0;
+    font-size: 8.5pt;
+    line-height: 1.2;
+  }
+
+  p, blockquote, ul, ol, dl, pre
+  {
+    margin: 1px 0;
+  }
+
+  ul
+  {
+    padding-left: 10px;
+  }
+
+  h1, h2, h3, h4, h5, h6
+  {
+    margin: 6px 0 4px;
+  }
+
+  .sidebar
+  {
+    padding: 4px 8px;
+    margin-bottom: 4px;
   }
 }
