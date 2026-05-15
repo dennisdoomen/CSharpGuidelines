@@ -343,11 +343,19 @@ img {
 {
   color: #1672f3;
   line-height: 1;
+  width: 100%;
+  table-layout: fixed;
 }
+
+  .footer td:first-child
+  {
+    width: 50%;
+  }
 
   .footer td:last-child
   {
     text-align: right;
+    width: 50%;
   }
 
   .footer a
