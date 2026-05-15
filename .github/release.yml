@@ -2,3 +2,18 @@ changelog:
   exclude:
     authors:
       - dependabot
+    labels:
+      - dependencies
+  categories:
+    - title: New
+      labels:
+        - new
+    - title: Deprecated
+      labels:
+        - deprecated
+    - title: Refined
+      labels:
+        - refined
+    - title: Other Changes
+      labels:
+        - "*"
