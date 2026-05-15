@@ -149,13 +149,13 @@ class Build : NukeBuild
 
             ProcessTasks.StartProcess(
                     pandoc,
-                    "CSharpCodingGuidelines.md -f markdown_phpextra -s -o ../CSharpCodingGuidelines.htm --self-contained",
+                    "CSharpCodingGuidelines.md -f markdown_phpextra -s -o ../CSharpCodingGuidelines.htm --embed-resources --standalone",
                     workingDirectory: ArtifactsDirectory / "Guidelines")
                 .AssertZeroExitCode();
 
             ProcessTasks.StartProcess(
                     pandoc,
-                    "Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o ../CSharpCodingGuidelinesCheatsheet.htm --self-contained",
+                    "Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o ../CSharpCodingGuidelinesCheatsheet.htm --embed-resources --standalone",
                     workingDirectory: ArtifactsDirectory / "Cheatsheet")
                 .AssertZeroExitCode();
         });
