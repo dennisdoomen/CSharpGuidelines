@@ -419,6 +419,22 @@ img[alt="logo"]
     margin: 6px 0 4px;
   }
 
+  .title
+  {
+    padding-bottom: 4px;
+  }
+
+  .subTitle
+  {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  code, tt
+  {
+    font-size: inherit;
+  }
+
   .sidebar
   {
     padding: 4px 8px;
