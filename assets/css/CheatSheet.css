@@ -345,6 +345,11 @@ img {
   line-height: 1;
 }
 
+  .footer td:last-child
+  {
+    text-align: right;
+  }
+
   .footer a
   {
     color: #1672f3;
