@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
@@ -15,20 +17,11 @@ class Build : NukeBuild
     public static int Main() => Execute<Build>(x => x.BuildHtml);
 
     const string DefaultRulePrefix = "AV";
+    const string PandocVersion = "3.9.0.2";
 
     AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
-    AbsolutePath LibDirectory => RootDirectory / "Lib";
 
-    // On Windows, prefer the bundled executables; on other platforms fall back to system-installed tools.
-    string GitVersionTool =>
-        RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && (LibDirectory / "GitVersion.exe").FileExists()
-            ? LibDirectory / "GitVersion.exe"
-            : "gitversion";
-
-    string PandocTool =>
-        RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && (LibDirectory / "Pandoc" / "pandoc.exe").FileExists()
-            ? LibDirectory / "Pandoc" / "pandoc.exe"
-            : "pandoc";
+    string? cachedPandocPath;
 
     string semVer = "0.0.0";
     string commitDate = DateTime.Now.ToString("MMMM d, yyyy");
@@ -42,7 +35,7 @@ class Build : NukeBuild
     Target ExtractVersionsFromGit => _ => _
         .Executes(() =>
         {
-            var process = ProcessTasks.StartProcess(GitVersionTool, workingDirectory: RootDirectory);
+            var process = ProcessTasks.StartProcess("dotnet", "tool run dotnet-gitversion", workingDirectory: RootDirectory);
             process.AssertZeroExitCode();
 
             var json = string.Join("\n", process.Output.Select(o => o.Text));
@@ -152,14 +145,16 @@ class Build : NukeBuild
         .DependsOn(Compile, CompileCheatsheet)
         .Executes(() =>
         {
+            var pandoc = ResolvePandoc();
+
             ProcessTasks.StartProcess(
-                    PandocTool,
+                    pandoc,
                     "CSharpCodingGuidelines.md -f markdown_phpextra -s -o ../CSharpCodingGuidelines.htm --self-contained",
                     workingDirectory: ArtifactsDirectory / "Guidelines")
                 .AssertZeroExitCode();
 
             ProcessTasks.StartProcess(
-                    PandocTool,
+                    pandoc,
                     "Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o ../CSharpCodingGuidelinesCheatsheet.htm --self-contained",
                     workingDirectory: ArtifactsDirectory / "Cheatsheet")
                 .AssertZeroExitCode();
@@ -181,6 +176,73 @@ class Build : NukeBuild
             ProcessTasks.StartProcess("bundle", "exec jekyll serve --incremental", workingDirectory: RootDirectory)
                 .WaitForExit();
         });
+
+    string ResolvePandoc()
+    {
+        if (cachedPandocPath is not null)
+            return cachedPandocPath;
+
+        var exeName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "pandoc.exe" : "pandoc";
+        var cacheDir = RootDirectory / ".nuke" / "temp" / "tools" / "pandoc" / PandocVersion;
+
+        var existing = Directory.Exists(cacheDir)
+            ? Directory.GetFiles(cacheDir, exeName, SearchOption.AllDirectories).FirstOrDefault()
+            : null;
+
+        if (existing is not null)
+        {
+            cachedPandocPath = existing;
+            return cachedPandocPath;
+        }
+
+        var (assetName, _) = GetPandocAsset();
+        var downloadUrl = $"https://github.com/jgm/pandoc/releases/download/{PandocVersion}/{assetName}";
+
+        Log.Information("Downloading Pandoc {Version} from {Url}...", PandocVersion, downloadUrl);
+
+        cacheDir.CreateOrCleanDirectory();
+        var archivePath = cacheDir / assetName;
+
+        using (var client = new HttpClient { Timeout = TimeSpan.FromMinutes(5) })
+        {
+            var bytes = client.GetByteArrayAsync(downloadUrl).GetAwaiter().GetResult();
+            File.WriteAllBytes(archivePath, bytes);
+        }
+
+        if (assetName.EndsWith(".zip"))
+            ZipFile.ExtractToDirectory(archivePath, cacheDir);
+        else
+            ProcessTasks.StartProcess("tar", $"-xzf \"{archivePath}\" -C \"{cacheDir}\"").AssertZeroExitCode();
+
+        File.Delete(archivePath);
+
+        cachedPandocPath = Directory.GetFiles(cacheDir, exeName, SearchOption.AllDirectories).First();
+
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            ProcessTasks.StartProcess("chmod", $"+x \"{cachedPandocPath}\"").AssertZeroExitCode();
+
+        return cachedPandocPath;
+    }
+
+    static (string assetName, string exeName) GetPandocAsset()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            return ($"pandoc-{PandocVersion}-windows-x86_64.zip", "pandoc.exe");
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            var arch = RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ? "arm64" : "amd64";
+            return ($"pandoc-{PandocVersion}-linux-{arch}.tar.gz", "pandoc");
+        }
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            var arch = RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ? "arm64" : "x86_64";
+            return ($"pandoc-{PandocVersion}-{arch}-macOS.zip", "pandoc");
+        }
+
+        throw new PlatformNotSupportedException("Unsupported OS for Pandoc download.");
+    }
 
     string BuildCategorySection(string category)
     {
@@ -226,8 +288,7 @@ class Build : NukeBuild
 
             if (check.ExitCode == 0)
             {
-                var version = string.Join("", check.Output.Select(o => o.Text));
-                Log.Information("Ruby found: {Version}", version);
+                Log.Information("Ruby found: {Version}", string.Join("", check.Output.Select(o => o.Text)));
                 return;
             }
         }
