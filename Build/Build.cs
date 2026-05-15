@@ -327,7 +327,7 @@ class Build : NukeBuild
 
     static string ExtractFrontmatterField(string content, string fieldName)
     {
-        var match = Regex.Match(content, $@"---(.|\n)*?{Regex.Escape(fieldName)}\:\s*(.+)", RegexOptions.Singleline);
+        var match = Regex.Match(content, $@"---(.|\n)*?{Regex.Escape(fieldName)}\:\s*([^\r\n]+)");
         return match.Success ? match.Groups[2].Value.Trim() : string.Empty;
     }
 

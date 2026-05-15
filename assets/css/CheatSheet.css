@@ -19,6 +19,7 @@ body {
   background-color: #fff;
   padding: 70px;
   margin: 0 auto;
+  max-width: none;
 }
 
 body>*:first-child {
