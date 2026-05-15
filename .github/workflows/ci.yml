@@ -24,15 +24,6 @@ jobs:
         with:
           dotnet-version: '10.x'
 
-      - name: Restore dotnet tools
-        run: dotnet tool restore
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
       - name: Install Chrome
         run: |
           which google-chrome || which chromium-browser || (

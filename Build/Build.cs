@@ -8,7 +8,6 @@ using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Tools.GitVersion;
 using Serilog;
 
 [DotNetVerbosityMapping]
@@ -22,21 +21,15 @@ class Build : NukeBuild
     const string DefaultRulePrefix = "AV";
     const string PandocVersion = "3.9.0.2";
 
-    [GitVersion(NoFetch = true)]
-    readonly GitVersion? GitVersion;
-
     AbsolutePath? _pandocPath;
 
     AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
     AbsolutePath GuidelinesDirectory => ArtifactsDirectory / "Guidelines";
     AbsolutePath CheatsheetDirectory => ArtifactsDirectory / "Cheatsheet";
 
-    string SemVer => GitVersion?.SemVer ?? "0.0.0";
+    string SemVer => GitHubActions.Instance?.RefName?.TrimStart('v') ?? "0.0.0";
 
-    string CommitDate => GitVersion?.CommitDate is { } rawDate
-        ? DateTime.Parse(rawDate, CultureInfo.InvariantCulture)
-            .ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"))
-        : DateTime.Now.ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"));
+    string CommitDate => DateTime.Now.ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"));
 
     static bool IsTagBuild => GitHubActions.Instance?.RefType == "tag";
 
