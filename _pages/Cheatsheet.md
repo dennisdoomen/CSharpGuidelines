@@ -109,9 +109,9 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
   Version %semver% (%commitdate%)
 </td>
 <td markdown="1" style="text-align:right">
-  [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)
-  [www.dennisdoomen.com](https://www.dennisdoomen.com)
-  [www.avivasolutions.nl](http://www.avivasolutions.nl)
+  <a href="http://www.csharpcodingguidelines.com">www.csharpcodingguidelines.com</a><br/>
+  <a href="https://www.dennisdoomen.com">www.dennisdoomen.com</a><br/>
+  <a href="http://www.avivasolutions.nl">www.avivasolutions.nl</a>
 </td>
 </tr>
 </table>
@@ -242,10 +242,10 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
    Dennis Doomen
    Version %semver% (%commitdate%)
  </td>
- <td markdown="1" style="text-align:right">
-  [www.csharpcodingguidelines.com](http://www.csharpcodingguidelines.com)
-  [www.dennisdoomen.com](https://www.dennisdoomen.com)
-  [www.avivasolutions.nl](http://www.avivasolutions.nl)
+ <td style="text-align:right">
+  <a href="http://www.csharpcodingguidelines.com">www.csharpcodingguidelines.com</a><br/>
+  <a href="https://www.dennisdoomen.com">www.dennisdoomen.com</a><br/>
+  <a href="http://www.avivasolutions.nl">www.avivasolutions.nl</a>
   </td>
 </tr>
 </table>
