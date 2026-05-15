@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -24,7 +25,7 @@ class Build : NukeBuild
     string? cachedPandocPath;
 
     string semVer = "0.0.0";
-    string commitDate = DateTime.Now.ToString("MMMM d, yyyy");
+    string commitDate = DateTime.Now.ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"));
 
     Target Clean => _ => _
         .Executes(() =>
@@ -44,7 +45,7 @@ class Build : NukeBuild
             semVer = doc.RootElement.GetProperty("SemVer").GetString() ?? semVer;
             var rawDate = doc.RootElement.GetProperty("CommitDate").GetString();
             if (rawDate is not null)
-                commitDate = DateTime.Parse(rawDate).ToString("MMMM d, yyyy");
+                commitDate = DateTime.Parse(rawDate, CultureInfo.InvariantCulture).ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"));
 
             Log.Information("Version: {SemVer}, Date: {CommitDate}", semVer, commitDate);
         });
@@ -149,13 +150,13 @@ class Build : NukeBuild
 
             ProcessTasks.StartProcess(
                     pandoc,
-                    "CSharpCodingGuidelines.md -f markdown_phpextra -s -o ../CSharpCodingGuidelines.htm --embed-resources --standalone",
+                    "CSharpCodingGuidelines.md -f markdown_phpextra-implicit_figures -s -o ../CSharpCodingGuidelines.htm --embed-resources --standalone",
                     workingDirectory: ArtifactsDirectory / "Guidelines")
                 .AssertZeroExitCode();
 
             ProcessTasks.StartProcess(
                     pandoc,
-                    "Cheatsheet.md -f markdown+markdown_in_html_blocks -s -o ../CSharpCodingGuidelinesCheatsheet.htm --embed-resources --standalone",
+                    "Cheatsheet.md -f markdown+markdown_in_html_blocks-implicit_figures -s -o ../CSharpCodingGuidelinesCheatsheet.htm --embed-resources --standalone",
                     workingDirectory: ArtifactsDirectory / "Cheatsheet")
                 .AssertZeroExitCode();
         });
