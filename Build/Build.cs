@@ -12,7 +12,10 @@ using Serilog;
 
 class Build : NukeBuild
 {
-    public static int Main() => Execute<Build>(x => x.PublishRelease);
+    public static int Main()
+    {
+        return Execute<Build>(x => x.PublishRelease);
+    }
 
     const string DefaultRulePrefix = "AV";
     const string PandocVersion = "3.9.0.2";
@@ -29,7 +32,8 @@ class Build : NukeBuild
     string SemVer => GitVersion?.SemVer ?? "0.0.0";
 
     string CommitDate => GitVersion?.CommitDate is { } rawDate
-        ? DateTime.Parse(rawDate, CultureInfo.InvariantCulture).ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"))
+        ? DateTime.Parse(rawDate, CultureInfo.InvariantCulture)
+            .ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"))
         : DateTime.Now.ToString("MMMM d, yyyy", CultureInfo.GetCultureInfo("en-US"));
 
     static bool IsTagBuild => GitHubActions.Instance?.RefType == "tag";
@@ -47,7 +51,7 @@ class Build : NukeBuild
         RootDirectory / "_pages" / "2200_FrameworkGuidelines.md",
         RootDirectory / "_pages" / "2300_DocumentationGuidelines.md",
         RootDirectory / "_pages" / "2400_LayoutGuidelines.md",
-        RootDirectory / "_pages" / "9999_ResourcesAndLinks.md",
+        RootDirectory / "_pages" / "9999_ResourcesAndLinks.md"
     ];
 
     Target Clean => _ => _
@@ -60,8 +64,10 @@ class Build : NukeBuild
             GuidelinesDirectory.CreateOrCleanDirectory();
             var output = string.Join("\n", GuidelinesPages.Select(ProcessPage));
             (GuidelinesDirectory / "CSharpCodingGuidelines.md").WriteAllText(output);
-            (RootDirectory / "assets" / "css" / "Guidelines.css").Copy(GuidelinesDirectory / "style.css", ExistsPolicy.FileOverwrite);
-            (RootDirectory / "assets" / "images").CopyToDirectory(GuidelinesDirectory / "assets", ExistsPolicy.MergeAndOverwrite);
+            (RootDirectory / "assets" / "css" / "Guidelines.css").Copy(GuidelinesDirectory / "style.css",
+                ExistsPolicy.FileOverwrite);
+            (RootDirectory / "assets" / "images").CopyToDirectory(GuidelinesDirectory / "assets",
+                ExistsPolicy.MergeAndOverwrite);
         });
 
     Target CompileCheatsheet => _ => _
@@ -72,8 +78,10 @@ class Build : NukeBuild
             var content = ApplyTokenReplacements((RootDirectory / "_pages" / "Cheatsheet.md").ReadAllText());
             content = content.Replace("{{ site.default_rule_prefix }}", DefaultRulePrefix);
             (CheatsheetDirectory / "Cheatsheet.md").WriteAllText(content);
-            (RootDirectory / "assets" / "css" / "CheatSheet.css").Copy(CheatsheetDirectory / "style.css", ExistsPolicy.FileOverwrite);
-            (RootDirectory / "assets" / "images").CopyToDirectory(CheatsheetDirectory / "assets", ExistsPolicy.MergeAndOverwrite);
+            (RootDirectory / "assets" / "css" / "CheatSheet.css").Copy(CheatsheetDirectory / "style.css",
+                ExistsPolicy.FileOverwrite);
+            (RootDirectory / "assets" / "images").CopyToDirectory(CheatsheetDirectory / "assets",
+                ExistsPolicy.MergeAndOverwrite);
         });
 
     Target BuildHtml => _ => _
@@ -81,8 +89,12 @@ class Build : NukeBuild
         .Executes(() =>
         {
             var pandoc = ResolvePandoc();
-            ProcessTasks.StartProcess(pandoc, "CSharpCodingGuidelines.md -f markdown_phpextra-implicit_figures -s -o ../CSharpCodingGuidelines.htm --embed-resources --standalone", workingDirectory: GuidelinesDirectory).AssertZeroExitCode();
-            ProcessTasks.StartProcess(pandoc, "Cheatsheet.md -f markdown+markdown_in_html_blocks-implicit_figures -s -o ../CSharpCodingGuidelinesCheatsheet.htm --embed-resources --standalone", workingDirectory: CheatsheetDirectory).AssertZeroExitCode();
+            ProcessTasks.StartProcess(pandoc,
+                "CSharpCodingGuidelines.md -f markdown_phpextra-implicit_figures -s -o ../CSharpCodingGuidelines.htm --embed-resources --standalone",
+                GuidelinesDirectory).AssertZeroExitCode();
+            ProcessTasks.StartProcess(pandoc,
+                "Cheatsheet.md -f markdown+markdown_in_html_blocks-implicit_figures -s -o ../CSharpCodingGuidelinesCheatsheet.htm --embed-resources --standalone",
+                CheatsheetDirectory).AssertZeroExitCode();
         });
 
     Target BuildPdf => _ => _
@@ -90,31 +102,41 @@ class Build : NukeBuild
         .Executes(() =>
         {
             var chrome = ResolveChrome();
-            ConvertToPdf(chrome, ArtifactsDirectory / "CSharpCodingGuidelines.htm", ArtifactsDirectory / "CSharpCodingGuidelines.pdf");
-            ConvertToPdf(chrome, ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.htm", ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.pdf");
+            ConvertToPdf(chrome, ArtifactsDirectory / "CSharpCodingGuidelines.htm",
+                ArtifactsDirectory / "CSharpCodingGuidelines.pdf");
+            ConvertToPdf(chrome, ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.htm",
+                ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.pdf");
         });
 
     Target PublishRelease => _ => _
         .DependsOn(BuildPdf)
-        .OnlyWhenStatic(() => IsTagBuild)
         .Executes(() =>
         {
+            if (!IsTagBuild)
+            {
+                Log.Information("Skipping release publishing (not a tag build)");
+                return;
+            }
+
             var tag = GitHubActions.Instance!.RefName;
             var repo = GitHubActions.Instance!.Repository;
             Log.Information("Publishing release {Tag} for {Repo}", tag, repo);
-            ProcessTasks.StartProcess("gh", $"release create {tag} --repo {repo} --generate-notes --title {tag}", workingDirectory: RootDirectory).WaitForExit();
+            ProcessTasks.StartProcess("gh", $"release create {tag} --repo {repo} --generate-notes --title {tag}",
+                RootDirectory).WaitForExit();
             foreach (var pdf in ArtifactsDirectory.GlobFiles("*.pdf"))
-                ProcessTasks.StartProcess("gh", $"release upload {tag} \"{pdf}\" --repo {repo} --clobber", workingDirectory: RootDirectory).AssertZeroExitCode();
+                ProcessTasks
+                    .StartProcess("gh", $"release upload {tag} \"{pdf}\" --repo {repo} --clobber", RootDirectory)
+                    .AssertZeroExitCode();
         });
 
     Target LaunchWebsite => _ => _
         .Executes(() =>
         {
             EnsureRubyInstalled();
-            ProcessTasks.StartProcess("gem", "install bundler", workingDirectory: RootDirectory).AssertZeroExitCode();
-            ProcessTasks.StartProcess("bundle", "install", workingDirectory: RootDirectory).AssertZeroExitCode();
+            ProcessTasks.StartProcess("gem", "install bundler", RootDirectory).AssertZeroExitCode();
+            ProcessTasks.StartProcess("bundle", "install", RootDirectory).AssertZeroExitCode();
             (RootDirectory / "_site").CreateOrCleanDirectory();
-            ProcessTasks.StartProcess("bundle", "exec jekyll serve --incremental", workingDirectory: RootDirectory).WaitForExit();
+            ProcessTasks.StartProcess("bundle", "exec jekyll serve --incremental", RootDirectory).WaitForExit();
         });
 
     string ProcessPage(AbsolutePath pageFile)
@@ -128,11 +150,13 @@ class Build : NukeBuild
         return string.IsNullOrEmpty(title) ? content : $"<h1>{title}</h1>\n{content}";
     }
 
-    string ApplyTokenReplacements(string content) =>
-        content
+    string ApplyTokenReplacements(string content)
+    {
+        return content
             .Replace("%semver%", SemVer)
             .Replace("%commitdate%", CommitDate)
             .Replace("![](/assets", "![](assets");
+    }
 
     string BuildCategorySection(string category)
     {
@@ -150,14 +174,16 @@ class Build : NukeBuild
         var exeName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "pandoc.exe" : "pandoc";
         var cacheDir = RootDirectory / ".nuke" / "temp" / "tools" / "pandoc" / PandocVersion;
         _pandocPath = cacheDir.GlobFiles($"**/{exeName}").FirstOrDefault()
-            ?? DownloadAndExtractPandoc(cacheDir, exeName);
+                      ?? DownloadAndExtractPandoc(cacheDir, exeName);
         return _pandocPath;
     }
 
-    static string ApplySiteReplacements(string content) =>
-        Regex.Replace(
+    static string ApplySiteReplacements(string content)
+    {
+        return Regex.Replace(
             content.Replace("{{ site.default_rule_prefix }}", DefaultRulePrefix),
             @"\(\/.+?(#\w+)\)", "($1)");
+    }
 
     static void AppendRuleIfInCategory(StringBuilder content, AbsolutePath ruleFile, string category)
     {
@@ -174,8 +200,11 @@ class Build : NukeBuild
         var ruleId = ExtractFrontmatterField(rule, "rule_id");
         var customPrefix = ExtractFrontmatterField(rule, "custom_prefix");
         var ruleIdPrefix = string.IsNullOrEmpty(customPrefix) ? "{{ site.default_rule_prefix }}" : customPrefix;
-        var severityImg = string.IsNullOrEmpty(ruleSeverity) ? "" : $" <img src=\"assets/images/{ruleSeverity}.png\" />";
-        return $"<div id=\"{ruleIdPrefix}{ruleId}\"></div>### {ruleTitle} ({ruleIdPrefix}{ruleId}){severityImg}\n\n{StripFrontmatter(rule)}";
+        var severityImg = string.IsNullOrEmpty(ruleSeverity)
+            ? ""
+            : $" <img src=\"assets/images/{ruleSeverity}.png\" />";
+        return
+            $"<div id=\"{ruleIdPrefix}{ruleId}\"></div>### {ruleTitle} ({ruleIdPrefix}{ruleId}){severityImg}\n\n{StripFrontmatter(rule)}";
     }
 
     static void ConvertToPdf(AbsolutePath chrome, AbsolutePath inputHtml, AbsolutePath outputPdf)
@@ -183,7 +212,8 @@ class Build : NukeBuild
         Log.Information("Converting {Input} → {Output}", inputHtml.Name, outputPdf.Name);
         var uri = new Uri(inputHtml.ToString()).AbsoluteUri;
         ProcessTasks
-            .StartProcess(chrome, $"--headless --disable-gpu --disable-dev-shm-usage --no-sandbox --no-pdf-header-footer \"--print-to-pdf={outputPdf}\" \"{uri}\"")
+            .StartProcess(chrome,
+                $"--headless --disable-gpu --disable-dev-shm-usage --no-sandbox --no-pdf-header-footer \"--print-to-pdf={outputPdf}\" \"{uri}\"")
             .AssertZeroExitCode();
     }
 
@@ -202,12 +232,15 @@ class Build : NukeBuild
     {
         AbsolutePath[] candidates =
         [
-            (AbsolutePath)Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) / "Google" / "Chrome" / "Application" / "chrome.exe",
-            (AbsolutePath)Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) / "Google" / "Chrome" / "Application" / "chrome.exe",
-            (AbsolutePath)Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) / "Google" / "Chrome" / "Application" / "chrome.exe",
+            (AbsolutePath)Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) / "Google" / "Chrome" /
+            "Application" / "chrome.exe",
+            (AbsolutePath)Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) / "Google" / "Chrome" /
+            "Application" / "chrome.exe",
+            (AbsolutePath)Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) / "Google" /
+            "Chrome" / "Application" / "chrome.exe"
         ];
         return candidates.FirstOrDefault(c => c.FileExists())
-            ?? throw new Exception("Google Chrome not found. Install from https://www.google.com/chrome/");
+               ?? throw new Exception("Google Chrome not found. Install from https://www.google.com/chrome/");
     }
 
     static AbsolutePath FindLinuxChrome()
@@ -219,13 +252,16 @@ class Build : NukeBuild
             if (which.ExitCode == 0)
                 return (AbsolutePath)which.Output.First(o => o.Type == OutputType.Std).Text.Trim();
         }
+
         throw new Exception("Chrome/Chromium not found. Install with: sudo apt-get install google-chrome-stable");
     }
 
     static AbsolutePath FindMacChrome()
     {
         var path = (AbsolutePath)"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-        return path.FileExists() ? path : throw new Exception("Google Chrome not found. Install from https://www.google.com/chrome/");
+        return path.FileExists()
+            ? path
+            : throw new Exception("Google Chrome not found. Install from https://www.google.com/chrome/");
     }
 
     static AbsolutePath DownloadAndExtractPandoc(AbsolutePath cacheDir, string exeName)
@@ -280,11 +316,13 @@ class Build : NukeBuild
             var arch = RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ? "arm64" : "amd64";
             return ($"pandoc-{PandocVersion}-linux-{arch}.tar.gz", "pandoc");
         }
+
         if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
             var arch = RuntimeInformation.ProcessArchitecture == Architecture.Arm64 ? "arm64" : "x86_64";
             return ($"pandoc-{PandocVersion}-{arch}-macOS.zip", "pandoc");
         }
+
         throw new PlatformNotSupportedException("Unsupported OS for Pandoc download.");
     }
 
@@ -316,17 +354,22 @@ class Build : NukeBuild
     static void InstallRuby()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            ProcessTasks.StartProcess("winget", "install RubyInstallerTeam.RubyWithDevKit.3.3 --silent --accept-package-agreements --accept-source-agreements").AssertZeroExitCode();
+            ProcessTasks.StartProcess("winget",
+                    "install RubyInstallerTeam.RubyWithDevKit.3.3 --silent --accept-package-agreements --accept-source-agreements")
+                .AssertZeroExitCode();
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            ProcessTasks.StartProcess("sudo", "apt-get install -y ruby-full ruby-bundler build-essential").AssertZeroExitCode();
+            ProcessTasks.StartProcess("sudo", "apt-get install -y ruby-full ruby-bundler build-essential")
+                .AssertZeroExitCode();
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             ProcessTasks.StartProcess("brew", "install ruby@3.3").AssertZeroExitCode();
         else
             Assert.Fail("Unsupported OS. Install Ruby 3.3 manually and re-run.");
     }
 
-    static string StripFrontmatter(string content) =>
-        Regex.Replace(content, @"---\r?\n(.|\r?\n)+?---\r?\n", "");
+    static string StripFrontmatter(string content)
+    {
+        return Regex.Replace(content, @"---\r?\n(.|\r?\n)+?---\r?\n", "");
+    }
 
     static string ExtractFrontmatterField(string content, string fieldName)
     {
