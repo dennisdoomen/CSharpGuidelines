@@ -15,6 +15,7 @@
     <!-- Override vulnerable transitive dependencies -->
     <PackageReference Include="System.Security.Cryptography.Xml" Version="9.0.15" />
     <PackageReference Include="NuGet.Packaging" Version="7.6.0" />
+    <PackageDownload Include="GitVersion.Tool" Version="[6.7.0]"/>
   </ItemGroup>
 
 </Project>

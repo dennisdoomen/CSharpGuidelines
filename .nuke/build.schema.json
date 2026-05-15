@@ -29,8 +29,8 @@
         "Clean",
         "Compile",
         "CompileCheatsheet",
-        "ExtractVersionsFromGit",
-        "LaunchWebsite"
+        "LaunchWebsite",
+        "PublishRelease"
       ]
     },
     "Verbosity": {
