@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/Build/">
+    <Project Path="Build\_build.csproj" />
+  </Folder>
+</Solution>
