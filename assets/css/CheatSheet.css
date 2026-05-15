@@ -42,7 +42,7 @@ p, blockquote, ul, ol, dl, pre {
 h1, h2, h3, h4, h5, h6 {
   font-family: Variable Bold, Calibri, Helvetica, arial, freesans, clean, sans-serif;
   margin: 20px 0 10px;
-  color: rgb(167, 21, 0);
+  color: #1672f3;
   padding: 0;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
@@ -295,7 +295,7 @@ img {
     font-family: Variable Bold, Calibri;
 	font-size: 19pt;
   	line-height: 1;
-  	color: rgb(167, 21, 0);
+  	color: #1672f3;
     text-align: left;
     font-weight: bold;
     display: inline;
@@ -310,7 +310,7 @@ img {
 
 .sidebar
 {
-	background-color: rgb(167, 21, 0);
+	background-color: #1672f3;
   color: white;
   line-height: 1;
   padding-left: 8px;
@@ -321,13 +321,13 @@ img {
 }
   .sidebar strong
   {
-    background-color: rgb(167, 21, 0);
+    background-color: #1672f3;
     color: white;
   }
 
   .sidebar code
   {
-    background-color: rgb(167, 21, 0);
+    background-color: #1672f3;
     border: 0;
     color: white;
   }
@@ -340,13 +340,13 @@ img {
 
 .footer
 {
-  color: rgb(167, 21, 0);
+  color: #1672f3;
   line-height: 1;
 }
 
   .footer a
   {
-    color: rgb(167, 21, 0);
+    color: #1672f3;
   }
 
 img[src*="logo.svg"]
@@ -356,7 +356,7 @@ img[src*="logo.svg"]
 
 td strong
 {
-  color: rgb(167, 21, 0);
+  color: #1672f3;
   display: inline-block;
 }
 

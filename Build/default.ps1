@@ -5,6 +5,26 @@ properties {
 	$defaultRulePrefix = "AV"
 }
 
+function SetVersionFromGitMetadata {
+	param([string]$baseDirectory)
+
+	$description = (git -C $baseDirectory describe --tags --long --always)
+
+	if ($description -match '^(?<tag>\d+\.\d+\.\d+)-(?<count>\d+)-g(?<sha>[0-9a-f]+)$') {
+		if ($Matches['count'] -eq '0') {
+			$script:SemVer = $Matches['tag']
+		}
+		else {
+			$script:SemVer = "$($Matches['tag'])-ci.$($Matches['count'])+g$($Matches['sha'])"
+		}
+	}
+	else {
+		$script:SemVer = $description
+	}
+
+	$script:CommitDate = ([datetime](git -C $baseDirectory log -1 --format=%cI HEAD)).ToString("MMMM d, yyyy")
+}
+
 task default -depends Clean, ExtractVersionsFromGit, Compile, CompileCheatsheet, BuildHtml
 
 task Clean {
@@ -15,7 +35,12 @@ task Clean {
 
 task ExtractVersionsFromGit {
 
-        $json = . "$LibDir\GitVersion.exe"
+        if (Test-Path "$BaseDirectory\.git" -PathType Leaf) {
+            SetVersionFromGitMetadata $BaseDirectory
+            return
+        }
+
+        $json = . "$LibDir\GitVersion.exe" 2>&1
 
         if ($LASTEXITCODE -eq 0) {
             $version = (ConvertFrom-Json ($json -join "`n"));
@@ -24,7 +49,7 @@ task ExtractVersionsFromGit {
             $script:CommitDate = ([datetime]$version.CommitDate).ToString("MMMM d, yyyy");
         }
         else {
-            Write-Output $json -join "`n";
+            SetVersionFromGitMetadata $BaseDirectory
         }
 }
 
@@ -105,7 +130,12 @@ task Compile {
 						$ruleIdPrefix = $Matches[2].Trim()
 					}
 
-					$content += "<div id=`"${ruleIdPrefix}${ruleId}`"></div>### $ruleTitle (${ruleIdPrefix}${ruleId}) <img src=`"assets/images/$ruleSeverity.png`" />`n"
+					$severityIcon = ""
+					if (-not [string]::IsNullOrWhiteSpace($ruleSeverity)) {
+						$severityIcon = " <img src=`"assets/images/$ruleSeverity.png`" />"
+					}
+
+					$content += "<div id=`"${ruleIdPrefix}${ruleId}`"></div>### $ruleTitle (${ruleIdPrefix}${ruleId})$severityIcon`n"
 
 					# Add rule content without Frontmatter
 					$content += ($rule -replace '---\r?\n(.|\r?\n)+?---\r?\n', "")
