@@ -7,9 +7,11 @@ using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Serilog;
 
+[DotNetVerbosityMapping]
 class Build : NukeBuild
 {
     public static int Main()
@@ -213,7 +215,8 @@ class Build : NukeBuild
         var uri = new Uri(inputHtml.ToString()).AbsoluteUri;
         ProcessTasks
             .StartProcess(chrome,
-                $"--headless --disable-gpu --disable-dev-shm-usage --no-sandbox --no-pdf-header-footer \"--print-to-pdf={outputPdf}\" \"{uri}\"")
+                $"--headless --disable-gpu --disable-dev-shm-usage --no-sandbox --no-pdf-header-footer \"--print-to-pdf={outputPdf}\" \"{uri}\"",
+                logOutput: false)
             .AssertZeroExitCode();
     }
 
