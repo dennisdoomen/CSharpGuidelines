@@ -30,5 +30,14 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Build HTML artifacts
-        run: chmod +x ./build.sh && ./build.sh BuildHtml
+      - name: Install Chrome
+        run: |
+          which google-chrome || which chromium-browser || (
+            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - &&
+            echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list &&
+            sudo apt-get update -q &&
+            sudo apt-get install -y google-chrome-stable
+          )
+
+      - name: Build HTML and PDF artifacts
+        run: chmod +x ./build.sh && ./build.sh BuildPdf

@@ -379,3 +379,21 @@ img[alt="logo"]
 {
 	width: 30%;
 }
+
+/* PRINT / PDF
+=============================================================================*/
+
+@media print
+{
+  @page
+  {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  body
+  {
+    padding: 0;
+    margin: 0;
+  }
+}
