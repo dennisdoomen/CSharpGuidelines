@@ -421,13 +421,13 @@ img[alt="logo"]
 
   .title
   {
-    padding-bottom: 4px;
+    padding-bottom: 8px;
   }
 
   .subTitle
   {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 
   code, tt
