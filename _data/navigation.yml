@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "The Continuous Improver"
-    url: https://www.continuousimprover.com
+  - title: "Dennis Doomen"
+    url: https://dennisdoomen.com
   - title: "Aviva Solutions"
     url: https://www.avivasolutions.nl
 
@@ -48,10 +48,3 @@ sidebar:
         url: /layout-guidelines/
       - title: Links & Articles
         url: /resources/
-
-  - title: Community Support
-    children:
-      - title: C# Guidelines Analyzer
-        url: https://github.com/bkoelman/CSharpGuidelinesAnalyzer
-      - title: Russian Translation (by Sergey Russkikh)
-        url: https://github.com/SergeyRusskih/CSharpGuidelines.Russian

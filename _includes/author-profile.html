@@ -81,6 +81,14 @@
         </li>
       {% endif %}
 
+      {% if author.bluesky %}
+        <li>
+          <a href="{{ author.bluesky }}" itemprop="sameAs">
+            <i class="fas fa-fw fa-cloud" aria-hidden="true"></i> Bluesky
+          </a>
+        </li>
+      {% endif %}
+
       {% if author.facebook %}
         <li>
           <a href="https://www.facebook.com/{{ author.facebook }}" itemprop="sameAs">
