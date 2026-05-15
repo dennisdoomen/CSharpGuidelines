@@ -401,7 +401,7 @@ img[alt="logo"]
     padding: 0;
     margin: 0;
     font-size: 8.5pt;
-    line-height: 1.8;
+    line-height: 1.7;
   }
 
   p, blockquote, ul, ol, dl, pre
@@ -411,7 +411,7 @@ img[alt="logo"]
 
   ul
   {
-    padding-left: 10px;
+    padding-left: 16px;
   }
 
   h1, h2, h3, h4, h5, h6
