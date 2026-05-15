@@ -341,6 +341,7 @@ img {
 
 .footer
 {
+  display: table;
   color: #1672f3;
   line-height: 1;
   width: 100%;
