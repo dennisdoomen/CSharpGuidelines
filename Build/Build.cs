@@ -15,7 +15,7 @@ using Serilog;
 
 class Build : NukeBuild
 {
-    public static int Main() => Execute<Build>(x => x.BuildHtml);
+    public static int Main() => Execute<Build>(x => x.BuildPdf);
 
     const string DefaultRulePrefix = "AV";
     const string PandocVersion = "3.9.0.2";
@@ -161,6 +161,48 @@ class Build : NukeBuild
                 .AssertZeroExitCode();
         });
 
+    Target BuildPdf => _ => _
+        .DependsOn(BuildHtml)
+        .Executes(() =>
+        {
+            var chrome = ResolveChrome();
+
+            ConvertToPdf(chrome,
+                ArtifactsDirectory / "CSharpCodingGuidelines.htm",
+                ArtifactsDirectory / "CSharpCodingGuidelines.pdf");
+
+            ConvertToPdf(chrome,
+                ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.htm",
+                ArtifactsDirectory / "CSharpCodingGuidelinesCheatsheet.pdf");
+        });
+
+    Target PublishRelease => _ => _
+        .DependsOn(BuildPdf)
+        .OnlyWhenStatic(() => IsTagBuild())
+        .Executes(() =>
+        {
+            var tag = Environment.GetEnvironmentVariable("GITHUB_REF")!
+                .Replace("refs/tags/", "");
+            var repo = Environment.GetEnvironmentVariable("GITHUB_REPOSITORY")!;
+
+            Log.Information("Publishing release {Tag} for {Repo}", tag, repo);
+
+            // Create release if it doesn't already exist (ignore failure)
+            ProcessTasks.StartProcess("gh", $"release create {tag} --repo {repo} --generate-notes --title {tag}",
+                workingDirectory: RootDirectory).WaitForExit();
+
+            // Upload PDFs, clobbering any existing assets
+            foreach (var pdf in ArtifactsDirectory.GlobFiles("*.pdf"))
+            {
+                ProcessTasks.StartProcess("gh", $"release upload {tag} \"{pdf}\" --repo {repo} --clobber",
+                    workingDirectory: RootDirectory)
+                    .AssertZeroExitCode();
+            }
+        });
+
+    static bool IsTagBuild() =>
+        (Environment.GetEnvironmentVariable("GITHUB_REF") ?? "").StartsWith("refs/tags/");
+
     Target LaunchWebsite => _ => _
         .Executes(() =>
         {
@@ -177,6 +219,67 @@ class Build : NukeBuild
             ProcessTasks.StartProcess("bundle", "exec jekyll serve --incremental", workingDirectory: RootDirectory)
                 .WaitForExit();
         });
+
+    static void ConvertToPdf(string chrome, AbsolutePath inputHtml, AbsolutePath outputPdf)
+    {
+        Log.Information("Converting {Input} → {Output}", inputHtml.Name, outputPdf.Name);
+
+        var uri = new Uri(inputHtml.ToString()).AbsoluteUri;
+
+        ProcessTasks.StartProcess(
+                chrome,
+                $"--headless --disable-gpu --disable-dev-shm-usage --no-sandbox " +
+                $"--no-pdf-header-footer " +
+                $"\"--print-to-pdf={outputPdf}\" \"{uri}\"")
+            .AssertZeroExitCode();
+    }
+
+    static string ResolveChrome()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            var candidates = new[]
+            {
+                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
+                    "Google", "Chrome", "Application", "chrome.exe"),
+                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+                    "Google", "Chrome", "Application", "chrome.exe"),
+                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    "Google", "Chrome", "Application", "chrome.exe"),
+            };
+
+            var found = candidates.FirstOrDefault(File.Exists);
+            if (found is not null) return found;
+
+            throw new Exception(
+                "Google Chrome not found. Install from https://www.google.com/chrome/");
+        }
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            foreach (var name in new[] { "google-chrome", "google-chrome-stable", "chromium-browser", "chromium" })
+            {
+                var which = ProcessTasks.StartProcess("which", name, logOutput: false);
+                which.WaitForExit();
+                if (which.ExitCode == 0)
+                    return which.Output.First(o => o.Type == OutputType.Std).Text.Trim();
+            }
+
+            throw new Exception(
+                "Chrome/Chromium not found. Install with: sudo apt-get install google-chrome-stable");
+        }
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            const string macPath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+            if (File.Exists(macPath)) return macPath;
+
+            throw new Exception(
+                "Google Chrome not found. Install from https://www.google.com/chrome/");
+        }
+
+        throw new PlatformNotSupportedException("Unsupported OS for Chrome PDF generation.");
+    }
 
     string ResolvePandoc()
     {

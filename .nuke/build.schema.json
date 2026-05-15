@@ -25,6 +25,7 @@
       "type": "string",
       "enum": [
         "BuildHtml",
+        "BuildPdf",
         "Clean",
         "Compile",
         "CompileCheatsheet",
