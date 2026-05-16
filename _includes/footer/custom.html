@@ -1,3 +1,53 @@
 <!-- start custom footer snippets -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const calloutTitles = {
+      note: "Note",
+      tip: "Tip",
+      important: "Important",
+      warning: "Warning",
+      caution: "Caution"
+    };
+
+    document.querySelectorAll(".page__content blockquote").forEach((blockquote) => {
+      const firstParagraph = blockquote.querySelector("p");
+      if (!firstParagraph) {
+        return;
+      }
+
+      const alertMatch = firstParagraph.innerHTML.match(/^\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\](?:<br\s*\/?>)?\s*/i);
+      if (!alertMatch) {
+        return;
+      }
+
+      const alertType = alertMatch[1].toLowerCase();
+      let title = calloutTitles[alertType] || alertMatch[1];
+      let contentHtml = firstParagraph.innerHTML.replace(alertMatch[0], "");
+
+      if (alertType === "important") {
+        const exceptionMatch = contentHtml.match(/^\s*(Exceptions?):\s*/i);
+        if (exceptionMatch) {
+          title = exceptionMatch[1];
+          contentHtml = contentHtml.replace(exceptionMatch[0], "");
+          blockquote.classList.add("callout--exception");
+        }
+      }
+
+      blockquote.classList.add("callout", `callout--${alertType}`);
+
+      const titleElement = document.createElement("p");
+      titleElement.className = "callout__title";
+      titleElement.textContent = title;
+      blockquote.insertBefore(titleElement, blockquote.firstChild);
+
+      if (contentHtml.trim().length === 0) {
+        firstParagraph.remove();
+      } else {
+        firstParagraph.innerHTML = contentHtml;
+      }
+    });
+  });
+</script>
+
 <!-- end custom footer snippets -->
