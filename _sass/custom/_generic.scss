@@ -52,8 +52,8 @@ li {
 }
 
 .page__content blockquote.callout {
-  margin: 2rem 0;
-  padding: 1rem 1.25rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   border-left-width: 0.35rem;
   border-radius: 0.25rem;
   color: $black;
@@ -70,10 +70,8 @@ li {
 }
 
 .callout__title {
-  margin-bottom: 0.5rem !important;
-  font-size: 0.9rem !important;
+  margin-bottom: 0.1rem !important;
   font-weight: 900;
-  line-height: 1.4 !important;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
