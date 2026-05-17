@@ -11,3 +11,5 @@ _site
 /.nuke/temp
 /build/bin
 /build/obj
+/Build/bin
+/Build/obj

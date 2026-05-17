@@ -50,3 +50,49 @@ li {
     }
   }
 }
+
+.page__content blockquote.callout {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
+  border-left-width: 0.35rem;
+  border-radius: 0.25rem;
+  color: $black;
+  background: mix($white, $blue-light, 55%);
+
+  p,
+  li {
+    line-height: 28px !important;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.callout__title {
+  margin-bottom: 0.1rem !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.callout--note {
+  border-left-color: $blue;
+}
+
+.callout--tip {
+  border-left-color: #2f855a;
+  background: #eefaf3 !important;
+}
+
+.callout--important,
+.callout--exception {
+  border-left-color: #c05621;
+  background: #fff4eb !important;
+}
+
+.callout--warning,
+.callout--caution {
+  border-left-color: #b7791f;
+  background: #fff9e6 !important;
+}

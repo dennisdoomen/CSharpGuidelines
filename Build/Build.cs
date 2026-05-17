@@ -142,6 +142,7 @@ class Build : NukeBuild
         rawContent = StripFrontmatter(rawContent);
         var content = string.IsNullOrEmpty(category) ? rawContent : BuildCategorySection(category);
         content = ApplySiteReplacements(content);
+        content = TransformAlertsForPandoc(content);
         return string.IsNullOrEmpty(title) ? content : $"<h1>{title}</h1>\n{content}";
     }
 
@@ -178,6 +179,80 @@ class Build : NukeBuild
         return Regex.Replace(
             content.Replace("{{ site.default_rule_prefix }}", DefaultRulePrefix),
             @"\(\/.+?(#\w+)\)", "($1)");
+    }
+
+    static string TransformAlertsForPandoc(string content)
+    {
+        var lines = content.Replace("\r\n", "\n").Split('\n');
+        var transformed = new List<string>(lines.Length);
+
+        for (var index = 0; index < lines.Length;)
+        {
+            if (!TryTransformAlert(lines, ref index, transformed))
+            {
+                transformed.Add(lines[index]);
+                index++;
+            }
+        }
+
+        return string.Join("\n", transformed);
+    }
+
+    static bool TryTransformAlert(string[] lines, ref int index, List<string> transformed)
+    {
+        var match = Regex.Match(lines[index], @"^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*$");
+        if (!match.Success)
+            return false;
+
+        var alertType = match.Groups[1].Value;
+        var alertLines = new List<string>();
+        index++;
+
+        while (index < lines.Length && lines[index].StartsWith(">"))
+        {
+            alertLines.Add(lines[index].Length == 1 ? "" : lines[index][2..]);
+            index++;
+        }
+
+        if (alertLines.Count == 0)
+        {
+            transformed.Add(lines[index - 1]);
+            return true;
+        }
+
+        var title = alertType switch
+        {
+            "NOTE" => "Note",
+            "TIP" => "Tip",
+            "IMPORTANT" => "Important",
+            "WARNING" => "Warning",
+            "CAUTION" => "Caution",
+            _ => alertType
+        };
+
+        var firstContentLineIndex = alertLines.FindIndex(line => !string.IsNullOrWhiteSpace(line));
+        if (firstContentLineIndex >= 0 && alertType == "IMPORTANT")
+        {
+            var exceptionMatch = Regex.Match(alertLines[firstContentLineIndex], @"^(Exceptions?):\s*(.*)$");
+            if (exceptionMatch.Success)
+            {
+                title = exceptionMatch.Groups[1].Value;
+                alertLines[firstContentLineIndex] = exceptionMatch.Groups[2].Value;
+            }
+        }
+
+        if (firstContentLineIndex >= 0)
+        {
+            var firstLine = alertLines[firstContentLineIndex];
+            alertLines[firstContentLineIndex] = string.IsNullOrWhiteSpace(firstLine)
+                ? $"**{title}:**"
+                : $"**{title}:** {firstLine}";
+        }
+
+        foreach (var alertLine in alertLines)
+            transformed.Add(alertLine.Length == 0 ? ">" : $"> {alertLine}");
+
+        return true;
     }
 
     static void AppendRuleIfInCategory(StringBuilder content, AbsolutePath ruleFile, string category)
