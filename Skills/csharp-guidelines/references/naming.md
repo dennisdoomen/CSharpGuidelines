@@ -21,4 +21,4 @@
 | [AV1738](https://csharpcodingguidelines.com/naming-guidelines/#AV1738) | Prefix event handler methods with `On` (e.g. `OnClosing`, `OkButtonOnClick`). |
 | [AV1739](https://csharpcodingguidelines.com/naming-guidelines/#AV1739) | Use `_` (single discard in C# 9+) for irrelevant lambda parameters. |
 | [AV1745](https://csharpcodingguidelines.com/naming-guidelines/#AV1745) | Group extension methods in a class suffixed with `Extensions`. |
-| [AV1755](https://csharpcodingguidelines.com/naming-guidelines/#AV1755) | Postfix async methods returning `Task` or `Task<T>` with `Async`; use `TaskAsync` if a sync counterpart already exists. |
+| [AV1755](https://csharpcodingguidelines.com/naming-guidelines/#AV1755) | Only suffix methods with Async or TaskAsync when both synchronous and asynchronous variants exist |
