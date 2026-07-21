@@ -14,7 +14,7 @@
   <ItemGroup>
     <PackageReference Include="Nuke.Common" Version="10.*" />
     <!-- Override vulnerable transitive dependencies -->
-    <PackageReference Include="System.Security.Cryptography.Xml" Version="9.0.15" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="9.0.18" />
     <PackageReference Include="NuGet.Packaging" Version="7.6.0" />
     <PackageDownload Include="GitVersion.Tool" Version="[6.7.0]"/>
   </ItemGroup>
