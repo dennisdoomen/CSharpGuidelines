@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "csharp-guidelines",
+  "description": "The C# Coding Guidelines by Dennis Doomen as an agent skill",
+  "owner": {
+    "name": "Dennis Doomen",
+    "url": "https://github.com/dennisdoomen"
+  },
+  "plugins": [
+    {
+      "name": "csharp-guidelines",
+      "description": "Applies the C# coding and design guidelines when writing, reviewing or refactoring C# code",
+      "source": "./",
+      "category": "development"
+    }
+  ]
+}
