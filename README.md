@@ -3,6 +3,23 @@ Coding Guidelines for C# (up to v14)
 
 See the landing page at https://www.csharpcodingguidelines.com
 
+## Use the guidelines as an agent skill
+
+The [`csharp-guidelines`](Skills/csharp-guidelines/SKILL.md) skill makes AI coding agents apply these guidelines when they write, review or refactor C# code. This repository is a plugin marketplace for Claude Code and GitHub Copilot CLI.
+
+Claude Code:
+
+```bash
+claude plugin install csharp-guidelines --marketplace dennisdoomen/CSharpGuidelines
+```
+
+GitHub Copilot CLI:
+
+```bash
+copilot plugin marketplace add dennisdoomen/CSharpGuidelines
+copilot plugin install csharp-guidelines@csharp-guidelines
+```
+
 ## How to create the PDFs
 
 From the root of the repo, run:

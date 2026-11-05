@@ -1,0 +1,14 @@
+{
+  "name": "csharp-guidelines",
+  "displayName": "C# Coding Guidelines",
+  "description": "Applies the C# coding and design guidelines by Dennis Doomen when writing, reviewing or refactoring C# code",
+  "author": {
+    "name": "Dennis Doomen",
+    "url": "https://github.com/dennisdoomen"
+  },
+  "homepage": "https://www.csharpcodingguidelines.com",
+  "repository": "https://github.com/dennisdoomen/CSharpGuidelines",
+  "license": "CC-BY-SA-4.0",
+  "keywords": ["csharp", "dotnet", "coding-guidelines", "code-review"],
+  "skills": "./Skills/"
+}
